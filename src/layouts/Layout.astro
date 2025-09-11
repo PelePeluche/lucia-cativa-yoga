@@ -136,17 +136,15 @@ const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía 
           delay: 100         // valores de 0 a 3000, con paso 50ms
         });
 
-        // Smooth scroll for navigation links
+        // Smooth scroll for navigation links with offset for fixed navbar
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-              const navHeight = document.querySelector('#main-nav').offsetHeight;
-              const targetPosition = target.offsetTop - navHeight - 20;
-              
+              const offsetTop = target.offsetTop - 120; // Increased offset for fixed navbar
               window.scrollTo({
-                top: targetPosition,
+                top: offsetTop,
                 behavior: 'smooth'
               });
             }
