@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "aboutMe": "Sobre mí",
+    "onlineYoga": "Yoga online",
+    "inPersonYoga": "Yoga presencial",
+    "retreats": "Retiros",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Clases de Vinyasa Yoga Online con Lucía Cativa",
+    "subtitle": "Movete con fuerza, conciencia y sensibilidad desde donde estés.",
+    "greeting": "Hola, soy Lucía.",
+    "welcome": "Te doy la bienvenida a este espacio de vinyasa yoga online: una práctica intensa, creativa y sensible, para volver al cuerpo, al presente y a la fuerza que ya está en vos.",
+    "cta1": "Empezar ahora",
+    "cta2": "Ver beneficios"
+  },
+  "aboutMe": {
+    "title": "Sobre Mí",
+    "subtitle": "Me llamo Lucía y esta práctica nace de una historia muy personal.",
+    "paragraph1": "A los 18 años atravesé una operación en la médula espinal que puso en pausa mi vida y me enfrentó con la posibilidad de no volver a caminar. La cirugía fue un éxito, pero el verdadero camino empezó después.",
+    "paragraph2": "La rehabilitación me llevó al Pilates y, más tarde, a la danza, donde descubrí otra forma de sentir y moverme. Mi cuerpo, que había sido motivo de miedo y fragilidad, se transformó en un espacio de descubrimiento, placer y autoescucha.",
+    "paragraph3": "Sentí, por primera vez, la fuerza que nace en medio de la incertidumbre. Así apareció el yoga. Primero como una curiosidad, y luego como un llamado.",
+    "paragraph4": "Me formé en yoga clásico, vinyasa, meditación, biomecánica y masaje tailandés. Pero, por sobre todo, me formé en la experiencia: esa que se construye desde el cuerpo que se mueve, respira y transforma.",
+    "paragraph5": "Hoy comparto una práctica intensa y profunda, con secuencias creativas de vinyasa yoga, con sutiles aportes del entrenamiento consciente y la danza. No busco resultados mágicos. Busco verdad.",
+    "paragraph6": "Acompaño a mujeres reales, que quieren moverse con placer, habitar su cuerpo con fuerza, y encontrarse, una y otra vez, con su presente. El yoga, para mí, es un medio para vivir con más conciencia, más goce y más raíz.",
+    "tag1": "Vinyasa Yoga",
+    "tag2": "Yoga + Danza",
+    "tag3": "Entrenamiento Consciente",
+    "tag4": "Masaje Tailandés"
+  },
+  "myClasses": {
+    "title": "Practica Conmigo",
+    "subtitle": "Clases de Vinyasa Yoga Online – practicá donde y cuando quieras",
+    "description": "Una forma de estar cerca, incluso en la distancia. Este espacio está pensado para que puedas practicar yoga dinámico a tu propio ritmo, desde donde estés y cuantas veces quieras.",
+    "onlineClasses": {
+      "title": "Yoga Online",
+      "description": "Las clases son de estilo vinyasa, un estilo intenso y fluido, donde las posturas se enlazan en secuencias sincronizadas con la respiración. Son ideales tanto si nunca practicaste yoga, si querés iniciarte en vinyasa yoga online o si buscás profundizar tu práctica desde casa.",
+      "introClasses": "Incluye un ciclo de clases introductorias para familiarizarte con el estilo de manera progresiva y segura antes de avanzar a las secuencias regulares.",
+      "benefits": {
+        "title": "Beneficios de practicar conmigo:",
+        "benefit1": "Accedé a las clases cuando y donde quieras.",
+        "benefit2": "Avanzá a tu ritmo, con progresiones cuidadas.",
+        "benefit3": "Fortalecé y flexibilizá tu cuerpo sin forzarlo.",
+        "benefit4": "Conectá con tu respiración y reducí el estrés.",
+        "benefit5": "Practicá en un entorno seguro, guiada por una instructora con experiencia personal en recuperación física."
+      },
+      "details": "El objetivo no es la perfección, sino el equilibrio entre esfuerzo y comodidad, avanzando de forma progresiva, desde la escucha y la constancia. Cada clase dura entre 40 y 60 minutos y te ayuda a moverte con presencia, incluso en días caóticos o inciertos. Sin exigencias. Sin correcciones externas. Solo vos, tu cuerpo y el momento presente.",
+      "cta": "Comenzar mis clases online"
+    },
+    "inPersonClasses": {
+      "title": "Yoga Presencial",
+      "description": "Para quienes necesitan el cuerpo cerca y el espacio compartido. Ofrezco clases particulares presenciales en Córdoba, diseñadas a medida para lo que estés necesitando.",
+      "details": "Además, propongo prácticas intensivas grupales con una intención concreta, en fechas puntuales que difundo por redes. Son oportunidades para movernos juntas, respirar al mismo ritmo y habitar el presente con otros cuerpos al lado.",
+      "contact": "Si te interesa una clase individual o querés sumarte a los próximos encuentros, escribime y te cuento más.",
+      "cta": "Reserva tu clase"
+    }
+  },
+  "footer": {
+    "copyright": " 2025 Lu Cativa. Todos los derechos reservados.",
+    "address": "Córdoba, Argentina",
+    "emailLabel": "Email",
+    "phone": "+54 11 1234 5678",
+    "followMe": "Sígueme",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos del servicio",
+    "cookiePolicy": "Política de cookies",
+    "newsletter": "Suscríbete al newsletter",
+    "subscribeButton": "Suscribirse",
+    "emailPlaceholder": "Tu correo electrónico"
+  }
+}

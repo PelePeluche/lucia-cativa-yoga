@@ -1,0 +1,76 @@
+---
+// About Me component con historia personal de Lucía y nueva paleta
+import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
+
+// Importar componentes UI reutilizables
+import SectionTitle from './UI/SectionTitle.astro';
+import DecoratedImage from './UI/DecoratedImage.astro';
+import TagList from './UI/TagList.astro';
+
+// Get the current language from the URL or use default
+const pathname = new URL(Astro.request.url).pathname;
+const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
+const t = useTranslations(currentLang);
+
+// Preparar datos para el componente TagList con nuevas especialidades
+const tags = [
+  t('aboutMe.tag1'),
+  t('aboutMe.tag2'),
+  t('aboutMe.tag3'),
+  t('aboutMe.tag4')
+];
+---
+
+<section id={currentLang === 'es' ? 'sobre-mi' : 'about-me'} class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-lucia-cream">
+  <div class="max-w-6xl mx-auto">
+    <!-- Título de sección usando componente reutilizable -->
+    <SectionTitle title={t('aboutMe.title')} alignment="center" titleColor="text-lucia-brown" lineColor="bg-lucia-mauve" />
+    
+    <article class="flex flex-col lg:flex-row items-start gap-12 mt-12">
+      <!-- Profile image with animation from left -->
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" data-aos="fade-right" data-aos-delay="200" data-aos-offset="300">
+        <DecoratedImage 
+          src="/img/testimonial-1.png" 
+          alt="Lucía Cativa - Instructora de Vinyasa Yoga" 
+          backgroundColor="bg-lucia-rose" 
+        />
+      </div>
+      
+      <!-- Historia personal con nueva estructura -->
+      <div class="w-full lg:w-3/5" data-aos="fade-left" data-aos-delay="400" data-aos-offset="400">
+        <h3 class="text-2xl md:text-3xl font-heading text-lucia-mauve mb-6">{t('aboutMe.subtitle')}</h3>
+        
+        <!-- Historia personal en párrafos estructurados -->
+        <div class="space-y-4 text-lucia-brown leading-relaxed">
+          <p class="text-base md:text-lg">
+            {t('aboutMe.paragraph1')}
+          </p>
+          <p class="text-base md:text-lg">
+            {t('aboutMe.paragraph2')}
+          </p>
+          <p class="text-base md:text-lg font-medium italic text-lucia-teal">
+            "{t('aboutMe.paragraph3')}"
+          </p>
+          <p class="text-base md:text-lg">
+            {t('aboutMe.paragraph4')}
+          </p>
+          <p class="text-base md:text-lg">
+            {t('aboutMe.paragraph5')}
+          </p>
+          <p class="text-base md:text-lg font-medium">
+            {t('aboutMe.paragraph6')}
+          </p>
+        </div>
+        
+        <!-- Especialidades usando TagList con nueva paleta -->
+        <div class="mt-8">
+          <TagList 
+            tags={tags} 
+            backgroundColor="bg-lucia-mauve" 
+            textColor="text-white" 
+          />
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

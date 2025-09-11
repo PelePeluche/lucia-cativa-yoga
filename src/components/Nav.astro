@@ -1,0 +1,143 @@
+---
+// Navigation component inspired by Vicky Lobo's reference
+// With fixed position to keep it visible when scrolling
+import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE, LANGUAGES, localizedUrl } from '../i18n/utils';
+
+// Get the current language from the URL or use default
+const pathname = new URL(Astro.request.url).pathname;
+const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
+const t = useTranslations(currentLang);
+
+// List of available languages for the language switcher
+const availableLanguages = Object.entries(LANGUAGES);
+const currentLanguageName = LANGUAGES[currentLang as keyof typeof LANGUAGES];
+---
+
+<style>
+  .nav-link {
+    @apply text-xs sm:text-sm font-medium transition-colors duration-200;
+    color: #9a8576;
+  }
+  .nav-link:hover {
+    color: #a3738b;
+  }
+  .contact-button {
+    @apply text-white text-xs font-bold uppercase px-3 py-1 sm:px-4 sm:py-2 transition-colors duration-200 rounded-sm;
+    background-color: #a3738b;
+  }
+  .contact-button:hover {
+    background-color: #577874;
+  }
+  .nav-fixed {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+  }
+  .nav-shadow {
+    @apply shadow-md backdrop-blur-sm;
+    background-color: rgba(249, 240, 220, 0.95);
+  }
+  .language-switcher {
+    @apply ml-4 relative;
+  }
+  .language-switcher-button {
+    @apply flex items-center text-xs sm:text-sm font-medium;
+    color: #9a8576;
+  }
+  .language-switcher-button:hover {
+    color: #a3738b;
+  }
+  .language-dropdown {
+    @apply hidden absolute right-0 mt-2 py-2 w-32 rounded-md shadow-lg z-50;
+    background-color: #f9f0dc;
+    border: 1px solid #e0a6a8;
+  }
+  .language-dropdown.show {
+    @apply block;
+  }
+  .language-option {
+    @apply block w-full text-left px-4 py-2 text-sm;
+    color: #9a8576;
+  }
+  .language-option:hover {
+    background-color: #e0a6a8;
+  }
+</style>
+
+<nav id="main-nav" class="nav-fixed py-2 sm:py-3 w-full" style="border-bottom: 1px solid #e0a6a8; background-color: #f9f0dc;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+      <!-- Logo on the left -->  
+      <div>
+        <a href="/" class="text-lg sm:text-xl md:text-2xl font-logo tracking-wide" style="color: #a3738b;">LU CATIVA</a>
+      </div>
+      
+      <!-- Central navigation menu -->  
+      <div class="flex items-center space-x-3 sm:space-x-5 md:space-x-8">
+        <a href="/#sobre-mi" class="nav-link">{t('nav.aboutMe')}</a>
+        <a href="/#yoga-online" class="nav-link">{t('nav.onlineYoga')}</a>
+        <a href="/#yoga-presencial" class="nav-link">{t('nav.inPersonYoga')}</a>
+        <a href="/#retiros" class="nav-link">{t('nav.retreats')}</a>
+      </div>
+      
+      <!-- Contact button and language switcher --> 
+      <div class="flex items-center">
+        <a href="/#contacto" class="contact-button">{t('nav.contact')}</a>
+        
+        <!-- Language switcher dropdown -->
+        <div class="language-switcher group">
+          <button class="language-switcher-button" id="language-toggle">
+            <span>{currentLanguageName}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="language-dropdown" id="language-menu">
+            <a href="/" class="language-option">Español</a>
+            <a href="/en" class="language-option">English</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  // Script to add shadow and background when scrolling
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('main-nav');
+    
+    // Only add the event if we find the nav element
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          nav.classList.add('nav-shadow');
+        } else {
+          nav.classList.remove('nav-shadow');
+        }
+      });
+    }
+
+    // Language menu toggle functionality
+    const languageToggle = document.getElementById('language-toggle');
+    const languageMenu = document.getElementById('language-menu');
+
+    if (languageToggle && languageMenu) {
+      // Toggle menu when clicking the button
+      languageToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        languageMenu.classList.toggle('show');
+      });
+
+      // Close the menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!languageToggle.contains(e.target) && !languageMenu.contains(e.target)) {
+          languageMenu.classList.remove('show');
+        }
+      });
+
+      // Prevent closing when clicking inside the menu
+      languageMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+  });
+</script>

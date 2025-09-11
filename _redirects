@@ -1,0 +1,6 @@
+# Redirects for SPA routing
+/*    /index.html   200
+
+# Language redirects (optional)
+/en/*  /en/index.html  200
+/es/*  /index.html     200

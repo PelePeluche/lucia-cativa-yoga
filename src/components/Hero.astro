@@ -1,0 +1,71 @@
+---
+// Hero section optimizado para SEO con nueva paleta de colores
+import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
+
+// Get the current language from the URL or use default
+const pathname = new URL(Astro.request.url).pathname;
+const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
+const t = useTranslations(currentLang);
+---
+
+<section class="relative w-full h-[95vh] overflow-hidden">
+  <!-- Background image -->
+  <img 
+    src="/img/hero-yoga.png" 
+    alt="Lucía Cativa - Vinyasa Yoga Online" 
+    class="w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  
+  <!-- Hero content overlay positioned on the right side -->
+  <div class="absolute top-0 right-0 w-full h-full flex items-center justify-end">
+    <div class="text-right max-w-2xl mr-4 md:mr-16 lg:mr-24 px-4 py-8 md:py-12">
+      <!-- SEO optimized H1 title -->
+      <h1 class="font-body text-lg sm:text-xl md:text-2xl font-medium mb-2 tracking-wide text-white">
+        {t('hero.title')}
+      </h1>
+      
+      <!-- Subtitle with movement and strength -->
+      <p class="font-body text-base sm:text-lg md:text-xl mb-4 text-lucia-rose tracking-wider">
+        {t('hero.subtitle')}
+      </p>
+      
+      <!-- Personal greeting -->
+      <h2 class="font-body text-xl sm:text-2xl md:text-3xl font-medium mb-2 text-white">
+        {t('hero.greeting')}
+      </h2>
+      
+      <!-- Main title - Vinyasa Yoga con la fuente heading -->
+      <h3 class="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-white">
+        Vinyasa Yoga
+      </h3>
+      
+      <!-- Welcome description in a semi-transparent container -->
+      <div class="inline-block bg-lucia-brown bg-opacity-20 backdrop-blur-sm p-4 mb-8 max-w-lg ml-auto rounded-sm">
+        <p class="font-body text-sm sm:text-base md:text-lg text-white leading-relaxed text-right">
+          {t('hero.welcome')}
+        </p>
+      </div>
+      
+      <!-- Call to action buttons aligned to the right -->
+      <div class="flex justify-end space-x-4">
+        <a 
+          href="#yoga-online" 
+          class="font-body inline-block px-6 py-3 bg-lucia-mauve text-white font-medium text-sm tracking-widest uppercase hover:bg-lucia-rose hover:text-lucia-brown transition duration-300 rounded-sm"
+          data-aos="fade-up" 
+          data-aos-delay="200"
+        >
+          {t('hero.cta1')}
+        </a>
+        <a 
+          href="#sobre-mi" 
+          class="font-body inline-block px-6 py-3 bg-transparent border-2 border-lucia-cream text-lucia-cream font-medium text-sm tracking-widest uppercase hover:bg-lucia-cream hover:text-lucia-brown transition duration-300 rounded-sm"
+          data-aos="fade-up" 
+          data-aos-delay="300"
+        >
+          {t('hero.cta2')}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

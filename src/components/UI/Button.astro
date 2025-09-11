@@ -1,0 +1,60 @@
+---
+/**
+ * Componente de botón reutilizable con diferentes variantes
+ */
+interface Props {
+  text: string;
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  classes?: string;
+}
+
+const { 
+  text, 
+  href, 
+  variant = 'primary', 
+  size = 'md',
+  fullWidth = false,
+  classes = ''
+} = Astro.props;
+
+// Definir estilos según la variante
+const variantStyles = {
+  primary: 'bg-purple-600 hover:bg-purple-700 text-white',
+  secondary: 'bg-pink-100 hover:bg-pink-200 text-gray-800',
+  outline: 'bg-transparent hover:bg-gray-100 text-purple-700 border border-purple-700'
+};
+
+// Definir estilos según el tamaño
+const sizeStyles = {
+  sm: 'text-xs px-4 py-2',
+  md: 'text-sm px-6 py-3',
+  lg: 'text-base px-8 py-4'
+};
+
+const buttonClasses = `
+  font-body 
+  font-medium 
+  tracking-widest 
+  uppercase 
+  transition 
+  duration-300
+  ${variantStyles[variant]}
+  ${sizeStyles[size]}
+  ${fullWidth ? 'w-full' : 'inline-block'}
+  ${classes}
+`;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag 
+  href={href} 
+  class={buttonClasses}
+  data-aos="fade-up" 
+  data-aos-delay="200"
+>
+  {text}
+</Tag>

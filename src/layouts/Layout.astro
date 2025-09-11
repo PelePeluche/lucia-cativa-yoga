@@ -1,22 +1,197 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '../styles/global.css';
+// Importar AOS CSS - Para las animaciones al hacer scroll
+import 'aos/dist/aos.css';
+import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
+// Eliminamos la importación de fuentes, usaremos Google Fonts directamente
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+}
+
+// Get the current language from the URL or use default
+const pathname = new URL(Astro.request.url).pathname;
+const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
+const t = useTranslations(currentLang);
+
+const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía Cativa' : 'Clases de Vinyasa Yoga Online con Lucía Cativa' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={currentLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={currentLang === 'en' ? 'Online vinyasa yoga classes with Lucía Cativa. Dynamic yoga practice from home with personalized guidance. Ideal for beginners and advanced practitioners.' : 'Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada. Ideal para principiantes y avanzados.'} />
+    
+    <!-- SEO Keywords -->
+    <meta name="keywords" content={currentLang === 'en' ? 'vinyasa yoga online, online yoga classes, dynamic yoga, yoga for beginners, Lucia Cativa' : 'vinyasa yoga online, clases de yoga online, yoga dinámico, yoga para principiantes, Lucía Cativa'} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={currentLang === 'en' ? 'Online vinyasa yoga classes with Lucía Cativa. Dynamic yoga practice from home with personalized guidance.' : 'Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada.'} />
+    <meta property="og:image" content="/img/hero-yoga.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={currentLang === 'en' ? 'Online vinyasa yoga classes with Lucía Cativa. Dynamic yoga practice from home with personalized guidance.' : 'Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada.'} />
+    <meta property="twitter:image" content="/img/hero-yoga.png" />
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="Lucía Cativa" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content={currentLang} />
+    <link rel="canonical" href={Astro.url} />
+    
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://luciacativa.com",
+      "name": "Lucía Cativa - Vinyasa Yoga",
+      "description": {currentLang === 'en' ? '"Online vinyasa yoga classes with personalized guidance. Dynamic yoga practice for all levels from the comfort of your home."' : '"Clases de vinyasa yoga online con guía personalizada. Práctica de yoga dinámico para todos los niveles desde la comodidad de tu hogar."'},
+      "url": "https://luciacativa.com",
+      "telephone": "+54-11-xxxx-xxxx",
+      "email": "hola@luciacativa.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Lucía Cativa",
+        "jobTitle": {currentLang === 'en' ? '"Certified Vinyasa Yoga Instructor"' : '"Instructora Certificada de Vinyasa Yoga"'},
+        "description": {currentLang === 'en' ? '"Yoga instructor specialized in vinyasa flow, helping women connect with their bodies through conscious movement and breathing."' : '"Instructora de yoga especializada en vinyasa flow, ayudando a mujeres a conectar con su cuerpo a través del movimiento consciente y la respiración."'}
+      },
+      "serviceType": {currentLang === 'en' ? '"Online Yoga Classes"' : '"Clases de Yoga Online"'},
+      "areaServed": {
+        "@type": "Country",
+        "name": {currentLang === 'en' ? '"Argentina"' : '"Argentina"'}
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": {currentLang === 'en' ? '"Yoga Services"' : '"Servicios de Yoga"'},
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": {currentLang === 'en' ? '"Online Vinyasa Yoga Classes"' : '"Clases de Vinyasa Yoga Online"'},
+              "description": {currentLang === 'en' ? '"Dynamic online yoga classes focusing on hip opening, extensions, balances, inversions and core strengthening."' : '"Clases de yoga dinámico online enfocadas en apertura de caderas, extensiones, balances, invertidas y fortalecimiento del core."'}
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": {currentLang === 'en' ? '"In-Person Yoga Sessions"' : '"Sesiones de Yoga Presenciales"'},
+              "description": {currentLang === 'en' ? '"Intensive in-person sessions combining yoga with thai massage and conscious dance."' : '"Sesiones intensivas presenciales que combinan yoga con masaje thai y danza consciente."'}
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://instagram.com/luciacativa",
+        "https://facebook.com/luciacativa"
+      ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Yeseva+One&display=swap" rel="stylesheet" />
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    
+    <!-- Accessibility improvements -->
+    <meta name="theme-color" content="#a3738b">
+    <meta name="msapplication-TileColor" content="#a3738b">
+    
+    <!-- Additional meta for better indexing -->
+    <meta name="geo.region" content="AR">
+    <meta name="geo.placename" content="Argentina">
+    <meta name="format-detection" content="telephone=no">
+  </head>
+  <body class="font-body bg-lucia-cream text-lucia-brown min-h-screen">
+    <main>
+      <slot />
+    </main>
+    
+    <!-- Scripts de AOS para animaciones al hacer scroll (usando CDN) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js" is:inline></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize AOS animations
+        AOS.init({
+          duration: 800,     // duración de las animaciones
+          easing: 'ease-in-out',   // tipo de timing function
+          once: false,       // si true, la animación ocurre solo una vez
+          mirror: true,      // si las animaciones deben revertirse al hacer scroll hacia arriba
+          offset: 120,       // desplazamiento (en px) desde el punto de activación original
+          delay: 100         // valores de 0 a 3000, con paso 50ms
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              const navHeight = document.querySelector('#main-nav').offsetHeight;
+              const targetPosition = target.offsetTop - navHeight - 20;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+
+        // Navigation shadow effect on scroll
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            nav.classList.add('nav-shadow');
+          } else {
+            nav.classList.remove('nav-shadow');
+          }
+        });
+
+        // Newsletter form functionality
+        const newsletterForm = document.getElementById('newsletter-form');
+        if (newsletterForm) {
+          newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            // Simple form validation and feedback
+            if (email && email.includes('@')) {
+              button.textContent = 'Suscrito ✓';
+              button.style.backgroundColor = '#577874';
+              setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '#a3738b';
+                this.reset();
+              }, 2000);
+            } else {
+              button.textContent = 'Email inválido';
+              button.style.backgroundColor = '#e0a6a8';
+              setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '#a3738b';
+              }, 2000);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

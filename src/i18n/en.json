@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "aboutMe": "About me",
+    "onlineYoga": "Online Yoga",
+    "inPersonYoga": "In-person Yoga",
+    "retreats": "Retreats",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Online Vinyasa Yoga Classes with Lucía Cativa",
+    "subtitle": "Move with strength, awareness and sensitivity from wherever you are.",
+    "greeting": "Hello, I'm Lucía.",
+    "welcome": "Welcome to this online vinyasa yoga space: an intense, creative and sensitive practice, to return to the body, to the present and to the strength that is already in you.",
+    "cta1": "Start now",
+    "cta2": "See benefits"
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "subtitle": "My name is Lucía and this practice comes from a very personal story.",
+    "paragraph1": "At 18, I underwent spinal cord surgery that put my life on pause and confronted me with the possibility of never walking again. The surgery was successful, but the real journey began afterward.",
+    "paragraph2": "Rehabilitation led me to Pilates and, later, to dance, where I discovered another way of feeling and moving. My body, which had been a source of fear and fragility, transformed into a space of discovery, pleasure and self-listening.",
+    "paragraph3": "I felt, for the first time, the strength that is born in the midst of uncertainty. That's how yoga appeared. First as curiosity, and then as a calling.",
+    "paragraph4": "I trained in classical yoga, vinyasa, meditation, biomechanics and Thai massage. But, above all, I trained in experience: that which is built from the body that moves, breathes and transforms.",
+    "paragraph5": "Today I share an intense and deep practice, with creative vinyasa yoga sequences, with subtle contributions from conscious training and dance. I don't seek magical results. I seek truth.",
+    "paragraph6": "I accompany real women, who want to move with pleasure, inhabit their body with strength, and find themselves, again and again, with their present. Yoga, for me, is a means to live with more awareness, more joy and more roots.",
+    "tag1": "Vinyasa Yoga",
+    "tag2": "Yoga + Dance",
+    "tag3": "Conscious Training",
+    "tag4": "Thai Massage"
+  },
+  "myClasses": {
+    "title": "Practice With Me",
+    "subtitle": "Online Vinyasa Yoga Classes – practice where and when you want",
+    "description": "A way to be close, even at a distance. This space is designed so you can practice dynamic yoga at your own pace, from wherever you are and as many times as you want.",
+    "onlineClasses": {
+      "title": "Online Yoga",
+      "description": "The classes are vinyasa style, an intense and fluid style, where postures are linked in sequences synchronized with breathing. They are ideal whether you have never practiced yoga, if you want to start with online vinyasa yoga or if you want to deepen your practice from home.",
+      "introClasses": "Includes a cycle of introductory classes to familiarize yourself with the style progressively and safely before advancing to regular sequences.",
+      "benefits": {
+        "title": "Benefits of practicing with me:",
+        "benefit1": "Access classes when and where you want.",
+        "benefit2": "Advance at your own pace, with careful progressions.",
+        "benefit3": "Strengthen and make your body flexible without forcing it.",
+        "benefit4": "Connect with your breathing and reduce stress.",
+        "benefit5": "Practice in a safe environment, guided by an instructor with personal experience in physical recovery."
+      },
+      "details": "The goal is not perfection, but the balance between effort and comfort, advancing progressively, from listening and consistency. Each class lasts between 40 and 60 minutes and helps you move with presence, even on chaotic or uncertain days. No demands. No external corrections. Just you, your body and the present moment.",
+      "cta": "Start my online classes"
+    },
+    "inPersonClasses": {
+      "title": "In-Person Yoga",
+      "description": "For those who need the body close and shared space. I offer private in-person classes in Córdoba, designed to measure what you are needing.",
+      "details": "In addition, I propose intensive group practices with a concrete intention, on specific dates that I spread through networks. They are opportunities to move together, breathe at the same rhythm and inhabit the present with other bodies alongside.",
+      "contact": "If you are interested in an individual class or want to join the next meetings, write to me and I'll tell you more.",
+      "cta": "Book your class"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Lu Cativa. All rights reserved.",
+    "address": "Córdoba, Argentina",
+    "emailLabel": "Email",
+    "phone": "+54 11 1234 5678",
+    "followMe": "Follow me",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "newsletter": "Subscribe to newsletter",
+    "subscribeButton": "Subscribe",
+    "emailPlaceholder": "Your email address"
+  }
+}

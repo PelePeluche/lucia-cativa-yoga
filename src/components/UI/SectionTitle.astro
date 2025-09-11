@@ -1,0 +1,27 @@
+---
+/**
+ * Componente de título de sección reutilizable con línea decorativa 
+ */
+interface Props {
+  title: string;
+  alignment?: 'center' | 'left' | 'right';
+  titleColor?: string;
+  lineColor?: string;
+}
+
+const { 
+  title, 
+  alignment = 'center', 
+  titleColor = 'text-lucia-brown',
+  lineColor = 'bg-lucia-mauve'
+} = Astro.props;
+
+const alignClass = alignment === 'center' ? 'mx-auto text-center' : 
+                 alignment === 'right' ? 'ml-auto text-right' : '';
+---
+
+<div class={`mb-12 ${alignClass}`} data-aos="fade-up" data-aos-delay="50">
+  <h2 class={`text-3xl sm:text-4xl font-heading font-bold mb-3`} style={titleColor === 'text-lucia-brown' ? 'color: #9a8576;' : ''}>{title}</h2>
+  <div class={`w-24 h-1 ${alignment === 'center' ? 'mx-auto' : 
+           alignment === 'right' ? 'ml-auto' : ''}`} style={lineColor === 'bg-lucia-mauve' ? 'background-color: #a3738b;' : ''}></div>
+</div>
