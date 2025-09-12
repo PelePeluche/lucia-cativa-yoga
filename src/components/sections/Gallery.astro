@@ -1,0 +1,75 @@
+---
+// Gallery section component (Fotitos)
+import { useI18n } from '../../i18n/useI18n.ts';
+import SectionTitle from '../ui/common/SectionTitle.astro';
+
+// Use centralized i18n hook
+const { currentLang, t } = useI18n(Astro.request);
+
+// Gallery images
+const galleryImages = [
+  {
+    src: "/img/hatha-yoga.png",
+    alt: "Práctica de Hatha Yoga"
+  },
+  {
+    src: "/img/vinyasa-flow.png", 
+    alt: "Secuencia de Vinyasa Flow"
+  },
+  {
+    src: "/img/yin-yoga.png",
+    alt: "Sesión de Yin Yoga"
+  },
+  {
+    src: "/img/hero-yoga.png",
+    alt: "Yoga al aire libre"
+  }
+];
+---
+
+<section id="galeria" class="py-16 md:py-24 bg-lucia-rose bg-opacity-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Título de sección -->
+    <SectionTitle 
+      title="Momentos de práctica" 
+      alignment="center" 
+      titleColor="text-lucia-brown" 
+      lineColor="bg-lucia-mauve"
+    />
+
+    <!-- Descripción -->
+    <div class="text-center mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      <p class="text-lg text-lucia-brown leading-relaxed">
+        Cada práctica es única, cada momento es una oportunidad de conexión. 
+        Aquí algunos instantes capturados de nuestras sesiones de yoga.
+      </p>
+    </div>
+
+    <!-- Grid de imágenes -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="200">
+      {galleryImages.map((image, index) => (
+        <div class="group relative overflow-hidden rounded-lg aspect-square" data-aos="zoom-in" data-aos-delay={300 + index * 100}>
+          <img 
+            src={image.src} 
+            alt={image.alt}
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-lucia-mauve bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="600">
+      <p class="text-lucia-brown mb-6 text-lg">Sígueme en Instagram para más contenido</p>
+      <a 
+        href="https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA=="
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block px-8 py-4 bg-lucia-mauve text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-rose hover:text-lucia-brown transition duration-300 rounded-sm"
+      >
+        Ver más en Instagram
+      </a>
+    </div>
+  </div>
+</section>

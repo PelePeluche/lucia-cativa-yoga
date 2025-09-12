@@ -1,0 +1,23 @@
+---
+// Generic Card Component
+import type { CardProps } from '../../../types/components';
+
+interface Props extends CardProps {}
+
+const { 
+  title, 
+  subtitle,
+  backgroundColor = 'bg-white',
+  padding = 'p-6'
+} = Astro.props;
+---
+
+<div class={`${backgroundColor} ${padding} rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300`}>
+  {title && (
+    <h3 class="text-xl font-heading text-lucia-brown mb-3">{title}</h3>
+  )}
+  {subtitle && (
+    <p class="text-lucia-mauve mb-4">{subtitle}</p>
+  )}
+  <slot />
+</div>

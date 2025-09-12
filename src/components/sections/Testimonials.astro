@@ -1,0 +1,65 @@
+---
+// Testimonials section component
+import { useI18n } from '../../i18n/useI18n.ts';
+import SectionTitle from '../ui/common/SectionTitle.astro';
+import TestimonialCard from '../ui/cards/TestimonialCard.astro';
+import CTAButton from '../ui/buttons/CTAButton.astro';
+
+// Use centralized i18n hook
+const { currentLang, t } = useI18n(Astro.request);
+
+// Testimonials data
+const testimonials = [
+  {
+    name: "María González",
+    text: "Las clases de Lucía me ayudaron a reconectar con mi cuerpo después de años de estrés. Su enfoque es único y transformador.",
+    image: "/img/testimonial-1.png"
+  },
+  {
+    name: "Ana Rodríguez",
+    text: "Practicar vinyasa yoga con Lucía cambió mi perspectiva sobre el movimiento. Cada clase es una experiencia de autodescubrimiento.",
+    image: "/img/testimonial-2.png"
+  },
+  {
+    name: "Carmen Silva",
+    text: "La combinación de yoga y danza que propone Lucía es increíble. Me siento más fuerte y flexible que nunca.",
+    image: "/img/testimonial-3.png"
+  }
+];
+---
+
+<section id="testimonios" class="py-16 md:py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Título de sección -->
+    <SectionTitle 
+      title="Lo que dicen mis alumnas" 
+      alignment="center" 
+      titleColor="text-lucia-brown" 
+      lineColor="bg-lucia-mauve"
+    />
+
+    <!-- Grid de testimonios -->
+    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+      {testimonials.map((testimonial, index) => (
+        <TestimonialCard 
+          name={testimonial.name}
+          text={testimonial.text}
+          image={testimonial.image}
+          delay={300 + index * 100}
+        />
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="600">
+      <p class="text-lucia-brown mb-6 text-lg">¿Lista para comenzar tu transformación?</p>
+      <CTAButton 
+        href="/#sobre-mi"
+        variant="secondary"
+        size="lg"
+      >
+        Conoce mi historia
+      </CTAButton>
+    </div>
+  </div>
+</section>

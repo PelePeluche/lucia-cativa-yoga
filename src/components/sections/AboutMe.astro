@@ -1,16 +1,12 @@
 ---
 // About Me component con historia personal de Lucía y nueva paleta
-import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
+import { useI18n } from '../../i18n/useI18n.ts';
+import SectionTitle from '../UI/common/SectionTitle.astro';
+import DecoratedImage from '../UI/common/DecoratedImage.astro';
+import TagList from '../UI/common/TagList.astro';
 
-// Importar componentes UI reutilizables
-import SectionTitle from './UI/SectionTitle.astro';
-import DecoratedImage from './UI/DecoratedImage.astro';
-import TagList from './UI/TagList.astro';
-
-// Get the current language from the URL or use default
-const pathname = new URL(Astro.request.url).pathname;
-const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
-const t = useTranslations(currentLang);
+// Use centralized i18n hook
+const { currentLang, t } = useI18n(Astro.request);
 
 // Preparar datos para el componente TagList con nuevas especialidades
 const tags = [
@@ -32,33 +28,24 @@ const tags = [
         <DecoratedImage 
           src="/img/testimonial-1.png" 
           alt="Lucía Cativa - Instructora de Vinyasa Yoga" 
-          backgroundColor="bg-lucia-rose" 
         />
       </div>
       
       <!-- Historia personal con nueva estructura -->
       <div class="w-full lg:w-3/5" data-aos="fade-left" data-aos-delay="400" data-aos-offset="400">
-        <h3 class="text-2xl md:text-3xl font-heading text-lucia-mauve mb-6">{t('aboutMe.subtitle')}</h3>
-        
         <!-- Historia personal en párrafos estructurados -->
         <div class="space-y-4 text-lucia-brown leading-relaxed">
+          <p class="text-base md:text-lg">
+            {t('aboutMe.subtitle')}
+          </p>
           <p class="text-base md:text-lg">
             {t('aboutMe.paragraph1')}
           </p>
           <p class="text-base md:text-lg">
             {t('aboutMe.paragraph2')}
           </p>
-          <p class="text-base md:text-lg font-medium italic text-lucia-teal">
-            "{t('aboutMe.paragraph3')}"
-          </p>
-          <p class="text-base md:text-lg">
-            {t('aboutMe.paragraph4')}
-          </p>
-          <p class="text-base md:text-lg">
-            {t('aboutMe.paragraph5')}
-          </p>
           <p class="text-base md:text-lg font-medium">
-            {t('aboutMe.paragraph6')}
+            {t('aboutMe.paragraph3')}
           </p>
         </div>
         
@@ -66,8 +53,6 @@ const tags = [
         <div class="mt-8">
           <TagList 
             tags={tags} 
-            backgroundColor="bg-lucia-mauve" 
-            textColor="text-white" 
           />
         </div>
       </div>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/custom.css';
 // Importar AOS CSS - Para las animaciones al hacer scroll
 import 'aos/dist/aos.css';
 import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
@@ -117,7 +118,7 @@ const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía 
     <meta name="geo.placename" content="Argentina">
     <meta name="format-detection" content="telephone=no">
   </head>
-  <body class="font-body bg-lucia-cream text-lucia-brown min-h-screen">
+  <body class="font-body bg-white text-lucia-brown min-h-screen">
     <main>
       <slot />
     </main>
@@ -151,15 +152,6 @@ const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía 
           });
         });
 
-        // Navigation shadow effect on scroll
-        const nav = document.getElementById('main-nav');
-        window.addEventListener('scroll', function() {
-          if (window.scrollY > 50) {
-            nav.classList.add('nav-shadow');
-          } else {
-            nav.classList.remove('nav-shadow');
-          }
-        });
 
         // Newsletter form functionality
         const newsletterForm = document.getElementById('newsletter-form');

@@ -1,0 +1,28 @@
+---
+// Reusable Section Title Component
+import type { SectionTitleProps } from '../../../types/components';
+
+interface Props extends SectionTitleProps {}
+
+const { 
+  title, 
+  alignment = 'center', 
+  titleColor = 'text-lucia-brown', 
+  lineColor = 'bg-lucia-mauve' 
+} = Astro.props;
+
+const alignmentClasses = {
+  left: 'text-left',
+  center: 'text-center mx-auto',
+  right: 'text-right ml-auto'
+};
+
+const containerClasses = alignment === 'center' ? 'mx-auto' : '';
+---
+
+<div class={`mb-12 ${containerClasses} ${alignmentClasses[alignment]}`} data-aos="fade-up" data-aos-delay="50">
+  <h2 class={`text-3xl sm:text-4xl font-heading font-bold mb-3 section-title ${titleColor}`}>
+    {title}
+  </h2>
+  <div class={`w-24 h-1 ${lineColor} section-line ${alignment === 'center' ? 'mx-auto' : alignment === 'right' ? 'ml-auto' : ''}`}></div>
+</div>

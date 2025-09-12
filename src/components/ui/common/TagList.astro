@@ -1,0 +1,19 @@
+---
+// Reusable Tag List Component
+import type { TagListProps } from '../../../types/components';
+
+interface Props extends TagListProps {}
+
+const { tags, tagColor = '#a3738b' } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="100">
+  {tags.map(tag => (
+    <span 
+      class="px-3 py-1 text-sm rounded-full" 
+      style={`background-color: ${tagColor}; color: white;`}
+    >
+      {tag}
+    </span>
+  ))}
+</div>

@@ -1,0 +1,72 @@
+---
+// Footer component with internationalization and newsletter subscription
+import { useI18n } from '../../i18n/useI18n.ts';
+import SocialIcon from '../UI/common/SocialIcon.astro';
+import NewsletterForm from '../../features/newsletter/NewsletterForm.astro';
+
+// Use centralized i18n hook
+const { currentLang, t } = useI18n(Astro.request);
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="pt-12 pb-8 px-4 footer-bg">
+  <div class="max-w-7xl mx-auto">
+    <!-- Top section with logo, navigation and social media -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b footer-border">
+      
+      <!-- Logo and address info -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-heading mb-4 text-lucia-mauve">LU CATIVA</h3>
+        <p class="mb-2 footer-text-muted">{t('footer.address')}</p>
+        <p class="mb-2 footer-text-muted">{t('footer.emailLabel')}: hola@luciacativa.com</p>
+        <p class="footer-text-muted">{t('footer.phone')}</p>
+      </div>
+      
+      <!-- Quick links -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-md font-medium mb-4 uppercase tracking-wider">{t('footer.followMe')}</h3>
+        <div class="flex space-x-4 mb-6">
+          <!-- Social media icons -->
+          <SocialIcon 
+            platform="instagram" 
+            url="https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA==" 
+          />
+          <SocialIcon 
+            platform="youtube" 
+            url="https://youtube.com/@luciacativa" 
+          />
+          <SocialIcon 
+            platform="facebook" 
+            url="https://facebook.com/luciacativa" 
+          />
+        </div>
+        
+        <!-- Legal links -->
+        <div class="grid grid-cols-1 gap-2">
+          <a href="#" class="legal-link text-sm">
+            {t('footer.privacyPolicy')}
+          </a>
+          <a href="#" class="legal-link text-sm">
+            {t('footer.termsOfService')}
+          </a>
+          <a href="#" class="legal-link text-sm">
+            {t('footer.cookiePolicy')}
+          </a>
+        </div>
+      </div>
+      
+      <!-- Newsletter subscription -->
+      <div data-aos="fade-up" data-aos-delay="300">
+        <NewsletterForm />
+      </div>
+    </div>
+    
+    <!-- Bottom copyright section -->
+    <div class="pt-6 text-center">
+      <p class="text-sm footer-text-muted opacity-60">
+        &copy; {currentYear} {t('footer.copyright')}
+      </p>
+    </div>
+  </div>
+</footer>

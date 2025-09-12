@@ -1,0 +1,34 @@
+---
+// Reusable CTA Button Component
+import type { CTAButtonProps } from '../../../types/components';
+
+interface Props extends CTAButtonProps {}
+
+const { 
+  href, 
+  variant = 'primary', 
+  size = 'medium',
+  target = '_self'
+} = Astro.props;
+
+const variantClasses = {
+  primary: 'bg-lucia-mauve text-white hover:bg-lucia-rose hover:text-lucia-brown',
+  secondary: 'bg-lucia-teal text-white hover:bg-lucia-mauve',
+  outline: 'bg-transparent border-2 border-lucia-cream text-lucia-cream hover:bg-lucia-cream hover:text-lucia-brown'
+};
+
+const sizeClasses = {
+  small: 'px-4 py-2 text-sm',
+  medium: 'px-8 py-4 text-base',
+  large: 'px-12 py-6 text-lg'
+};
+---
+
+<a 
+  href={href}
+  target={target}
+  rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+  class={`inline-block font-medium text-center tracking-wide uppercase transition duration-300 rounded-sm ${variantClasses[variant]} ${sizeClasses[size]}`}
+>
+  <slot />
+</a>

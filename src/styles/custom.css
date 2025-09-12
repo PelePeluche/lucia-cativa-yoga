@@ -1,0 +1,24 @@
+/* Clases personalizadas para efectos que Tailwind no puede manejar */
+
+.nav-bg {
+  backdrop-filter: blur(10px);
+}
+
+/* Forzar fondo sólido del header */
+#main-nav {
+  background-color: #f9f0dc !important;
+}
+
+/* Forzar bg-lucia-cream temporalmente para debugging */
+.bg-lucia-cream {
+  background-color: #f9f0dc !important;
+}
+
+/* Componentes complejos que combinan múltiples estilos */
+.newsletter-input {
+  background-color: rgba(87, 120, 116, 0.2);
+}
+
+.newsletter-input:focus {
+  border-color: #a3738b;
+}

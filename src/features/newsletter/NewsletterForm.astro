@@ -1,0 +1,41 @@
+---
+// Reusable Newsletter Subscription Form Component
+import { useI18n } from '../../i18n/useI18n.ts';
+import type { NewsletterFormProps } from '../../types/components';
+
+interface Props extends NewsletterFormProps {
+  showTitle?: boolean;
+}
+
+const { variant = 'default', showTitle = true } = Astro.props;
+
+// Use centralized i18n hook
+const { currentLang, t } = useI18n(Astro.request);
+
+const formClasses = variant === 'compact' 
+  ? 'flex flex-row space-x-2' 
+  : 'flex flex-col space-y-4';
+---
+
+<div>
+  {showTitle && (
+    <h3 class="text-md font-medium mb-4 uppercase tracking-wider">
+      {t('footer.newsletter')}
+    </h3>
+  )}
+  
+  <form class={formClasses} id="newsletter-form">
+    <input 
+      type="email" 
+      placeholder={t('footer.emailPlaceholder')}
+      class="px-4 py-2 rounded-sm focus:outline-none text-sm newsletter-input flex-1"
+      required
+    />
+    <button 
+      type="submit" 
+      class={`text-white px-4 py-2 rounded-sm text-sm newsletter-button ${variant === 'compact' ? 'whitespace-nowrap' : ''}`}
+    >
+      {t('footer.subscribeButton')}
+    </button>
+  </form>
+</div>

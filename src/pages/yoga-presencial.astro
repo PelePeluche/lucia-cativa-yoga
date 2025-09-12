@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import SectionTitle from '../components/ui/common/SectionTitle.astro';
+---
+
+<Layout title="Yoga Presencial - Lu Cativa">
+  <Header />
+  
+  <!-- Hero section -->
+  <section class="pt-24 pb-16 bg-lucia-rose bg-opacity-30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-heading text-lucia-brown mb-6">
+        Yoga Presencial
+      </h1>
+      <p class="text-xl text-lucia-mauve mb-8">
+        Clases particulares y encuentros intensivos en Córdoba
+      </p>
+      <p class="text-lg text-lucia-brown leading-relaxed">
+        Para quienes necesitan el cuerpo cerca y el espacio compartido. 
+        Ofrezco clases particulares presenciales en Córdoba, diseñadas a medida 
+        para lo que estés necesitando.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenido temporal -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <SectionTitle 
+        title="Modalidades presenciales" 
+        alignment="center" 
+        titleColor="text-lucia-brown" 
+        lineColor="bg-lucia-mauve"
+      />
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="p-6 bg-lucia-cream rounded-lg">
+          <h3 class="text-xl font-heading text-lucia-mauve mb-4">Clases Particulares</h3>
+          <p class="text-lucia-brown leading-relaxed">
+            Sesiones personalizadas adaptadas a tus necesidades específicas, 
+            ritmo y objetivos personales.
+          </p>
+        </div>
+        
+        <div class="p-6 bg-lucia-cream rounded-lg">
+          <h3 class="text-xl font-heading text-lucia-mauve mb-4">Encuentros Intensivos</h3>
+          <p class="text-lucia-brown leading-relaxed">
+            Prácticas grupales intensivas que combinan yoga + thai, 
+            yoga + danza en fechas puntuales.
+          </p>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <p class="text-lucia-brown mb-8 leading-relaxed">
+          Si te interesa una clase individual o querés sumarte a los próximos encuentros, 
+          escribime y te cuento más.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/#contacto"
+            class="inline-block px-8 py-4 bg-lucia-teal text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-mauve transition duration-300 rounded-sm"
+          >
+            Contactar
+          </a>
+          <a 
+            href="https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA=="
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-8 py-4 bg-transparent border-2 border-lucia-teal text-lucia-teal font-medium text-center tracking-wide uppercase hover:bg-lucia-teal hover:text-white transition duration-300 rounded-sm"
+          >
+            Seguir en IG
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

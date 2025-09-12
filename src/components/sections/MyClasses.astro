@@ -1,15 +1,12 @@
 ---
 // MyClasses component reestructurado con beneficios y nueva paleta
-import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
+import { useI18n } from '../../i18n/useI18n.ts';
+import SectionTitle from '../ui/common/SectionTitle.astro';
+import DecoratedImage from '../ui/common/DecoratedImage.astro';
+import Card from '../ui/cards/Card.astro';
 
-// Importar componentes UI reutilizables
-import SectionTitle from './UI/SectionTitle.astro';
-import Card from './UI/Card.astro';
-
-// Get the current language from the URL or use default
-const pathname = new URL(Astro.request.url).pathname;
-const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
-const t = useTranslations(currentLang);
+// Use centralized i18n hook
+const { currentLang, t } = useI18n(Astro.request);
 
 // Generate the section ID based on language
 const sectionId = currentLang === 'en' ? 'yoga-online' : 'yoga-online';
@@ -105,10 +102,10 @@ const inPersonClassDetails = t('myClasses.inPersonClasses.details')
     <!-- Sección de Yoga Presencial -->
     <div id="yoga-presencial" class="bg-lucia-rose bg-opacity-30 rounded-lg p-8 md:p-12" data-aos="fade-up" data-aos-delay="300">
       <div class="text-center mb-8">
-        <h3 class="text-3xl sm:text-4xl font-heading font-bold mb-3" style="color: #9a8576;">
+        <h3 class="text-3xl sm:text-4xl font-heading font-bold mb-3 section-title">
           {t('myClasses.inPersonClasses.title')}
         </h3>
-        <div class="w-24 h-1 mx-auto mb-4" style="background-color: #a3738b;"></div>
+        <div class="w-24 h-1 mx-auto mb-4 section-line"></div>
         <p class="text-lg text-lucia-brown leading-relaxed max-w-3xl mx-auto">
           {t('myClasses.inPersonClasses.description')}
         </p>
