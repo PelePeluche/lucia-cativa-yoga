@@ -38,7 +38,7 @@ export interface BenefitCardProps extends BaseComponentProps {
 export interface TestimonialCardProps extends BaseComponentProps {
   name: string;
   text: string;
-  image: string;
+  image?: string;
 }
 
 // Common UI component types

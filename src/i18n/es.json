@@ -7,18 +7,17 @@
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Clases de Vinyasa Yoga Online con Lucía Cativa",
-    "subtitle": "Movete con fuerza, conciencia y sensibilidad desde donde estés.",
-    "greeting": "Hola, soy Lucía.",
-    "welcome": "Te doy la bienvenida a este espacio de vinyasa yoga online: una práctica intensa, creativa y sensible, para volver al cuerpo, al presente y a la fuerza que ya está en vos.",
-    "cta1": "Empezar ahora",
-    "cta2": "Ver beneficios"
+    "greeting": "Hola, soy Lucía Cativa. Bienvenid@ a mi espacio de",
+    "title": "Vinyasa Yoga",
+    "subtitle": "Una práctica dinámica y consciente, para moverte con fuerza, sensibilidad y presencia.",
+    "cta1": "Practica conmigo",
+    "cta2": "Yoga online"
   },
   "aboutMe": {
     "title": "Sobre Mí",
-    "subtitle": "Soy Lucía y esta práctica nace de mi propia historia.",
+    "subtitle": "Soy Lucía y esta práctica nace de una historia personal.",
     "paragraph1": "A los 18 años atravesé una cirugía en la médula espinal que me enfrentó con la posibilidad de no volver a caminar. La rehabilitación me llevó al Pilates, la danza y finalmente al yoga: primero curiosidad, luego un llamado.",
-    "paragraph2": "Me formé en yoga clásico, meditación, biomecánica y masaje tailandés, pero sobre todo en la experiencia propia de recuperar fuerza y movimiento desde cero.",
+    "paragraph2": "Me formé en yoga, meditación, biomecánica y masaje tailandés, y desde hace más de 12 años acompaño como instructora. Pero, sobre todo, me formé en la experiencia propia de recuperar fuerza y movimiento desde cero.",
     "paragraph3": "Hoy comparto una práctica intensa y creativa que invita al placer de habitar el cuerpo. No busco resultados mágicos. Busco verdad.",
     "tag1": "Vinyasa Yoga",
     "tag2": "Yoga + Danza",
@@ -27,8 +26,9 @@
   },
   "myClasses": {
     "title": "Practica Conmigo",
-    "subtitle": "Clases de Vinyasa Yoga Online – practicá donde y cuando quieras",
-    "description": "Una forma de estar cerca, incluso en la distancia. Este espacio está pensado para que puedas practicar yoga dinámico a tu propio ritmo, desde donde estés y cuantas veces quieras.",
+    "description": "Mis clases son de Vinyasa Yoga, un estilo dinámico, intenso y fluido. Las posturas se enlazan en secuencias sincronizadas con la respiración. Su objetivo principal es trabajar con un equilibrio entre esfuerzo y comodidad, avanzando de forma progresiva, desde la escucha y el placer.",
+    "cta1": "Yoga Online",
+    "cta2": "Yoga Presencial",
     "onlineClasses": {
       "title": "Yoga Online",
       "description": "Las clases son de estilo vinyasa, un estilo intenso y fluido, donde las posturas se enlazan en secuencias sincronizadas con la respiración. Son ideales tanto si nunca practicaste yoga, si querés iniciarte en vinyasa yoga online o si buscás profundizar tu práctica desde casa.",

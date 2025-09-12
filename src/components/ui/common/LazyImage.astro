@@ -1,0 +1,37 @@
+---
+// Lazy loading image component with WebP support
+export interface Props {
+  src: string;
+  webpSrc?: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  width?: number;
+  height?: number;
+}
+
+const { 
+  src, 
+  webpSrc, 
+  alt, 
+  class: className = '', 
+  loading = 'lazy',
+  width,
+  height 
+} = Astro.props;
+---
+
+<picture>
+  {webpSrc && (
+    <source srcset={webpSrc} type="image/webp" />
+  )}
+  <img 
+    src={src}
+    alt={alt}
+    class={className}
+    loading={loading}
+    width={width}
+    height={height}
+    decoding="async"
+  />
+</picture>

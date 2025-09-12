@@ -4,13 +4,12 @@ import type { TestimonialCardProps } from '../../../types/components';
 
 interface Props extends TestimonialCardProps {}
 
-const { name, text, image } = Astro.props;
+const { name, text } = Astro.props;
 ---
 
 <div class="bg-lucia-cream p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
-  <div class="flex items-center mb-4">
-    <img src={image} alt={name} class="w-12 h-12 rounded-full object-cover mr-4" />
-    <h4 class="font-heading text-lucia-brown">{name}</h4>
+  <div class="mb-4">
+    <h4 class="font-heading text-lucia-brown text-lg">{name}</h4>
   </div>
   <p class="text-lucia-brown leading-relaxed italic">"{text}"</p>
 </div>

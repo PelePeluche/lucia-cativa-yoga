@@ -2,7 +2,7 @@
 import type { SiteConfig, SocialLinks, SEOConfig } from '../types/config';
 
 export const SOCIAL_LINKS: SocialLinks = {
-  instagram: 'https://www.instagram.com/lucativa.yoga',
+  instagram: 'https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA==',
   youtube: 'https://www.youtube.com/@lucativayoga',
   facebook: 'https://www.facebook.com/lucativayoga',
   twitter: 'https://twitter.com/lucativayoga'

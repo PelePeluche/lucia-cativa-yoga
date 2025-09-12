@@ -6,12 +6,12 @@ import { useI18n } from '../../i18n/useI18n.ts';
 const { currentLang, t } = useI18n(Astro.request);
 ---
 
-<section class="relative w-full h-[95vh] overflow-hidden">
+<section class="relative w-full h-screen">
   <!-- Background image -->
   <img 
     src="/img/hero-yoga.png" 
     alt="Lucía Cativa - Vinyasa Yoga Online" 
-    class="w-full h-full object-cover"
+    class="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 bg-black bg-opacity-40"></div>
   
@@ -20,18 +20,17 @@ const { currentLang, t } = useI18n(Astro.request);
     <div class="text-right max-w-2xl mr-4 md:mr-16 lg:mr-24 px-4 py-8 md:py-12">
       <!-- Personal greeting first -->
       <p class="font-body text-sm sm:text-base md:text-lg text-white mb-2 tracking-wide">
-        HOLA, SOY LUCÍA CATIVA,<br>
-        BIENVENIDOS A MI SITIO DE
+        {t('hero.greeting')}
       </p>
       
       <!-- Main H1 title - Vinyasa Yoga -->
       <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl mb-3 text-white">
-        Vinyasa Yoga
+        {t('hero.title')}
       </h1>
       
       <!-- Subtitle -->
       <p class="font-body text-base sm:text-lg md:text-xl mb-6 text-white leading-relaxed max-w-lg ml-auto">
-        Una práctica dinámica y consciente, para moverte con fuerza, sensibilidad y presencia.
+        {t('hero.subtitle')}
       </p>
       
       <!-- Call to action buttons aligned to the right -->
@@ -42,15 +41,15 @@ const { currentLang, t } = useI18n(Astro.request);
           data-aos="fade-up" 
           data-aos-delay="200"
         >
-          PRACTICA CONMIGO
+          {t('hero.cta1')}
         </a>
         <a 
-          href="#beneficios" 
+          href="#yoga-online" 
           class="font-body inline-block px-6 py-3 bg-transparent border-2 border-lucia-cream text-lucia-cream font-medium text-sm tracking-widest uppercase hover:bg-lucia-cream hover:text-lucia-brown transition duration-300 rounded-sm"
           data-aos="fade-up" 
           data-aos-delay="300"
         >
-          BENEFICIOS
+          {t('hero.cta2')}
         </a>
       </div>
     </div>

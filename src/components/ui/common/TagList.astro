@@ -1,10 +1,11 @@
 ---
 // Reusable Tag List Component
 import type { TagListProps } from '../../../types/components';
+import { LUCIA_MAUVE } from '../../../constants/colors';
 
 interface Props extends TagListProps {}
 
-const { tags, tagColor = '#a3738b' } = Astro.props;
+const { tags, tagColor = LUCIA_MAUVE } = Astro.props;
 ---
 
 <div class="flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="100">

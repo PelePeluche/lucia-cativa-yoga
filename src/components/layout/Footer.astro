@@ -1,8 +1,9 @@
 ---
-// Footer component with internationalization and newsletter subscription
+// Footer component with newsletter, social links and legal information
 import { useI18n } from '../../i18n/useI18n.ts';
 import SocialIcon from '../ui/common/SocialIcon.astro';
 import NewsletterForm from '../../features/newsletter/NewsletterForm.astro';
+import { SOCIAL_LINKS } from '../../constants/site.ts';
 
 // Use centralized i18n hook
 const { currentLang, t } = useI18n(Astro.request);
@@ -30,11 +31,11 @@ const currentYear = new Date().getFullYear();
           <!-- Social media icons -->
           <SocialIcon 
             platform="instagram" 
-            url="https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA==" 
+            url={SOCIAL_LINKS.instagram} 
           />
           <SocialIcon 
             platform="youtube" 
-            url="https://youtube.com/@luciacativa" 
+            url={SOCIAL_LINKS.youtube} 
           />
           <SocialIcon 
             platform="facebook" 

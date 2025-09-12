@@ -1,0 +1,39 @@
+{
+  "testimonials": [
+    {
+      "name": "Mariana, 32 años",
+      "text": "Paso a contarte que estoy muy contenta con volver a tus clases virtuales. Realmente me hacen muy bien… también pude ir regulando la respiración, que es algo que me cuesta al igual que la exigencia. Así que chocha.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Carla, 29 años", 
+      "text": "Me gustaron muchísimo tus clases. Fue un logro para mí hacer cada práctica completa y todas las asanas y vinyasas que proponés.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Florencia, 34 años",
+      "text": "Gracias por toda la paciencia y el compromiso. La verdad que disfruté un montón estos meses tus clases.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Julieta, 27 años",
+      "text": "Sos una excelente profe, muy comprometida con lo que hacés, además se nota que lo disfrutás y eso es muy lindo.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Daniela, 30 años",
+      "text": "Las clases me hacen re bien y las disfruto muchísimo. No sabés lo que me ayudaste, hermosa.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Sofía, 36 años",
+      "text": "La verdad, re lindas tus clases. Explicás re bien y una se deja llevar. Me iría a vivir a Córdoba, te juro.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Romina, 28 años",
+      "text": "Sos la única que me mantuvo más de un año haciendo una actividad física a gusto.",
+      "image": "/img/testimonial-1.png"
+    }
+  ]
+}

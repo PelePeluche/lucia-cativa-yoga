@@ -8,24 +8,11 @@ import CTAButton from '../ui/buttons/CTAButton.astro';
 // Use centralized i18n hook
 const { currentLang, t } = useI18n(Astro.request);
 
-// Testimonials data
-const testimonials = [
-  {
-    name: "María González",
-    text: "Las clases de Lucía me ayudaron a reconectar con mi cuerpo después de años de estrés. Su enfoque es único y transformador.",
-    image: "/img/testimonial-1.png"
-  },
-  {
-    name: "Ana Rodríguez",
-    text: "Practicar vinyasa yoga con Lucía cambió mi perspectiva sobre el movimiento. Cada clase es una experiencia de autodescubrimiento.",
-    image: "/img/testimonial-2.png"
-  },
-  {
-    name: "Carmen Silva",
-    text: "La combinación de yoga y danza que propone Lucía es increíble. Me siento más fuerte y flexible que nunca.",
-    image: "/img/testimonial-3.png"
-  }
-];
+// Import real testimonials data
+import testimonialsData from '../../i18n/testimonials.json';
+
+// Use real testimonials data - select first 6 for display
+const testimonials = testimonialsData.testimonials.slice(0, 6);
 ---
 
 <section id="testimonios" class="py-16 md:py-24 bg-white">
@@ -39,14 +26,14 @@ const testimonials = [
     />
 
     <!-- Grid de testimonios -->
-    <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
       {testimonials.map((testimonial, index) => (
-        <TestimonialCard 
-          name={testimonial.name}
-          text={testimonial.text}
-          image={testimonial.image}
-          delay={300 + index * 100}
-        />
+        <div data-aos="fade-up" data-aos-delay={300 + index * 100}>
+          <TestimonialCard 
+            name={testimonial.name}
+            text={testimonial.text}
+          />
+        </div>
       ))}
     </div>
 
@@ -56,7 +43,7 @@ const testimonials = [
       <CTAButton 
         href="/#sobre-mi"
         variant="secondary"
-        size="lg"
+        size="large"
       >
         Conoce mi historia
       </CTAButton>
