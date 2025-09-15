@@ -12,15 +12,15 @@ const {
 } = Astro.props;
 
 const variantClasses = {
-  primary: 'bg-lucia-mauve text-white hover:bg-lucia-rose hover:text-lucia-brown',
-  secondary: 'bg-lucia-teal text-white hover:bg-lucia-mauve',
+  primary: 'text-white transition-all duration-300',
+  secondary: 'bg-white text-lucia-mauve transition-all duration-300',
   outline: 'bg-transparent border-2 border-lucia-cream text-lucia-cream hover:bg-lucia-cream hover:text-lucia-brown'
 };
 
 const sizeClasses = {
   small: 'px-4 py-2 text-sm',
-  medium: 'px-8 py-4 text-base',
-  large: 'px-12 py-6 text-lg'
+  medium: 'px-8 py-4 text-sm',
+  large: 'px-8 py-4 text-sm'
 };
 ---
 
@@ -28,7 +28,10 @@ const sizeClasses = {
   href={href}
   target={target}
   rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-  class={`inline-block font-medium text-center tracking-wide uppercase transition duration-300 rounded-sm ${variantClasses[variant]} ${sizeClasses[size]}`}
+  class={`inline-block font-medium text-center tracking-widest uppercase rounded-sm ${variantClasses[variant]} ${sizeClasses[size]}`}
+  style={variant === 'primary' ? 'background-color: #a3738b;' : ''}
+  onmouseover={variant === 'primary' ? "this.style.backgroundColor='white'; this.style.color='#a3738b'" : (variant === 'secondary' ? "this.style.backgroundColor='#a3738b'; this.style.color='white'" : '')}
+  onmouseout={variant === 'primary' ? "this.style.backgroundColor='#a3738b'; this.style.color='white'" : (variant === 'secondary' ? "this.style.backgroundColor='white'; this.style.color='#a3738b'" : '')}
 >
   <slot />
 </a>

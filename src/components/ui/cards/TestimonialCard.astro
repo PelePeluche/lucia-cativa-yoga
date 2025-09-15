@@ -7,9 +7,9 @@ interface Props extends TestimonialCardProps {}
 const { name, text } = Astro.props;
 ---
 
-<div class="bg-lucia-cream p-6 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+<div class="p-6 rounded-lg shadow-sm h-full flex flex-col" style="background-color: #577874;" data-aos="fade-up" data-aos-delay="300">
   <div class="mb-4">
-    <h4 class="font-heading text-lucia-brown text-lg">{name}</h4>
+    <h4 class="font-heading text-white text-lg">{name}</h4>
   </div>
-  <p class="text-lucia-brown leading-relaxed italic">"{text}"</p>
+  <p class="text-white leading-relaxed italic flex-grow">"{text}"</p>
 </div>

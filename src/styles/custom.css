@@ -17,8 +17,39 @@
 /* Componentes complejos que combinan múltiples estilos */
 .newsletter-input {
   background-color: rgba(87, 120, 116, 0.2);
+  color: #9a8576;
 }
 
 .newsletter-input:focus {
   border-color: #a3738b;
+}
+
+.newsletter-button {
+  background-color: #a3738b;
+}
+
+.newsletter-button:hover {
+  background-color: #e0a6a8;
+  color: #9a8576;
+}
+
+/* Colores del design system - forzados para que se muestren */
+.color-lucia-cream {
+  background-color: #f9f0dc !important;
+}
+
+.color-lucia-brown {
+  background-color: #9a8576 !important;
+}
+
+.color-lucia-mauve {
+  background-color: #a3738b !important;
+}
+
+.color-lucia-rose {
+  background-color: #e0a6a8 !important;
+}
+
+.color-lucia-teal {
+  background-color: #577874 !important;
 }

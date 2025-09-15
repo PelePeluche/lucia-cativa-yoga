@@ -4,6 +4,7 @@ import { useI18n } from '../../i18n/useI18n.ts';
 import SocialIcon from '../ui/common/SocialIcon.astro';
 import NewsletterForm from '../../features/newsletter/NewsletterForm.astro';
 import { SOCIAL_LINKS } from '../../constants/site.ts';
+import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES } from '../../constants';
 
 // Use centralized i18n hook
 const { currentLang, t } = useI18n(Astro.request);
@@ -17,16 +18,16 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b footer-border">
       
       <!-- Logo and address info -->
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h3 class="text-xl font-heading mb-4 text-lucia-mauve">LU CATIVA</h3>
-        <p class="mb-2 footer-text-muted">{t('footer.address')}</p>
-        <p class="mb-2 footer-text-muted">{t('footer.emailLabel')}: hola@luciacativa.com</p>
-        <p class="footer-text-muted">{t('footer.phone')}</p>
+      <div {...AOS_PRESETS.fadeUp}>
+        <h3 class={`${RESPONSIVE_CLASSES.text.subheading} font-heading mb-4 text-lucia-mauve`}>LU CATIVA</h3>
+        <p class={`mb-2 ${RESPONSIVE_CLASSES.text.body} footer-text-muted`}>{t('footer.address')}</p>
+        <p class={`mb-2 ${RESPONSIVE_CLASSES.text.body} footer-text-muted`}>{t('footer.emailLabel')}: hola@luciacativa.com</p>
+        <p class={`${RESPONSIVE_CLASSES.text.body} footer-text-muted`}>{t('footer.phone')}</p>
       </div>
       
       <!-- Quick links -->
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-md font-medium mb-4 uppercase tracking-wider">{t('footer.followMe')}</h3>
+      <div {...AOS_PRESETS.fadeUp}>
+        <h3 class={`${RESPONSIVE_CLASSES.text.body} font-medium mb-4 uppercase tracking-wider`}>{t('footer.followMe')}</h3>
         <div class="flex space-x-4 mb-6">
           <!-- Social media icons -->
           <SocialIcon 
@@ -58,14 +59,14 @@ const currentYear = new Date().getFullYear();
       </div>
       
       <!-- Newsletter subscription -->
-      <div data-aos="fade-up" data-aos-delay="300">
+      <div {...AOS_PRESETS.fadeUp}>
         <NewsletterForm />
       </div>
     </div>
     
     <!-- Bottom copyright section -->
     <div class="pt-6 text-center">
-      <p class="text-sm footer-text-muted opacity-60">
+      <p class={`text-sm ${RESPONSIVE_CLASSES.text.body} footer-text-muted opacity-60`}>
         &copy; {currentYear} {t('footer.copyright')}
       </p>
     </div>

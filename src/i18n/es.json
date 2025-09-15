@@ -17,8 +17,8 @@
     "title": "Sobre Mí",
     "subtitle": "Soy Lucía y esta práctica nace de una historia personal.",
     "paragraph1": "A los 18 años atravesé una cirugía en la médula espinal que me enfrentó con la posibilidad de no volver a caminar. La rehabilitación me llevó al Pilates, la danza y finalmente al yoga: primero curiosidad, luego un llamado.",
-    "paragraph2": "Me formé en yoga, meditación, biomecánica y masaje tailandés, y desde hace más de 12 años acompaño como instructora. Pero, sobre todo, me formé en la experiencia propia de recuperar fuerza y movimiento desde cero.",
-    "paragraph3": "Hoy comparto una práctica intensa y creativa que invita al placer de habitar el cuerpo. No busco resultados mágicos. Busco verdad.",
+    "paragraph2": "<strong>Me formé en yoga, meditación, biomecánica y masaje tailandés, y desde hace más de 12 años acompaño como instructora.</strong> Pero, sobre todo, me formé en la experiencia propia de recuperar fuerza y movimiento desde cero.",
+    "paragraph3": "<strong>Hoy comparto una práctica intensa y creativa que invita al placer de habitar el cuerpo. No busco resultados mágicos. Busco verdad.</strong>",
     "tag1": "Vinyasa Yoga",
     "tag2": "Yoga + Danza",
     "tag3": "Entrenamiento Consciente",
@@ -26,7 +26,8 @@
   },
   "myClasses": {
     "title": "Practica Conmigo",
-    "description": "Mis clases son de Vinyasa Yoga, un estilo dinámico, intenso y fluido. Las posturas se enlazan en secuencias sincronizadas con la respiración. Su objetivo principal es trabajar con un equilibrio entre esfuerzo y comodidad, avanzando de forma progresiva, desde la escucha y el placer.",
+    "description": "<strong>Mis clases son de Vinyasa Yoga</strong>, un estilo dinámico, intenso y fluido. Las posturas se enlazan en secuencias sincronizadas con la respiración.",
+    "philosophy": "Su objetivo principal es trabajar con un <strong>equilibrio entre esfuerzo y comodidad</strong>, avanzando de forma progresiva, desde la escucha y el placer. Cada práctica es una invitación a conectar con tu cuerpo y respiración.",
     "cta1": "Yoga Online",
     "cta2": "Yoga Presencial",
     "onlineClasses": {

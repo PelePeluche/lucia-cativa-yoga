@@ -1,0 +1,350 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import {
+  COLORS,
+  SECTION_SPACING,
+  AOS_PRESETS,
+  RESPONSIVE_CLASSES,
+  SHADOWS,
+  ANIMATIONS,
+} from "../constants";
+---
+
+<!-- Design System page showcasing colors, typography, and components -->
+<script>
+  // Debug script para investigar problemas con colores
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("=== DEBUG: Design System Page Loaded ===");
+
+    // Verificar si las clases CSS están cargadas
+    const testDiv = document.createElement("div");
+    testDiv.className = "color-lucia-cream";
+    document.body.appendChild(testDiv);
+    const computedStyle = window.getComputedStyle(testDiv);
+    console.log(
+      "CSS class color-lucia-cream background:",
+      computedStyle.backgroundColor
+    );
+    document.body.removeChild(testDiv);
+
+    // Verificar todos los divs de colores
+    const colorDivs = document.querySelectorAll('[class*="color-lucia"]');
+    console.log("Found color divs:", colorDivs.length);
+
+    colorDivs.forEach((div, index) => {
+      const style = window.getComputedStyle(div);
+      console.log(`Color div ${index}:`, {
+        className: div.className,
+        backgroundColor: style.backgroundColor,
+        computedBackground: style.getPropertyValue("background-color"),
+      });
+    });
+  });
+</script>
+
+<Layout title="Design System - Lu Cativa">
+  <Header />
+
+  <!-- Hero section -->
+  <section class="pt-24 pb-16 bg-lucia-cream">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1
+        class={`${RESPONSIVE_CLASSES.text.heading} font-heading text-lucia-brown mb-6`}
+      >
+        Design System
+      </h1>
+      <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-mauve mb-8`}>
+        Paleta de colores y componentes del sistema de diseño
+      </p>
+    </div>
+  </section>
+
+  <!-- Color Palette -->
+  <section
+    class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-white`}
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2
+        class={`${RESPONSIVE_CLASSES.text.subheading} font-heading text-lucia-brown mb-8 text-center`}
+      >
+        Paleta de Colores
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Lucia Cream -->
+        <div class="text-center" {...AOS_PRESETS.fadeUp}>
+          <div
+            class="w-32 h-32 color-lucia-cream rounded-lg mx-auto mb-4 shadow-md border-2 border-gray-300"
+            style="background-color: #f9f0dc !important; min-height: 128px; min-width: 128px;"
+            onload="console.log('Lucia Cream div loaded:', this.style.backgroundColor)"
+          >
+          </div>
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-2`}
+          >
+            Lucia Cream
+          </h3>
+          <p class="text-sm text-lucia-brown font-mono">#f9f0dc</p>
+          <p class="text-sm text-lucia-mauve mt-1">Fondo principal</p>
+        </div>
+
+        <!-- Lucia Brown -->
+        <div class="text-center" {...AOS_PRESETS.fadeUp}>
+          <div
+            class="w-32 h-32 color-lucia-brown rounded-lg mx-auto mb-4 shadow-md"
+            style="background-color: #9a8576 !important; min-height: 128px; min-width: 128px;"
+          >
+          </div>
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-2`}
+          >
+            Lucia Brown
+          </h3>
+          <p class="text-sm text-lucia-brown font-mono">#9a8576</p>
+          <p class="text-sm text-lucia-mauve mt-1">Texto principal</p>
+        </div>
+
+        <!-- Lucia Mauve -->
+        <div class="text-center" {...AOS_PRESETS.fadeUp}>
+          <div
+            class="w-32 h-32 color-lucia-mauve rounded-lg mx-auto mb-4 shadow-md"
+            style="background-color: #a3738b !important; min-height: 128px; min-width: 128px;"
+          >
+          </div>
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-2`}
+          >
+            Lucia Mauve
+          </h3>
+          <p class="text-sm text-lucia-brown font-mono">#a3738b</p>
+          <p class="text-sm text-lucia-mauve mt-1">Color primario</p>
+        </div>
+
+        <!-- Lucia Rose -->
+        <div class="text-center" {...AOS_PRESETS.fadeUp}>
+          <div
+            class="w-32 h-32 color-lucia-rose rounded-lg mx-auto mb-4 shadow-md"
+            style="background-color: #e0a6a8 !important; min-height: 128px; min-width: 128px;"
+          >
+          </div>
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-2`}
+          >
+            Lucia Rose
+          </h3>
+          <p class="text-sm text-lucia-brown font-mono">#e0a6a8</p>
+          <p class="text-sm text-lucia-mauve mt-1">Color de acento</p>
+        </div>
+
+        <!-- Lucia Teal -->
+        <div class="text-center" {...AOS_PRESETS.fadeUp}>
+          <div
+            class="w-32 h-32 color-lucia-teal rounded-lg mx-auto mb-4 shadow-md"
+            style="background-color: #577874 !important; min-height: 128px; min-width: 128px;"
+          >
+          </div>
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-2`}
+          >
+            Lucia Teal
+          </h3>
+          <p class="text-sm text-lucia-brown font-mono">#577874</p>
+          <p class="text-sm text-lucia-mauve mt-1">Color secundario</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography Scale -->
+  <section
+    class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2
+        class={`${RESPONSIVE_CLASSES.text.subheading} font-heading text-lucia-brown mb-8 text-center`}
+      >
+        Escala Tipográfica
+      </h2>
+
+      <div class="space-y-8">
+        <div {...AOS_PRESETS.fadeUp}>
+          <h1
+            class={`${RESPONSIVE_CLASSES.text.hero} font-heading text-lucia-brown mb-2`}
+          >
+            Vinyasa Yoga Online
+          </h1>
+          <p class="text-sm text-lucia-mauve font-mono">
+            Hero Title - text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+            xl:text-8xl
+          </p>
+        </div>
+
+        <div {...AOS_PRESETS.fadeUp}>
+          <h2
+            class={`${RESPONSIVE_CLASSES.text.heading} font-heading text-lucia-brown mb-2`}
+          >
+            Transforma tu práctica
+          </h2>
+          <p class="text-sm text-lucia-mauve font-mono">
+            Main Heading - text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+          </p>
+        </div>
+
+        <div {...AOS_PRESETS.fadeUp}>
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.subheading} font-heading text-lucia-brown mb-2`}
+          >
+            Conecta con tu esencia
+          </h3>
+          <p class="text-sm text-lucia-mauve font-mono">
+            Subheading - text-2xl sm:text-3xl md:text-4xl
+          </p>
+        </div>
+
+        <div {...AOS_PRESETS.fadeUp}>
+          <p class={`${RESPONSIVE_CLASSES.text.large} text-lucia-brown mb-2`}>
+            Descubre el poder transformador del yoga en tu vida diaria
+          </p>
+          <p class="text-sm text-lucia-mauve font-mono">
+            Large Text - text-lg sm:text-xl md:text-2xl
+          </p>
+        </div>
+
+        <div {...AOS_PRESETS.fadeUp}>
+          <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown mb-2`}>
+            El yoga es mucho más que una práctica física. Es un camino hacia el
+            autoconocimiento, la paz interior y la conexión profunda con tu ser
+            auténtico.
+          </p>
+          <p class="text-sm text-lucia-mauve font-mono">
+            Body Text - text-base sm:text-lg
+          </p>
+        </div>
+
+        <div {...AOS_PRESETS.fadeUp}>
+          <p class={`${RESPONSIVE_CLASSES.text.small} text-lucia-brown mb-2`}>
+            Clases disponibles todos los días • Desde principiantes hasta
+            avanzados
+          </p>
+          <p class="text-sm text-lucia-mauve font-mono">
+            Small Text - text-sm sm:text-base
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buttons -->
+  <section
+    class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-white`}
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2
+        class={`${RESPONSIVE_CLASSES.text.subheading} font-heading text-lucia-brown mb-8 text-center`}
+      >
+        Botones
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div
+          class="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-200"
+          {...AOS_PRESETS.fadeUp}
+        >
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-6`}
+          >
+            Botón Primario
+          </h3>
+          <a
+            href="#"
+            class="inline-block px-8 py-4 text-white font-medium text-sm tracking-widest uppercase rounded-sm transition-all duration-300"
+            style="background-color: #a3738b;"
+            onmouseover="this.style.backgroundColor='#e0a6a8'; this.style.color='#9a8576'"
+            onmouseout="this.style.backgroundColor='#a3738b'; this.style.color='white'"
+          >
+            BOTÓN PRIMARIO
+          </a>
+          <p class="text-xs text-lucia-mauve mt-3 font-mono">
+            bg-lucia-mauve hover:bg-lucia-rose
+          </p>
+        </div>
+
+        <div
+          class="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-200"
+          {...AOS_PRESETS.fadeUp}
+        >
+          <h3
+            class={`${RESPONSIVE_CLASSES.text.body} font-medium text-lucia-brown mb-6`}
+          >
+            Botón Secundario
+          </h3>
+          <a
+            href="#"
+            class="inline-block px-8 py-4 bg-transparent border-2 font-medium text-sm tracking-widest uppercase rounded-sm transition-all duration-300"
+            style="border-color: #577874; color: #577874;"
+            onmouseover="this.style.backgroundColor='#577874'; this.style.color='white'"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#577874'"
+          >
+            BOTÓN SECUNDARIO
+          </a>
+          <p class="text-xs text-lucia-mauve mt-3 font-mono">
+            border-lucia-teal hover:bg-lucia-teal
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shadows -->
+  <section
+    class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`}
+    style="background-color: #e0a6a8;"
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2
+        class={`${RESPONSIVE_CLASSES.text.subheading} font-heading text-lucia-brown mb-8 text-center`}
+      >
+        Sombras
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6" {...AOS_PRESETS.fadeUp}>
+          <div 
+            class="w-32 h-32 bg-white rounded-lg mx-auto mb-4 flex items-center justify-center"
+            style="box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);"
+          >
+            <span class="text-lucia-brown font-medium text-lg">SM</span>
+          </div>
+          <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown font-medium`}>Shadow SM</p>
+          <p class="text-xs text-lucia-mauve mt-1 font-mono">Sombra sutil</p>
+        </div>
+        
+        <div class="text-center p-6" {...AOS_PRESETS.fadeUp}>
+          <div 
+            class="w-32 h-32 bg-white rounded-lg mx-auto mb-4 flex items-center justify-center"
+            style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);"
+          >
+            <span class="text-lucia-brown font-medium text-lg">MD</span>
+          </div>
+          <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown font-medium`}>Shadow MD</p>
+          <p class="text-xs text-lucia-mauve mt-1 font-mono">Sombra media</p>
+        </div>
+        
+        <div class="text-center p-6" {...AOS_PRESETS.fadeUp}>
+          <div 
+            class="w-32 h-32 bg-white rounded-lg mx-auto mb-4 flex items-center justify-center"
+            style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);"
+          >
+            <span class="text-lucia-brown font-medium text-lg">LG</span>
+          </div>
+          <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown font-medium`}>Shadow LG</p>
+          <p class="text-xs text-lucia-mauve mt-1 font-mono">Sombra pronunciada</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

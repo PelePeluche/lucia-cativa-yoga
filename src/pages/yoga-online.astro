@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import SectionTitle from '../components/ui/common/SectionTitle.astro';
+import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES, ANIMATIONS } from '../constants';
 ---
 
 <Layout title="Yoga Online - Lu Cativa">
@@ -11,42 +12,62 @@ import SectionTitle from '../components/ui/common/SectionTitle.astro';
   <!-- Hero section -->
   <section class="pt-24 pb-16 bg-lucia-cream">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-heading text-lucia-brown mb-6">
+      <h1 class={`${RESPONSIVE_CLASSES.text.heading} font-heading text-lucia-brown mb-6`}>
         Yoga Online
       </h1>
-      <p class="text-xl text-lucia-mauve mb-8">
-        Clases de Vinyasa Yoga desde la comodidad de tu hogar
-      </p>
-      <p class="text-lg text-lucia-brown leading-relaxed">
-        Próximamente encontrarás aquí todas las clases online, programas de práctica 
-        y contenido exclusivo para tu desarrollo en el yoga.
-      </p>
     </div>
   </section>
 
-  <!-- Contenido temporal -->
-  <section class="py-16 bg-white">
+  <!-- Contenido principal -->
+  <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-white`}>
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <SectionTitle 
-        title="Contenido en desarrollo" 
-        alignment="center" 
-        titleColor="text-lucia-brown" 
-        lineColor="bg-lucia-mauve"
-      />
       
-      <div class="text-center">
-        <p class="text-lucia-brown mb-8 leading-relaxed">
-          Estamos preparando una experiencia única para tu práctica online. 
-          Mientras tanto, puedes seguirme en Instagram para contenido diario.
+      <div class="text-center mb-12" {...AOS_PRESETS.fadeUp}>
+        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed mb-6`}>
+          Este espacio está diseñado para que practiques a tu ritmo, desde donde estés, cuantas veces quieras.
         </p>
+        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed mb-8`}>
+          Las clases son de vinyasa yoga, un estilo dinámico, intenso y fluido, donde las posturas se enlazan en secuencias sincronizadas con la respiración.
+        </p>
+      </div>
+
+      <!-- Beneficios -->
+      <div class="mb-12" {...AOS_PRESETS.fadeUp}>
+        <h3 class={`${RESPONSIVE_CLASSES.text.subheading} font-heading text-lucia-mauve mb-6 text-center`}>
+          Beneficios de practicar conmigo:
+        </h3>
         
+        <ul class="space-y-4 max-w-2xl mx-auto">
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-2 h-2 bg-lucia-mauve rounded-full mt-2 mr-3"></div>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed`}>Accedé a las clases cuando y donde quieras.</span>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-2 h-2 bg-lucia-mauve rounded-full mt-2 mr-3"></div>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed`}>Fortalecé y flexibilizá tu cuerpo sin forzarlo.</span>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-2 h-2 bg-lucia-mauve rounded-full mt-2 mr-3"></div>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed`}>Conectá con tu respiración y reducí el estrés.</span>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-2 h-2 bg-lucia-mauve rounded-full mt-2 mr-3"></div>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed`}>Encontrá secuencias creativas que mantienen la práctica motivante.</span>
+          </li>
+          <li class="flex items-start">
+            <div class="flex-shrink-0 w-2 h-2 bg-lucia-mauve rounded-full mt-2 mr-3"></div>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed`}>Avanzá de forma progresiva, integrando cada paso a tu ritmo.</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- CTA -->
+      <div class="text-center" {...AOS_PRESETS.fadeUp}>
         <a 
-          href="https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA=="
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block px-8 py-4 bg-lucia-mauve text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-rose hover:text-lucia-brown transition duration-300 rounded-sm"
+          href="#"
+          class={`inline-block px-8 py-4 bg-lucia-mauve text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-rose hover:text-lucia-brown ${ANIMATIONS.transition.all} rounded-sm`}
         >
-          Seguir en Instagram
+          SUSCRIBETE AHORA
         </a>
       </div>
     </div>
