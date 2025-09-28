@@ -1,0 +1,87 @@
+---
+// VideoPlayer component - supports both local videos and YouTube embeds
+export interface Props {
+  src?: string;
+  youtubeId?: string;
+  title: string;
+  poster?: string;
+  autoplay?: boolean;
+  controls?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+  width?: string;
+  height?: string;
+  className?: string;
+}
+
+const {
+  src,
+  youtubeId,
+  title,
+  poster,
+  autoplay = false,
+  controls = true,
+  muted = true,
+  loop = false,
+  width = "100%",
+  height = "auto",
+  className = ""
+} = Astro.props;
+
+// Determine if it's a YouTube video or local video
+const isYouTube = !!youtubeId;
+const videoSrc = isYouTube ? `https://www.youtube.com/embed/${youtubeId}` : src;
+---
+
+<div class={`video-container ${className}`}>
+  {isYouTube ? (
+    <!-- YouTube Embed -->
+    <div class="relative w-full" style="padding-bottom: 56.25%; /* 16:9 aspect ratio */">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+        src={videoSrc}
+        title={title}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  ) : (
+    <!-- Local Video -->
+    <video
+      class="w-full h-auto rounded-lg shadow-lg"
+      src={videoSrc}
+      title={title}
+      poster={poster}
+      controls={controls}
+      autoplay={autoplay}
+      muted={muted}
+      loop={loop}
+      preload="metadata"
+      style={`width: ${width}; height: ${height};`}
+    >
+      <p class="text-center text-gray-600 p-4">
+        Tu navegador no soporta el elemento de video.
+        <a href={videoSrc} class="text-lucia-teal hover:underline">Descargar video</a>
+      </p>
+    </video>
+  )}
+</div>
+
+<style>
+  .video-container {
+    position: relative;
+  }
+  
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive video styling */
+  @media (max-width: 768px) {
+    .video-container {
+      margin: 0 -1rem;
+    }
+  }
+</style>

@@ -1,54 +1,78 @@
 ---
 // Practice With Me section component (Practica Conmigo)
-import { useI18n } from '../../i18n/useI18n.ts';
-import DecoratedImage from '../ui/common/DecoratedImage.astro';
-import CTAButton from '../ui/buttons/CTAButton.astro';
-import { SECTION_SPACING, AOS_PRESETS, ANIMATIONS, RESPONSIVE_CLASSES } from '../../constants';
+import { useI18n } from "../../i18n/useI18n.ts";
+import CTAButton from "../ui/buttons/CTAButton.astro";
+import {
+  SECTION_SPACING,
+  AOS_PRESETS,
+  RESPONSIVE_CLASSES,
+  EXTERNAL_LINKS,
+} from "../../constants";
 
 // Use centralized i18n hook
-const { currentLang, t } = useI18n(Astro.request);
+const { t } = useI18n(Astro.request);
 ---
 
-<section id="practica-conmigo" class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`} style="background-color: #577874;">
+<section
+  id="practica-conmigo"
+  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`}
+  style="background-color: #577874;"
+>
   <div class="max-w-6xl mx-auto">
     <article class="flex flex-col lg:flex-row items-start gap-12 mt-12">
       <!-- Texto a la izquierda -->
       <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeUp}>
-        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}>
-          {t('myClasses.title')}
-          <span class="absolute -bottom-2 left-0 w-16 h-1 rounded-full" style="background-color: #e0a6a8;"></span>
+        <h2
+          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
+        >
+          {t("practiceWithMe.title")}
+          <span
+            class="absolute -bottom-2 left-0 w-16 h-1 rounded-full"
+            style="background-color: #e0a6a8;"></span>
         </h2>
         <div class="space-y-4 text-white leading-relaxed">
-          <p class={RESPONSIVE_CLASSES.text.body} set:html={t('myClasses.description')}></p>
-          <p class={RESPONSIVE_CLASSES.text.body} set:html={t('myClasses.philosophy')}></p>
+          <p
+            class={RESPONSIVE_CLASSES.text.body}
+            set:html={t("myClasses.description")}
+          />
+          <p
+            class={RESPONSIVE_CLASSES.text.body}
+            set:html={t("myClasses.philosophy")}
+          />
         </div>
-        
+
         <!-- CTAs -->
         <div class="flex flex-col sm:flex-row gap-4 mt-8">
-          <CTAButton 
-            href="/yoga-online"
+          <CTAButton
+            href={EXTERNAL_LINKS.YOGA_ONLINE}
             variant="primary"
             size="medium"
+            target="_blank"
           >
-            YOGA ONLINE
+            {t("practiceWithMe.onlineButton")}
           </CTAButton>
-          <CTAButton 
-            href="/yoga-presencial"
+          <CTAButton
+            href={EXTERNAL_LINKS.YOGA_PRESENCIAL}
             variant="secondary"
             size="medium"
+            target="_blank"
           >
-            YOGA PRESENCIAL
+            {t("practiceWithMe.presentialButton")}
           </CTAButton>
         </div>
       </div>
-      
+
       <!-- Imagen a la derecha -->
-<div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeUp}>
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeUp}>
         <figure class="relative">
-          <div class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm" style="background-color: #e0a6a8;"></div>
-          <img 
-            src="/img/hatha-yoga.jpeg" 
-            alt="Lucía Cativa - Clases de Vinyasa Yoga" 
+          <div
+            class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"
+            style="background-color: #e0a6a8;"
+          >
+          </div>
+          <img
+            src="/img/practica-conmigo.png"
+            alt="Lucía Cativa - Clases de Vinyasa Yoga"
             class="relative z-10 w-full aspect-square rounded-sm shadow-md object-cover"
           />
         </figure>

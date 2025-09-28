@@ -1,5 +1,11 @@
 /* Clases personalizadas para efectos que Tailwind no puede manejar */
 
+/* Prevenir scroll horizontal */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 .nav-bg {
   backdrop-filter: blur(10px);
 }
@@ -7,6 +13,8 @@
 /* Forzar fondo sólido del header */
 #main-nav {
   background-color: #f9f0dc !important;
+  width: 100vw;
+  max-width: 100vw;
 }
 
 /* Forzar bg-lucia-cream temporalmente para debugging */

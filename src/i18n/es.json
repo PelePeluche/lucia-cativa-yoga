@@ -7,9 +7,9 @@
     "contact": "Contacto"
   },
   "hero": {
-    "greeting": "Hola, soy Lucía Cativa. Bienvenid@ a mi espacio de",
+    "greeting": "Hola, soy Lucía Cativa.<br />Bienvenid@ a mi espacio de",
     "title": "Vinyasa Yoga",
-    "subtitle": "Una práctica dinámica y consciente, para moverte con fuerza, sensibilidad y presencia.",
+    "subtitle": "Una práctica dinámica y consciente,<br />para moverte con fuerza,<br />sensibilidad y presencia.",
     "cta1": "Practica conmigo",
     "cta2": "Yoga online"
   },
@@ -50,8 +50,62 @@
       "description": "Para quienes necesitan el cuerpo cerca y el espacio compartido. Ofrezco clases particulares presenciales en Córdoba, diseñadas a medida para lo que estés necesitando.",
       "details": "Además, propongo prácticas intensivas grupales con una intención concreta, en fechas puntuales que difundo por redes. Son oportunidades para movernos juntas, respirar al mismo ritmo y habitar el presente con otros cuerpos al lado.",
       "contact": "Si te interesa una clase individual o querés sumarte a los próximos encuentros, escribime y te cuento más.",
-      "cta": "Reserva tu clase"
+      "cta": "Reserva tu clase",
+      "followIG": "Seguime en IG"
     }
+  },
+  "practiceWithMe": {
+    "title": "Practica Conmigo",
+    "onlineButton": "Yoga Online",
+    "presentialButton": "Yoga Presencial"
+  },
+  "benefits": {
+    "title": "Beneficios del Vinyasa Yoga",
+    "flexibility": {
+      "title": "Flexibilidad y Fuerza",
+      "description": "Desarrolla flexibilidad y fuerza muscular de manera equilibrada"
+    },
+    "connection": {
+      "title": "Conexión Mente-Cuerpo",
+      "description": "Fortalece la conexión entre tu mente y cuerpo a través de la respiración"
+    },
+    "stress": {
+      "title": "Reducción del Estrés",
+      "description": "Libera tensiones y encuentra calma en tu día a día"
+    },
+    "energy": {
+      "title": "Energía Vital",
+      "description": "Aumenta tu energía y vitalidad de forma natural"
+    },
+    "cta": "Comenzar mi práctica"
+  },
+  "testimonials": {
+    "title": "Lo que dicen mis alumnas"
+  },
+  "yogaOnline": {
+    "title": "Yoga Online",
+    "description1": "Este espacio está diseñado para que practiques a tu ritmo, desde donde estés, cuantas veces quieras.",
+    "description2": "Las clases son de vinyasa yoga, un estilo dinámico, intenso y fluido, donde las posturas se enlazan en secuencias sincronizadas con la respiración.",
+    "benefitsTitle": "¿Qué vas a encontrar?",
+    "benefit1": "Accedé a las clases cuando y donde quieras.",
+    "benefit2": "Fortalecé y flexibilizá tu cuerpo sin forzarlo.",
+    "benefit3": "Conectá con tu respiración y reducí el estrés.",
+    "benefit4": "Encontrá secuencias creativas que mantienen la práctica motivante.",
+    "benefit5": "Avanzá de forma progresiva, integrando cada paso a tu ritmo.",
+    "cta": "Comenzar ahora"
+  },
+  "yogaOnlineVideo": {
+    "title": "Sentí la práctica",
+    "description": "Una muestra de la fluidez y conexión que encontrás en cada clase. Así es como el cuerpo y la respiración se encuentran en movimiento.",
+    "callToAction": "¿Sentís la conexión? Así es como vivimos cada clase online. ¡Escribime y empezamos juntas!"
+  },
+  "yogaPresencial": {
+    "title": "Yoga Presencial",
+    "description1": "Clases grupales regulares y encuentros intensivos en Córdoba.",
+    "description2": "Un espacio para entrenar en comunidad, compartir la práctica y habitar el presente con otros al lado.",
+    "description3": "Cada clase mantiene la intensidad y fluidez del Vinyasa Yoga, pero se adapta con opciones que permiten participar desde distintos niveles de experiencia.",
+    "description4": "La práctica presencial potencia la energía colectiva y hace de cada encuentro una experiencia única.",
+    "cta": "Reserva tu clase"
   },
   "footer": {
     "copyright": " 2025 Lu Cativa. Todos los derechos reservados.",

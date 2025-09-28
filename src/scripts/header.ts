@@ -1,57 +1,73 @@
-// Header navigation functionality
-let scrollTimeout: number | null = null;
-
-export function initHeader(): void {
-  const nav = document.getElementById('main-nav');
-  if (!nav) return;
-
-  // Throttled scroll handler for better performance
-  window.addEventListener('scroll', () => {
-    if (scrollTimeout) return;
-    
-    scrollTimeout = window.requestAnimationFrame(() => {
-      handleScroll(nav);
-      scrollTimeout = null;
-    });
-  }, { passive: true });
-
-  // Language menu functionality
-  initLanguageMenu();
-}
-
-function handleScroll(nav: HTMLElement): void {
-  if (window.scrollY > 10) {
-    nav.classList.add('nav-shadow');
-  } else {
-    nav.classList.remove('nav-shadow');
-  }
-}
-
-function initLanguageMenu(): void {
+// Header functionality - Language dropdown and Mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+  // Language dropdown functionality
   const languageToggle = document.getElementById('language-toggle');
   const languageMenu = document.getElementById('language-menu');
 
-  if (!languageToggle || !languageMenu) return;
+  if (languageToggle && languageMenu) {
+    languageToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const isVisible = languageMenu.style.visibility === 'visible';
+      
+      if (isVisible) {
+        languageMenu.style.visibility = 'hidden';
+        languageMenu.style.opacity = '0';
+      } else {
+        languageMenu.style.visibility = 'visible';
+        languageMenu.style.opacity = '1';
+      }
+    });
 
-  // Toggle menu when clicking the button
-  languageToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    languageMenu.classList.toggle('show');
-  });
+    // Close when clicking outside
+    document.addEventListener('click', function(event) {
+      if (event.target && !languageToggle.contains(event.target as Node)) {
+        languageMenu.style.visibility = 'hidden';
+        languageMenu.style.opacity = '0';
+      }
+    });
+  }
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const target = e.target as Element;
-    if (!languageToggle.contains(target) && !languageMenu.contains(target)) {
-      languageMenu.classList.remove('show');
+  // Mobile menu functionality
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+
+  function openMobileMenu() {
+    if (mobileMenu && mobileOverlay) {
+      mobileMenu.style.transform = 'translateX(0)';
+      mobileOverlay.style.visibility = 'visible';
+      mobileOverlay.style.opacity = '1';
+      document.body.style.overflow = 'hidden';
     }
-  });
+  }
 
-  // Prevent closing when clicking inside the menu
-  languageMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-}
+  function closeMobileMenu() {
+    if (mobileMenu && mobileOverlay) {
+      mobileMenu.style.transform = 'translateX(100%)';
+      mobileOverlay.style.visibility = 'hidden';
+      mobileOverlay.style.opacity = '0';
+      document.body.style.overflow = '';
+    }
+  }
 
-// Initialize header when DOM is loaded
-document.addEventListener('DOMContentLoaded', initHeader, { once: true });
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', openMobileMenu);
+  }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+  }
+
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+  }
+
+  // Close mobile menu when clicking on links
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+});

@@ -19,9 +19,8 @@ export interface SiteConfig {
 
 export interface SocialLinks {
   instagram: string;
-  youtube: string;
   facebook?: string;
-  twitter?: string;
+  tiktok?: string;
 }
 
 export interface ColorPalette {

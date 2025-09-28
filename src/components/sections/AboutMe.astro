@@ -1,45 +1,55 @@
 ---
 // About Me section component
-import DecoratedImage from '../ui/common/DecoratedImage.astro';
-import { useI18n } from '../../i18n/useI18n.ts';
-import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES } from '../../constants';
+import DecoratedImage from "../ui/common/DecoratedImage.astro";
+import { useI18n } from "../../i18n/useI18n.ts";
+import {
+  SECTION_SPACING,
+  AOS_PRESETS,
+  RESPONSIVE_CLASSES,
+} from "../../constants";
 
 // Use centralized i18n hook
 const { currentLang, t } = useI18n(Astro.request);
-
 ---
 
-<section id={currentLang === 'es' ? 'sobre-mi' : 'about-me'} class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`} style="background-color: #f9f0dc;">
+<section
+  id={currentLang === "es" ? "sobre-mi" : "about-me"}
+  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`}
+  style="background-color: #f9f0dc;"
+>
   <div class="max-w-6xl mx-auto">
     <article class="flex flex-col lg:flex-row items-start gap-12">
       <!-- Profile image with animation from left -->
       <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeRight}>
-        <DecoratedImage 
-          src="/img/testimonial-1.png" 
-          alt="Lucía Cativa - Instructora de Vinyasa Yoga" 
+        <DecoratedImage
+          src="/img/sobre-mi.jpg"
+          alt="Lucía Cativa - Instructora de Vinyasa Yoga"
         />
       </div>
-      
-      <!-- Historia personal con nueva estructura -->
+
+      <!-- Text content with animation from right -->
       <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeLeft}>
-        <!-- Título de sección integrado con el texto -->
-        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}>
-          {t('aboutMe.title')}
-          <span class="absolute -bottom-2 left-0 w-16 h-1 rounded-full" style="background-color: #e0a6a8;"></span>
+        <h2
+          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}
+        >
+          {t("aboutMe.title")}
+          <span
+            class="absolute -bottom-2 left-0 w-16 h-1 rounded-full"
+            style="background-color: #e0a6a8;"></span>
         </h2>
-        
-        <!-- Historia personal en párrafos estructurados -->
+
         <div class="space-y-4 text-lucia-brown leading-relaxed">
           <p class={RESPONSIVE_CLASSES.text.body}>
-            {t('aboutMe.subtitle')}
+            {t("aboutMe.subtitle")}
           </p>
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t('aboutMe.paragraph1')}
-          </p>
-          <p class={RESPONSIVE_CLASSES.text.body} set:html={t('aboutMe.paragraph2')}>
-          </p>
-          <p class={RESPONSIVE_CLASSES.text.body} set:html={t('aboutMe.paragraph3')}>
-          </p>
+          <p
+            class={RESPONSIVE_CLASSES.text.body}
+            set:html={t("aboutMe.paragraph2")}
+          />
+          <p
+            class={RESPONSIVE_CLASSES.text.body}
+            set:html={t("aboutMe.paragraph3")}
+          />
         </div>
       </div>
     </article>

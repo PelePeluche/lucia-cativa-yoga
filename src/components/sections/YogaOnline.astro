@@ -1,0 +1,129 @@
+---
+// Yoga Online section component
+import { useI18n } from "../../i18n/useI18n.ts";
+import CTAButton from "../ui/buttons/CTAButton.astro";
+import {
+  SECTION_SPACING,
+  AOS_PRESETS,
+  RESPONSIVE_CLASSES,
+  EXTERNAL_LINKS,
+} from "../../constants";
+
+// Use centralized i18n hook
+const { t } = useI18n(Astro.request);
+---
+
+<section
+  id="yoga-online"
+  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`}
+  style="background-color: #577874;"
+>
+  <div class="max-w-6xl mx-auto">
+    <article class="flex flex-col lg:flex-row items-start gap-12">
+      <!-- Imagen a la izquierda -->
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeLeft}>
+        <figure class="relative">
+          <div
+            class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"
+            style="background-color: #e0a6a8;"
+          >
+          </div>
+          <img
+            src="/img/yoga-online.png"
+            alt="Clases de Yoga Online desde casa"
+            class="relative z-10 w-full aspect-square rounded-sm shadow-md object-cover"
+          />
+        </figure>
+      </div>
+
+      <!-- Texto a la derecha -->
+      <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeRight}>
+        <h2
+          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
+        >
+          {t("yogaOnline.title")}
+          <span
+            class="absolute -bottom-2 left-0 w-16 h-1 rounded-full"
+            style="background-color: #e0a6a8;"></span>
+        </h2>
+
+        <div class="space-y-4 text-white leading-relaxed">
+          <p class={RESPONSIVE_CLASSES.text.body}>
+            {t("yogaOnline.description1")}
+          </p>
+          <p class={RESPONSIVE_CLASSES.text.body}>
+            {t("yogaOnline.description2")}
+          </p>
+
+          <!-- Beneficios -->
+          <div class="mt-6">
+            <h3
+              class={`${RESPONSIVE_CLASSES.text.large} font-heading text-white mb-4`}
+            >
+              {t("yogaOnline.benefitsTitle")}
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-2 h-2 bg-lucia-rose rounded-full mt-2 mr-3"
+                >
+                </div>
+                <span class={RESPONSIVE_CLASSES.text.body}
+                  >{t("yogaOnline.benefit1")}</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-2 h-2 bg-lucia-rose rounded-full mt-2 mr-3"
+                >
+                </div>
+                <span class={RESPONSIVE_CLASSES.text.body}
+                  >{t("yogaOnline.benefit2")}</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-2 h-2 bg-lucia-rose rounded-full mt-2 mr-3"
+                >
+                </div>
+                <span class={RESPONSIVE_CLASSES.text.body}
+                  >{t("yogaOnline.benefit3")}</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-2 h-2 bg-lucia-rose rounded-full mt-2 mr-3"
+                >
+                </div>
+                <span class={RESPONSIVE_CLASSES.text.body}
+                  >{t("yogaOnline.benefit4")}</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-2 h-2 bg-lucia-rose rounded-full mt-2 mr-3"
+                >
+                </div>
+                <span class={RESPONSIVE_CLASSES.text.body}
+                  >{t("yogaOnline.benefit5")}</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-8">
+          <CTAButton
+            href={EXTERNAL_LINKS.YOGA_ONLINE}
+            variant="secondary"
+            size="medium"
+            target="_blank"
+          >
+            {t("yogaOnline.cta")}
+          </CTAButton>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

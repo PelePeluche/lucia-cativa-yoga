@@ -6,13 +6,27 @@ import { LANGUAGES, localizedUrl } from '../../i18n/utils.ts';
 
 // Use centralized i18n hook
 const { currentLang, t, pathname } = useI18n(Astro.request);
-
-// List of available languages for the language switcher
-const availableLanguages = Object.entries(LANGUAGES);
-const currentLanguageName = LANGUAGES[currentLang as keyof typeof LANGUAGES];
 ---
 
+<script src="/src/scripts/header.ts"></script>
+
 <style>
+  @media (max-width: 767px) {
+    .desktop-nav {
+      display: none !important;
+    }
+    .mobile-nav {
+      display: block !important;
+    }
+  }
+  @media (min-width: 768px) {
+    .mobile-nav {
+      display: none !important;
+    }
+    .desktop-nav {
+      display: block !important;
+    }
+  }
   .nav-link {
     @apply text-xs sm:text-sm font-medium transition-colors duration-200;
     color: #9a8576;
@@ -30,42 +44,53 @@ const currentLanguageName = LANGUAGES[currentLang as keyof typeof LANGUAGES];
   .nav-fixed {
     @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
   }
-  .nav-shadow {
-    @apply shadow-md;
-  }
-  .language-switcher {
-    @apply ml-4 relative;
-  }
-  .language-switcher-button {
-    @apply flex items-center text-xs sm:text-sm font-medium;
-    color: #9a8576;
-  }
-  .language-switcher-button:hover {
-    color: #a3738b;
-  }
-  .language-dropdown {
-    @apply hidden absolute right-0 mt-2 py-2 w-32 rounded-md shadow-lg z-50;
-    background-color: #f9f0dc;
-    border: 1px solid #e0a6a8;
-  }
-  .language-dropdown.show {
-    @apply block;
-  }
-  .language-option {
-    @apply block w-full text-left px-4 py-2 text-sm;
-    color: #9a8576;
-  }
-  .language-option:hover {
-    background-color: #e0a6a8;
-  }
 </style>
 
-<nav id="main-nav" class="nav-fixed py-2 sm:py-3 w-full bg-lucia-cream border-b border-lucia-rose">
+<!-- Mobile Navigation -->
+<nav class="mobile-nav" style="display: none;">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #f9f0dc;">
+    <a href="/" style="font-size: 1.125rem; font-weight: bold; color: #000000; text-decoration: none; letter-spacing: 0.025em;">LU CATIVA</a>
+    <button id="mobile-menu-toggle" type="button" style="background: none; border: none; color: #9a8576; cursor: pointer; padding: 4px;">
+      <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 40; visibility: hidden; opacity: 0; transition: all 0.3s ease;"></div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" style="position: fixed; top: 0; right: 0; height: 100%; width: 300px; max-width: 85vw; background: #f9f0dc; z-index: 50; transform: translateX(100%); transition: transform 0.3s ease; box-shadow: -4px 0 8px rgba(0,0,0,0.1);">
+    <div style="padding: 16px; border-bottom: 1px solid #e0a6a8; display: flex; justify-content: space-between; align-items: center;">
+      <a href="/" style="font-size: 1.125rem; font-weight: bold; color: #000000; text-decoration: none; letter-spacing: 0.025em;">LU CATIVA</a>
+      <button id="mobile-menu-close" type="button" style="background: none; border: none; color: #9a8576; cursor: pointer; padding: 4px;">
+        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+      <a href="/#sobre-mi" class="nav-link" style="font-size: 1rem; font-weight: 500;">{t('nav.aboutMe')}</a>
+      <a href="/yoga-online" class="nav-link" style="font-size: 1rem; font-weight: 500;">{t('nav.onlineYoga')}</a>
+      <a href="/yoga-presencial" class="nav-link" style="font-size: 1rem; font-weight: 500;">{t('nav.inPersonYoga')}</a>
+      <a href="/blog" class="nav-link" style="font-size: 1rem; font-weight: 500;">Blog</a>
+      
+      <!-- Mobile Contact Button -->
+      <div style="padding-top: 8px;">
+        <a href="/#contacto" class="contact-button" style="display: inline-block; text-align: center;">{t('nav.contact')}</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Desktop Navigation -->
+<nav id="main-nav" class="desktop-nav nav-fixed py-2 sm:py-3 w-full bg-lucia-cream">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between">
       <!-- Logo on the left -->  
       <div>
-        <a href="/" class="text-lg sm:text-xl md:text-2xl font-logo tracking-wide text-lucia-mauve">LU CATIVA</a>
+        <a href="/" class="text-lg sm:text-xl md:text-2xl font-logo tracking-wide" style="color: #000000;">LU CATIVA</a>
       </div>
       
       <!-- Central navigation menu -->  
@@ -76,25 +101,10 @@ const currentLanguageName = LANGUAGES[currentLang as keyof typeof LANGUAGES];
         <a href="/blog" class="nav-link">Blog</a>
       </div>
       
-      <!-- Contact button and language switcher --> 
+      <!-- Contact button --> 
       <div class="flex items-center">
         <a href="/#contacto" class="contact-button">{t('nav.contact')}</a>
-        
-        <!-- Language switcher dropdown -->
-        <div class="language-switcher group">
-          <button class="language-switcher-button" id="language-toggle">
-            <span>{currentLanguageName}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="language-dropdown" id="language-menu">
-            <a href="/" class="language-option">Español</a>
-            <a href="/en" class="language-option">English</a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </nav>
-

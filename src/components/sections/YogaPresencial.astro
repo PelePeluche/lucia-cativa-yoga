@@ -1,0 +1,96 @@
+---
+// Yoga Presencial section component
+import { useI18n } from "../../i18n/useI18n.ts";
+import CTAButton from "../ui/buttons/CTAButton.astro";
+import {
+  SECTION_SPACING,
+  AOS_PRESETS,
+  RESPONSIVE_CLASSES,
+  EXTERNAL_LINKS,
+} from "../../constants";
+
+// Use centralized i18n hook
+const { t } = useI18n(Astro.request);
+---
+
+<section
+  id="yoga-presencial"
+  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`}
+  style="background-color: #577874;"
+>
+  <div class="max-w-6xl mx-auto">
+    <article class="flex flex-col lg:flex-row items-start gap-12">
+      <!-- Texto a la izquierda -->
+      <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeLeft}>
+        <h2
+          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
+        >
+          {t("yogaPresencial.title")}
+          <span
+            class="absolute -bottom-2 left-0 w-16 h-1 rounded-full"
+            style="background-color: #e0a6a8;"></span>
+        </h2>
+
+        <div class="space-y-4 text-white leading-relaxed">
+          <p class={RESPONSIVE_CLASSES.text.body}>
+            {t("yogaPresencial.description1")}
+          </p>
+          <p class={RESPONSIVE_CLASSES.text.body}>
+            {t("yogaPresencial.description2")}
+          </p>
+          <p class={RESPONSIVE_CLASSES.text.body}>
+            {t("yogaPresencial.description3")}
+          </p>
+          <p class={RESPONSIVE_CLASSES.text.body}>
+            {t("yogaPresencial.description4")}
+          </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-8">
+          <CTAButton
+            href={EXTERNAL_LINKS.YOGA_PRESENCIAL}
+            variant="secondary"
+            size="medium"
+            target="_blank"
+          >
+            {t("yogaPresencial.cta")}
+          </CTAButton>
+        </div>
+      </div>
+
+      <!-- Imágenes a la derecha -->
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeRight}>
+        <div class="grid grid-cols-1 gap-4">
+          <!-- Primera imagen -->
+          <figure class="relative">
+            <div
+              class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"
+              style="background-color: #e0a6a8;"
+            >
+            </div>
+            <img
+              src="/img/yoga-presencial-1.png"
+              alt="Clase de Yoga Presencial - Ambiente del estudio"
+              class="relative z-10 w-full aspect-[4/3] rounded-sm shadow-md object-cover"
+            />
+          </figure>
+
+          <!-- Segunda imagen -->
+          <figure class="relative">
+            <div
+              class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"
+              style="background-color: #577874;"
+            >
+            </div>
+            <img
+              src="/img/yoga-presencial-2.png"
+              alt="Práctica de Yoga Presencial en grupo"
+              class="relative z-10 w-full aspect-[4/3] rounded-sm shadow-md object-cover"
+            />
+          </figure>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,59 +1,72 @@
 ---
 // Hero section component
-import { useI18n } from '../../i18n/useI18n.ts';
-import CTAButton from '../ui/buttons/CTAButton.astro';
-import { SECTION_SPACING, AOS_PRESETS, ANIMATIONS, RESPONSIVE_CLASSES } from '../../constants';
+import { useI18n } from "../../i18n/useI18n.ts";
+import CTAButton from "../ui/buttons/CTAButton.astro";
+import {
+  AOS_PRESETS,
+  RESPONSIVE_CLASSES,
+  EXTERNAL_LINKS,
+} from "../../constants";
 
 // Use centralized i18n hook
-const { currentLang, t } = useI18n(Astro.request);
+const { t } = useI18n(Astro.request);
 ---
 
 <section class="relative w-full h-[80vh]">
   <!-- Background image -->
-  <img 
-    src="/img/hero-yoga.jpeg" 
-    alt="Lucía Cativa - Vinyasa Yoga Online" 
+  <img
+    src="/img/hero-yoga.jpeg"
+    alt="Lucía Cativa - Vinyasa Yoga Online"
     class="absolute inset-0 w-full h-full object-cover"
   />
   <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-  
+
   <!-- Hero content overlay aligned with header -->
   <div class="absolute top-0 right-0 w-full h-full flex items-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="max-w-6xl mx-auto px-4 w-full">
       <div class="text-right py-8 md:py-12">
         <!-- Personal greeting first -->
-        <p class={`font-body ${RESPONSIVE_CLASSES.text.large} text-white mb-3 tracking-wide opacity-90 max-w-md ml-auto`}>
-          Hola, soy Lucía Cativa.<br />
-          Bienvenid@ a mi espacio de
-        </p>
-        
+        <p
+          class={`font-body ${RESPONSIVE_CLASSES.text.large} text-white mb-3 tracking-wide opacity-90 max-w-md ml-auto`}
+          set:html={t("hero.greeting")}
+        />
+
         <!-- Main H1 title - Vinyasa Yoga with two colors -->
-        <h1 class={`font-heading ${RESPONSIVE_CLASSES.text.hero} mb-4 leading-none`}>
-          <span style="color: rgba(163, 115, 139, 0.8);">Vinyasa</span><span class="text-white">Yoga</span>
+        <h1
+          class={`font-heading ${RESPONSIVE_CLASSES.text.hero} mb-4 leading-none`}
+        >
+          <span style="color: rgba(163, 115, 139, 0.8);">Vinyasa</span><span
+            class="text-white">Yoga</span
+          >
         </h1>
-        
+
         <!-- Subtitle -->
-        <p class={`font-body ${RESPONSIVE_CLASSES.text.large} mb-8 text-white leading-relaxed max-w-md ml-auto opacity-95`}>
-          Una práctica dinámica y consciente,<br />
-          para moverte con fuerza,<br />
-          sensibilidad y presencia.
-        </p>
-      
+        <p
+          class={`font-body ${RESPONSIVE_CLASSES.text.large} mb-8 text-white leading-relaxed max-w-md ml-auto opacity-95`}
+          set:html={t("hero.subtitle")}
+        />
+
         <!-- Call to action buttons aligned to the right -->
-        <div class="flex justify-end space-x-4" {...AOS_PRESETS.fadeUp}>
-          <CTAButton 
-            href="#practica-conmigo"
+        <div
+          class="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4"
+          {...AOS_PRESETS.fadeUp}
+        >
+          <CTAButton
+            href={EXTERNAL_LINKS.PRACTICE_SECTION}
             variant="primary"
             size="medium"
+            class="w-full sm:w-auto"
           >
-            {t('hero.cta1')}
+            {t("hero.cta1")}
           </CTAButton>
-          <CTAButton 
-            href="/yoga-online"
+          <CTAButton
+            href={EXTERNAL_LINKS.YOGA_ONLINE}
             variant="secondary"
             size="medium"
+            target="_blank"
+            class="w-full sm:w-auto"
           >
-            {t('hero.cta2')}
+            {t("hero.cta2")}
           </CTAButton>
         </div>
       </div>

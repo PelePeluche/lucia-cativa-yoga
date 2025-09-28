@@ -7,12 +7,11 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Online Vinyasa Yoga Classes with Lucía Cativa",
-    "subtitle": "Move with strength, awareness and sensitivity from wherever you are.",
-    "greeting": "Hello, I'm Lucía.",
-    "welcome": "Welcome to this online vinyasa yoga space: an intense, creative and sensitive practice, to return to the body, to the present and to the strength that is already in you.",
-    "cta1": "Start now",
-    "cta2": "See benefits"
+    "greeting": "Hello, I'm Lucía Cativa.<br />Welcome to my space of",
+    "title": "Vinyasa Yoga",
+    "subtitle": "A dynamic and conscious practice,<br />to move with strength,<br />sensitivity and presence.",
+    "cta1": "Practice with me",
+    "cta2": "Online yoga"
   },
   "aboutMe": {
     "title": "About Me",
@@ -52,8 +51,62 @@
       "description": "For those who need the body close and shared space. I offer private in-person classes in Córdoba, designed to measure what you are needing.",
       "details": "In addition, I propose intensive group practices with a concrete intention, on specific dates that I spread through networks. They are opportunities to move together, breathe at the same rhythm and inhabit the present with other bodies alongside.",
       "contact": "If you are interested in an individual class or want to join the next meetings, write to me and I'll tell you more.",
-      "cta": "Book your class"
+      "cta": "Book your class",
+      "followIG": "Follow me on IG"
     }
+  },
+  "practiceWithMe": {
+    "title": "Practice With Me",
+    "onlineButton": "Online Yoga",
+    "presentialButton": "In-Person Yoga"
+  },
+  "benefits": {
+    "title": "Benefits of Vinyasa Yoga",
+    "flexibility": {
+      "title": "Flexibility and Strength",
+      "description": "Develop flexibility and muscular strength in a balanced way"
+    },
+    "connection": {
+      "title": "Mind-Body Connection",
+      "description": "Strengthen the connection between your mind and body through breathing"
+    },
+    "stress": {
+      "title": "Stress Reduction",
+      "description": "Release tensions and find calm in your daily life"
+    },
+    "energy": {
+      "title": "Vital Energy",
+      "description": "Increase your energy and vitality naturally"
+    },
+    "cta": "Start my practice"
+  },
+  "testimonials": {
+    "title": "What my students say"
+  },
+  "yogaOnline": {
+    "title": "Online Yoga",
+    "description1": "This space is designed for you to practice at your own pace, from wherever you are, as many times as you want.",
+    "description2": "The classes are vinyasa yoga, a dynamic, intense and fluid style, where postures are linked in sequences synchronized with breathing.",
+    "benefitsTitle": "What will you find?",
+    "benefit1": "Access classes when and where you want.",
+    "benefit2": "Strengthen and make your body flexible without forcing it.",
+    "benefit3": "Connect with your breathing and reduce stress.",
+    "benefit4": "Find creative sequences that keep practice motivating.",
+    "benefit5": "Advance progressively, integrating each step at your own pace.",
+    "cta": "Start now"
+  },
+  "yogaOnlineVideo": {
+    "title": "Feel the practice",
+    "description": "A sample of the fluidity and connection you find in each class. This is how the body and breath come together in movement.",
+    "callToAction": "Do you feel the connection? This is how we live each online class. Write to me and let's start together!"
+  },
+  "yogaPresencial": {
+    "title": "In-Person Yoga",
+    "description1": "Regular group classes and intensive meetings in Córdoba.",
+    "description2": "A space to train in community, share the practice and inhabit the present with others alongside.",
+    "description3": "Each class maintains the intensity and fluidity of Vinyasa Yoga, but adapts with options that allow participation from different levels of experience.",
+    "description4": "In-person practice enhances collective energy and makes each encounter a unique experience.",
+    "cta": "Book your class"
   },
   "footer": {
     "copyright": "© 2025 Lu Cativa. All rights reserved.",

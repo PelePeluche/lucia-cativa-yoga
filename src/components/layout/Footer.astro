@@ -1,73 +1,85 @@
 ---
-// Footer component with newsletter, social links and legal information
-import { useI18n } from '../../i18n/useI18n.ts';
-import SocialIcon from '../ui/common/SocialIcon.astro';
-import NewsletterForm from '../../features/newsletter/NewsletterForm.astro';
-import { SOCIAL_LINKS } from '../../constants/site.ts';
-import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES } from '../../constants';
+// Footer component with social links, contact information and legal information
+import { useI18n } from "../../i18n/useI18n.ts";
+import SocialIcon from "../ui/common/SocialIcon.astro";
+import { RESPONSIVE_CLASSES, AOS_PRESETS } from "../../constants";
+import { SOCIAL_LINKS, SITE_CONFIG } from "../../constants/site.ts";
 
 // Use centralized i18n hook
-const { currentLang, t } = useI18n(Astro.request);
-
+const { t } = useI18n(Astro.request);
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="pt-12 pb-8 px-4 footer-bg">
-  <div class="max-w-7xl mx-auto">
-    <!-- Top section with logo, navigation and social media -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b footer-border">
-      
-      <!-- Logo and address info -->
+<footer class="py-8 px-4 bg-lucia-cream">
+  <div class="max-w-6xl mx-auto">
+    <!-- Compact footer layout -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-lucia-mauve border-opacity-30"
+    >
+      <!-- Left side: Logo and contact info -->
       <div {...AOS_PRESETS.fadeUp}>
-        <h3 class={`${RESPONSIVE_CLASSES.text.subheading} font-heading mb-4 text-lucia-mauve`}>LU CATIVA</h3>
-        <p class={`mb-2 ${RESPONSIVE_CLASSES.text.body} footer-text-muted`}>{t('footer.address')}</p>
-        <p class={`mb-2 ${RESPONSIVE_CLASSES.text.body} footer-text-muted`}>{t('footer.emailLabel')}: hola@luciacativa.com</p>
-        <p class={`${RESPONSIVE_CLASSES.text.body} footer-text-muted`}>{t('footer.phone')}</p>
-      </div>
-      
-      <!-- Quick links -->
-      <div {...AOS_PRESETS.fadeUp}>
-        <h3 class={`${RESPONSIVE_CLASSES.text.body} font-medium mb-4 uppercase tracking-wider`}>{t('footer.followMe')}</h3>
-        <div class="flex space-x-4 mb-6">
-          <!-- Social media icons -->
-          <SocialIcon 
-            platform="instagram" 
-            url={SOCIAL_LINKS.instagram} 
-          />
-          <SocialIcon 
-            platform="youtube" 
-            url={SOCIAL_LINKS.youtube} 
-          />
-          <SocialIcon 
-            platform="facebook" 
-            url="https://facebook.com/luciacativa" 
-          />
+        <h3
+          class={`${RESPONSIVE_CLASSES.text.large} font-heading mb-3 text-lucia-mauve`}
+        >
+          LU CATIVA
+        </h3>
+        <div class="space-y-1 text-sm">
+          <p class="text-lucia-brown opacity-80">{SITE_CONFIG.address}</p>
+          <p class="text-lucia-brown opacity-80">{SITE_CONFIG.email}</p>
+          <p class="text-lucia-brown opacity-80">{SITE_CONFIG.phone}</p>
         </div>
-        
+      </div>
+
+      <!-- Right side: Social media and legal links -->
+      <div {...AOS_PRESETS.fadeUp} class="md:text-right">
+        <h4
+          class={`${RESPONSIVE_CLASSES.text.body} font-medium mb-3 uppercase tracking-wider text-lucia-teal`}
+        >
+          {t("footer.followMe")}
+        </h4>
+        <div class="flex space-x-3 mb-4 md:justify-end">
+          <SocialIcon platform="instagram" url={SOCIAL_LINKS.instagram} />
+          {
+            SOCIAL_LINKS.facebook && (
+              <SocialIcon platform="facebook" url={SOCIAL_LINKS.facebook} />
+            )
+          }
+          {
+            SOCIAL_LINKS.tiktok && (
+              <SocialIcon platform="tiktok" url={SOCIAL_LINKS.tiktok} />
+            )
+          }
+        </div>
+
         <!-- Legal links -->
-        <div class="grid grid-cols-1 gap-2">
-          <a href="#" class="legal-link text-sm">
-            {t('footer.privacyPolicy')}
+        <div class="flex flex-wrap gap-3 text-xs md:justify-end">
+          <a
+            href="#"
+            class="text-lucia-brown opacity-60 hover:opacity-100 hover:text-lucia-mauve transition-all duration-200"
+          >
+            {t("footer.privacyPolicy")}
           </a>
-          <a href="#" class="legal-link text-sm">
-            {t('footer.termsOfService')}
+          <a
+            href="#"
+            class="text-lucia-brown opacity-60 hover:opacity-100 hover:text-lucia-mauve transition-all duration-200"
+          >
+            {t("footer.termsOfService")}
           </a>
-          <a href="#" class="legal-link text-sm">
-            {t('footer.cookiePolicy')}
+          <a
+            href="#"
+            class="text-lucia-brown opacity-60 hover:opacity-100 hover:text-lucia-mauve transition-all duration-200"
+          >
+            {t("footer.cookiePolicy")}
           </a>
         </div>
-      </div>
-      
-      <!-- Newsletter subscription -->
-      <div {...AOS_PRESETS.fadeUp}>
-        <NewsletterForm />
       </div>
     </div>
-    
+
     <!-- Bottom copyright section -->
-    <div class="pt-6 text-center">
-      <p class={`text-sm ${RESPONSIVE_CLASSES.text.body} footer-text-muted opacity-60`}>
-        &copy; {currentYear} {t('footer.copyright')}
+    <div class="pt-4 text-center">
+      <p class="text-xs text-lucia-brown opacity-50">
+        &copy; {currentYear}
+        {t("footer.copyright")}
       </p>
     </div>
   </div>

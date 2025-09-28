@@ -2,52 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import SectionTitle from '../components/ui/common/SectionTitle.astro';
-import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES, ANIMATIONS } from '../constants';
+import YogaPresencialSection from '../components/sections/YogaPresencial.astro';
 ---
 
 <Layout title="Yoga Presencial - Lu Cativa">
   <Header />
-  
-  <!-- Hero section -->
-  <section class="pt-24 pb-16 bg-lucia-rose bg-opacity-30">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h1 class={`${RESPONSIVE_CLASSES.text.heading} font-heading text-lucia-brown mb-6`}>
-        Yoga Presencial
-      </h1>
-    </div>
-  </section>
-
-  <!-- Contenido principal -->
-  <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-white`}>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      
-      <div class="text-center mb-12" {...AOS_PRESETS.fadeUp}>
-        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed mb-6`}>
-          Clases grupales regulares y encuentros intensivos en Córdoba.
-        </p>
-        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed mb-6`}>
-          Un espacio para entrenar en comunidad, compartir la práctica y habitar el presente con otros al lado.
-        </p>
-        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed mb-6`}>
-          Cada clase mantiene la intensidad y fluidez del Vinyasa Yoga, pero se adapta con opciones que permiten participar desde distintos niveles de experiencia.
-        </p>
-        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed mb-8`}>
-          La práctica presencial potencia la energía colectiva y hace de cada encuentro una experiencia única.
-        </p>
-      </div>
-      
-      <!-- CTA -->
-      <div class="text-center" {...AOS_PRESETS.fadeUp}>
-        <a 
-          href="#"
-          class={`inline-block px-8 py-4 bg-lucia-teal text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-mauve ${ANIMATIONS.transition.all} rounded-sm`}
-        >
-          RESERVA TU CLASE
-        </a>
-      </div>
-    </div>
-  </section>
-
+  <YogaPresencialSection />
   <Footer />
 </Layout>

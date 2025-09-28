@@ -33,6 +33,7 @@ export interface BenefitCardProps extends BaseComponentProps {
   icon: string;
   title: string;
   description: string;
+  delay?: number;
 }
 
 export interface TestimonialCardProps extends BaseComponentProps {
@@ -61,7 +62,7 @@ export interface TagListProps extends BaseComponentProps {
 }
 
 export interface SocialIconProps extends BaseComponentProps {
-  platform: 'instagram' | 'youtube' | 'facebook' | 'twitter';
+  platform: 'instagram' | 'facebook' | 'tiktok';
   url: string;
 }
 

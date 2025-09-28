@@ -1,69 +1,70 @@
 ---
 // Benefits section component
-import { useI18n } from '../../i18n/useI18n.ts';
-import SectionTitle from '../ui/common/SectionTitle.astro';
-import BenefitCard from '../ui/cards/BenefitCard.astro';
-import DecoratedImage from '../ui/common/DecoratedImage.astro';
-import CTAButton from '../ui/buttons/CTAButton.astro';
+import { useI18n } from "../../i18n/useI18n.ts";
+import SectionTitle from "../ui/common/SectionTitle.astro";
+import BenefitCard from "../ui/cards/BenefitCard.astro";
+import CTAButton from "../ui/buttons/CTAButton.astro";
 
 // Use centralized i18n hook
-const { currentLang, t } = useI18n(Astro.request);
+const { t } = useI18n(Astro.request);
 
-// Benefits data
+// Benefits data with translations
 const benefits = [
   {
     icon: "🧘‍♀️",
-    title: "Flexibilidad y Fuerza",
-    description: "Desarrolla flexibilidad y fuerza muscular de manera equilibrada"
+    title: t("benefits.flexibility.title"),
+    description: t("benefits.flexibility.description"),
   },
   {
     icon: "🌱",
-    title: "Conexión Mente-Cuerpo",
-    description: "Fortalece la conexión entre tu mente y cuerpo a través de la respiración"
+    title: t("benefits.connection.title"),
+    description: t("benefits.connection.description"),
   },
   {
     icon: "💆‍♀️",
-    title: "Reducción del Estrés",
-    description: "Libera tensiones y encuentra calma en tu día a día"
+    title: t("benefits.stress.title"),
+    description: t("benefits.stress.description"),
   },
   {
     icon: "⚡",
-    title: "Energía Vital",
-    description: "Aumenta tu energía y vitalidad de forma natural"
-  }
+    title: t("benefits.energy.title"),
+    description: t("benefits.energy.description"),
+  },
 ];
 ---
 
 <section id="beneficios" class="py-16 md:py-24 bg-lucia-cream">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <!-- Título de sección -->
-    <SectionTitle 
-      title="Beneficios del Vinyasa Yoga" 
-      alignment="center" 
-      titleColor="text-lucia-brown" 
+    <SectionTitle
+      title={t("benefits.title")}
+      alignment="center"
+      titleColor="text-lucia-brown"
       lineColor="bg-lucia-mauve"
     />
 
     <!-- Grid de beneficios -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
-      {benefits.map((benefit, index) => (
-        <BenefitCard 
-          icon={benefit.icon}
-          title={benefit.title}
-          description={benefit.description}
-          delay={300 + index * 100}
-        />
-      ))}
+    <div
+      class="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      {
+        benefits.map((benefit, index) => (
+          <BenefitCard
+            icon={benefit.icon}
+            title={benefit.title}
+            description={benefit.description}
+            delay={300 + index * 100}
+          />
+        ))
+      }
     </div>
 
     <!-- CTA -->
     <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="600">
-      <CTAButton 
-        href="/yoga-online"
-        variant="primary"
-        size="lg"
-      >
-        Comenzar mi práctica
+      <CTAButton href="/yoga-online" variant="primary" size="large">
+        {t("benefits.cta")}
       </CTAButton>
     </div>
   </div>
