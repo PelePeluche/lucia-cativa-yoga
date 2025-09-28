@@ -1,45 +1,23 @@
 ---
 // Yoga Online Video section component
-import { useI18n } from '../../i18n/useI18n.ts';
 import VideoPlayer from '../ui/media/VideoPlayer.astro';
-import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES } from '../../constants';
-
-// Use centralized i18n hook
-const { t } = useI18n(Astro.request);
+import { SECTION_SPACING, AOS_PRESETS } from '../../constants';
 ---
 
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`} style="background-color: #f9f0dc;">
   <div class="max-w-6xl mx-auto">
-    <article class="text-center">
-      <!-- Título de la sección -->
-      <div class="mb-12" {...AOS_PRESETS.fadeUp}>
-        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative inline-block`}>
-          {t("yogaOnlineVideo.title")}
-          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 rounded-full" style="background-color: #e0a6a8;"></span>
-        </h2>
-        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed max-w-2xl mx-auto`}>
-          {t("yogaOnlineVideo.description")}
-        </p>
+    <!-- Video Player Only -->
+    <div {...AOS_PRESETS.fadeUp}>
+      <div class="max-w-4xl mx-auto">
+        <VideoPlayer
+          src="/videos/presentacion-yoga.mp4"
+          title="Presentación de Lucía Cativa - Yoga Online"
+          poster="/img/hero-yoga.jpeg"
+          autoplay={true}
+          muted={false}
+          className="rounded-lg shadow-xl"
+        />
       </div>
-      
-      <!-- Video Player -->
-      <div class="mb-8" {...AOS_PRESETS.fadeUp}>
-        <div class="max-w-4xl mx-auto">
-          <VideoPlayer
-            src="/videos/presentacion-yoga.mp4"
-            title="Presentación de Lucía Cativa - Yoga Online"
-            poster="/img/hero-yoga.jpeg"
-            className="rounded-lg shadow-xl"
-          />
-        </div>
-      </div>
-      
-      <!-- Texto adicional opcional -->
-      <div class="max-w-2xl mx-auto" {...AOS_PRESETS.fadeUp}>
-        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-brown leading-relaxed opacity-90`}>
-          {t("yogaOnlineVideo.callToAction")}
-        </p>
-      </div>
-    </article>
+    </div>
   </div>
 </section>

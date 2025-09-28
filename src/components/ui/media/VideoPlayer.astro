@@ -49,13 +49,14 @@ const videoSrc = isYouTube ? `https://www.youtube.com/embed/${youtubeId}` : src;
   ) : (
     <!-- Local Video -->
     <video
+      id={`video-${Math.random().toString(36).substr(2, 9)}`}
       class="w-full h-auto rounded-lg shadow-lg"
       src={videoSrc}
       title={title}
       poster={poster}
       controls={controls}
       autoplay={autoplay}
-      muted={muted}
+      {...(muted ? { muted: true } : {})}
       loop={loop}
       preload="metadata"
       style={`width: ${width}; height: ${height};`}
@@ -85,3 +86,69 @@ const videoSrc = isYouTube ? `https://www.youtube.com/embed/${youtubeId}` : src;
     }
   }
 </style>
+
+{!isYouTube && autoplay && (
+  <script define:vars={{ muted }}>
+    document.addEventListener('DOMContentLoaded', function() {
+      const videos = document.querySelectorAll('video[autoplay]');
+      
+      function tryPlayVideo(video) {
+        console.log('Trying to play video with muted =', muted);
+        
+        // Set muted state from component prop
+        video.muted = muted;
+        console.log('Video muted property set to:', video.muted);
+        
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            console.log('Video playing successfully with muted =', video.muted);
+          }).catch((error) => {
+            console.log('Autoplay failed:', error.message);
+            // If autoplay fails and video was supposed to be unmuted, try muted autoplay
+            if (!muted) {
+              console.log('Autoplay with sound blocked, trying muted autoplay');
+              video.muted = true;
+              video.play().then(() => {
+                console.log('Video now playing muted as fallback');
+              }).catch((e) => {
+                console.log('Autoplay completely blocked:', e);
+              });
+            }
+          });
+        }
+      }
+      
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            tryPlayVideo(video);
+          } else {
+            video.pause();
+          }
+        });
+      }, {
+        threshold: 0.5 // Play when 50% of video is visible
+      });
+      
+      videos.forEach(video => {
+        console.log('Video element found:', video);
+        console.log('Video has muted attribute:', video.hasAttribute('muted'));
+        console.log('Video muted property:', video.muted);
+        console.log('Component muted prop:', muted);
+        
+        videoObserver.observe(video);
+        
+        // Check if video is already visible on page load
+        const rect = video.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        console.log('Video is visible on load:', isVisible);
+        if (isVisible) {
+          setTimeout(() => tryPlayVideo(video), 100); // Small delay to ensure everything is loaded
+        }
+      });
+    });
+  </script>
+)}
