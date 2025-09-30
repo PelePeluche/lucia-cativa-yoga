@@ -2,7 +2,7 @@
 // Footer component with social links, contact information and legal information
 import { useI18n } from "../../i18n/useI18n.ts";
 import SocialIcon from "../ui/common/SocialIcon.astro";
-import { RESPONSIVE_CLASSES, AOS_PRESETS } from "../../constants";
+import { RESPONSIVE_CLASSES } from "../../constants";
 import { SOCIAL_LINKS, SITE_CONFIG } from "../../constants/site.ts";
 
 // Use centralized i18n hook
@@ -17,12 +17,12 @@ const currentYear = new Date().getFullYear();
       class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-lucia-mauve border-opacity-30"
     >
       <!-- Left side: Logo and contact info -->
-      <div {...AOS_PRESETS.fadeUp}>
-        <h3
-          class={`${RESPONSIVE_CLASSES.text.large} font-heading mb-3 text-lucia-mauve`}
-        >
-          LU CATIVA
-        </h3>
+      <div>
+        <div class="mb-3">
+          <div class="overflow-hidden flex items-center justify-start" style="width: 180px; height: 72px;">
+            <img src="/img/IDENTIDAD YOGA (2).svg" alt="Lucía Cativa Yoga" class="object-cover object-center" style="height: 120px; width: auto;">
+          </div>
+        </div>
         <div class="space-y-1 text-sm">
           <p class="text-lucia-brown opacity-80">{SITE_CONFIG.address}</p>
           <p class="text-lucia-brown opacity-80">{SITE_CONFIG.email}</p>
@@ -31,7 +31,7 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <!-- Right side: Social media and legal links -->
-      <div {...AOS_PRESETS.fadeUp} class="md:text-right">
+      <div class="md:text-right">
         <h4
           class={`${RESPONSIVE_CLASSES.text.body} font-medium mb-3 uppercase tracking-wider text-lucia-teal`}
         >
