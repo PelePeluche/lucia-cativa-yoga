@@ -1,13 +1,13 @@
 ---
 // Yoga Online Video section component
 import VideoPlayer from '../ui/media/VideoPlayer.astro';
-import { SECTION_SPACING, AOS_PRESETS } from '../../constants';
+import { SECTION_SPACING } from '../../constants';
 ---
 
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`} style="background-color: #f9f0dc;">
   <div class="max-w-6xl mx-auto">
     <!-- Video Player Only -->
-    <div {...AOS_PRESETS.fadeUp}>
+    <div>
       <div class="max-w-4xl mx-auto">
         <VideoPlayer
           src="/videos/presentacion-yoga.mp4"

@@ -4,7 +4,6 @@ import DecoratedImage from "../ui/common/DecoratedImage.astro";
 import { useI18n } from "../../i18n/useI18n.ts";
 import {
   SECTION_SPACING,
-  AOS_PRESETS,
   RESPONSIVE_CLASSES,
 } from "../../constants";
 
@@ -19,16 +18,16 @@ const { currentLang, t } = useI18n(Astro.request);
 >
   <div class="max-w-6xl mx-auto">
     <article class="flex flex-col lg:flex-row items-start gap-12">
-      <!-- Profile image with animation from left -->
-      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeRight}>
+      <!-- Profile image -->
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
         <DecoratedImage
           src="/img/sobre-mi.jpg"
           alt="Lucía Cativa - Instructora de Vinyasa Yoga"
         />
       </div>
 
-      <!-- Text content with animation from right -->
-      <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeLeft}>
+      <!-- Text content -->
+      <div class="w-full lg:w-3/5">
         <h2
           class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}
         >

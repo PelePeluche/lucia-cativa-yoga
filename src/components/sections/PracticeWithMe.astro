@@ -4,7 +4,6 @@ import { useI18n } from "../../i18n/useI18n.ts";
 import CTAButton from "../ui/buttons/CTAButton.astro";
 import {
   SECTION_SPACING,
-  AOS_PRESETS,
   RESPONSIVE_CLASSES,
   EXTERNAL_LINKS,
 } from "../../constants";
@@ -21,7 +20,7 @@ const { t } = useI18n(Astro.request);
   <div class="max-w-6xl mx-auto">
     <article class="flex flex-col lg:flex-row items-start gap-12 mt-12">
       <!-- Texto a la izquierda -->
-      <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeUp}>
+      <div class="w-full lg:w-3/5">
         <h2
           class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
         >
@@ -63,7 +62,7 @@ const { t } = useI18n(Astro.request);
       </div>
 
       <!-- Imagen a la derecha -->
-      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeUp}>
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
         <figure class="relative">
           <div
             class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"

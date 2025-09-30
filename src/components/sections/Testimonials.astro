@@ -5,7 +5,6 @@ import TestimonialCard from "../ui/cards/TestimonialCard.astro";
 import CTAButton from "../ui/buttons/CTAButton.astro";
 import {
   SECTION_SPACING,
-  AOS_PRESETS,
   RESPONSIVE_CLASSES,
 } from "../../constants";
 
@@ -38,7 +37,7 @@ const testimonials = testimonialsData.testimonials;
     </div>
 
     <!-- Carrousel de testimonios -->
-    <div class="relative max-w-6xl mx-auto" {...AOS_PRESETS.fadeUp}>
+    <div class="relative max-w-6xl mx-auto">
       <div class="overflow-hidden rounded-lg">
         <div
           id="testimonials-carousel"
@@ -203,7 +202,6 @@ const testimonials = testimonialsData.testimonials;
     <!-- CTA -->
     <div
       class={`text-center ${SECTION_SPACING.margin.large} mt-16`}
-      {...AOS_PRESETS.fadeUp}
     >
       <p class={`text-lucia-brown mb-6 ${RESPONSIVE_CLASSES.text.subheading}`}>
         ¿Lista para comenzar tu transformación?

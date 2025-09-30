@@ -4,7 +4,6 @@ import { useI18n } from "../../i18n/useI18n.ts";
 import CTAButton from "../ui/buttons/CTAButton.astro";
 import {
   SECTION_SPACING,
-  AOS_PRESETS,
   RESPONSIVE_CLASSES,
   EXTERNAL_LINKS,
 } from "../../constants";
@@ -21,7 +20,7 @@ const { t } = useI18n(Astro.request);
   <div class="max-w-6xl mx-auto">
     <article class="flex flex-col lg:flex-row items-start gap-16">
       <!-- Texto a la izquierda -->
-      <div class="w-full lg:w-3/5" {...AOS_PRESETS.fadeLeft}>
+      <div class="w-full lg:w-3/5">
         <h2
           class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
         >
@@ -60,7 +59,7 @@ const { t } = useI18n(Astro.request);
       </div>
 
       <!-- Imagen a la derecha -->
-      <div class="w-full lg:w-2/5 mb-8 lg:mb-0" {...AOS_PRESETS.fadeRight}>
+      <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
         <!-- Yoga Presencial 2 -->
         <figure class="relative">
           <div
