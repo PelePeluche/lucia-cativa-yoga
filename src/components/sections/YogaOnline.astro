@@ -1,7 +1,8 @@
 ---
-// Yoga Online section component
+// Yoga Online section component - Alternating sections
 import { useI18n } from "../../i18n/useI18n.ts";
 import CTAButton from "../ui/buttons/CTAButton.astro";
+import DecoratedImage from "../ui/common/DecoratedImage.astro";
 import {
   SECTION_SPACING,
   RESPONSIVE_CLASSES,
@@ -12,85 +13,144 @@ import {
 const { t } = useI18n(Astro.request);
 ---
 
-<section
-  id="yoga-online"
-  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`}
-  style="background-color: #577874;"
->
+<!-- Section 1: Hero with Image + Intro -->
+<section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
-    <article class="flex flex-col lg:flex-row items-start gap-12">
-      <!-- Imagen a la izquierda -->
-      <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
-        <figure class="relative">
-          <div
-            class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"
-            style="background-color: #e0a6a8;"
-          >
-          </div>
-          <img
-            src="/img/yoga-online.png"
-            alt="Clases de Yoga Online desde casa"
-            class="relative z-10 w-full aspect-square rounded-sm shadow-md object-cover"
-          />
-        </figure>
+    <article class="flex flex-col lg:flex-row items-stretch gap-12">
+      <div class="w-full lg:w-2/5">
+        <DecoratedImage
+          src="/img/YOGA ONLINE.jpg"
+          alt="Yoga Online"
+        />
       </div>
-
-      <!-- Texto a la derecha -->
-      <div class="w-full lg:w-3/5">
-        <h2
-          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
-        >
-          {t("yogaOnline.title")}
-          <span
-            class="absolute -bottom-2 left-0 w-16 h-1 rounded-full"
-            style="background-color: #e0a6a8;"></span>
-        </h2>
-
-        <div class="space-y-4 text-white leading-relaxed">
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("yogaOnline.description1")}
-          </p>
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("yogaOnline.description2")}
-          </p>
-
-          <!-- Beneficios -->
-          <div class="mt-6">
-            <h3
-              class={`${RESPONSIVE_CLASSES.text.large} font-heading text-white mb-4`}
-            >
-              {t("yogaOnline.benefitsTitle")}
-            </h3>
-            <ul class="space-y-3 list-disc list-inside">
-              <li class={`${RESPONSIVE_CLASSES.text.body} text-white`}>
-                {t("yogaOnline.benefit1")}
-              </li>
-              <li class={`${RESPONSIVE_CLASSES.text.body} text-white`}>
-                {t("yogaOnline.benefit2")}
-              </li>
-              <li class={`${RESPONSIVE_CLASSES.text.body} text-white`}>
-                {t("yogaOnline.benefit3")}
-              </li>
-              <li class={`${RESPONSIVE_CLASSES.text.body} text-white`}>
-                {t("yogaOnline.benefit4")}
-              </li>
-              <li class={`${RESPONSIVE_CLASSES.text.body} text-white`}>
-                {t("yogaOnline.benefit5")}
-              </li>
-            </ul>
+      <div class="w-full lg:w-3/5 flex flex-col justify-between">
+        <!-- Bloque 1: Título + Intro -->
+        <div>
+          <h1 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}>
+            {t("yogaOnline.title")}
+            <span class="absolute -bottom-2 left-0 w-16 h-1 rounded-full" style="background-color: #e0a6a8;"></span>
+          </h1>
+          <div class="space-y-4 text-lucia-brown leading-relaxed">
+            <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro1")} />
+            <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro2")} />
+            <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro3")} />
           </div>
         </div>
 
+        <!-- Bloque 2: Cómo funciona -->
+        <div class="text-lucia-brown mt-12 lg:mt-0">
+          <p class={`font-heading ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro4")}</p>
+          <ol class="space-y-2 pl-4 leading-relaxed">
+            <li class={RESPONSIVE_CLASSES.text.body}>1. {t("yogaOnline.step1")}</li>
+            <li class={RESPONSIVE_CLASSES.text.body}>2. {t("yogaOnline.step2")}</li>
+            <li class={RESPONSIVE_CLASSES.text.body}>3. {t("yogaOnline.step3")}</li>
+          </ol>
+        </div>
+
+        <!-- Bloque 3: Guía de acompañamiento -->
+        <div class="text-lucia-brown leading-relaxed mt-12 lg:mt-0">
+          <p class={`font-heading ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro5Title")}</p>
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro5")} />
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Section 2: Horarios y Valores en Tarjetas -->
+<section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Tarjeta Horarios -->
+      <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #e0a6a8;">
+        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
+          {t("yogaOnline.schedulesTitle")}
+          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
+        </h2>
+        <div class="space-y-4 text-white text-center">
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            <span class="font-bold">Miércoles 10:00 hs</span> | Intenso
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            <span class="font-bold">Miércoles 19:00 hs</span> | Accesible
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-rose italic mt-6`}>
+            {t("yogaOnline.scheduleNote")}
+          </p>
+        </div>
+      </div>
+
+      <!-- Tarjeta Valores -->
+      <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #e0a6a8;">
+        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
+          {t("yogaOnline.pricesTitle")}
+          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
+        </h2>
+        <div class="space-y-4 text-white text-center">
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaOnline.priceArg")}</p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaOnline.priceInt")}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Beneficios + CTA -->
+<section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`} style="background-color: #577874;">
+  <div class="max-w-6xl mx-auto">
+    <article class="flex flex-col lg:flex-row items-start gap-12">
+      <!-- Texto izquierda -->
+      <div class="w-full lg:w-1/2 lg:pt-12">
+        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-8 relative pb-2`}>
+          {t("yogaOnline.benefitsTitle")}
+          <span class="absolute bottom-0 left-0 w-16 h-1 rounded-full bg-lucia-rose"></span>
+        </h2>
+        <div class="space-y-4 mb-12">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#a3738b" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-white`} set:html={t("yogaOnline.benefit1")} />
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#a3738b" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-white`} set:html={t("yogaOnline.benefit2")} />
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#a3738b" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-white`} set:html={t("yogaOnline.benefit3")} />
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="#a3738b" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class={`${RESPONSIVE_CLASSES.text.body} text-white`} set:html={t("yogaOnline.benefit4")} />
+          </div>
+        </div>
+        
         <!-- CTA -->
-        <div class="mt-8">
-          <CTAButton
-            href={EXTERNAL_LINKS.YOGA_ONLINE}
-            variant="secondary"
-            size="medium"
-            target="_blank"
-          >
-            {t("yogaOnline.cta")}
-          </CTAButton>
+        <CTAButton
+          href={EXTERNAL_LINKS.YOGA_ONLINE_WHATSAPP}
+          variant="primary"
+          size="large"
+          target="_blank"
+          class="w-full sm:w-auto"
+        >
+          {t("yogaOnline.cta")}
+        </CTAButton>
+      </div>
+
+      <!-- Imagen derecha -->
+      <div class="w-full lg:w-1/2 flex items-start justify-center">
+        <div class="max-w-sm">
+          <DecoratedImage
+            src="/img/YOGA ONLINE 2.jpg"
+            alt="Beneficios Yoga Online"
+          />
         </div>
       </div>
     </article>

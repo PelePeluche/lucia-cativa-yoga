@@ -12,23 +12,23 @@ const currentYear = new Date().getFullYear();
 
 <footer class="py-8 px-4 bg-lucia-cream">
   <div class="max-w-6xl mx-auto">
-    <!-- Compact footer layout -->
+    <!-- Footer grid: Logo, Contact, Social - all bottom aligned -->
     <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6 border-b border-lucia-mauve border-opacity-30"
+      class="grid grid-cols-1 md:grid-cols-3 gap-6 pb-6 border-b border-lucia-mauve border-opacity-30 md:items-end"
     >
-      <!-- Left side: Logo and contact info -->
+      <!-- Logo -->
       <div>
-        <div class="mb-3">
-          <img src="/img/IDENTIDAD YOGA (500 x 150 px).svg" alt="Lucía Cativa Yoga" class="h-16 w-auto">
-        </div>
-        <div class="space-y-1 text-sm">
-          <p class="text-lucia-brown opacity-80">{SITE_CONFIG.address}</p>
-          <p class="text-lucia-brown opacity-80">{SITE_CONFIG.email}</p>
-          <p class="text-lucia-brown opacity-80">{SITE_CONFIG.phone}</p>
-        </div>
+        <img src="/img/IDENTIDAD YOGA (500 x 150 px).svg" alt="Lucía Cativa Yoga" class="h-16 w-auto">
       </div>
 
-      <!-- Right side: Social media and legal links -->
+      <!-- Contact info -->
+      <div class="space-y-1 text-sm md:text-center">
+        <p class="text-lucia-brown opacity-80">{SITE_CONFIG.address}</p>
+        <p class="text-lucia-brown opacity-80">{SITE_CONFIG.email}</p>
+        <p class="text-lucia-brown opacity-80">{SITE_CONFIG.phone}</p>
+      </div>
+
+      <!-- Social media and legal links -->
       <div class="md:text-right">
         <h4
           class={`${RESPONSIVE_CLASSES.text.body} font-medium mb-3 uppercase tracking-wider text-lucia-teal`}
@@ -43,6 +43,11 @@ const currentYear = new Date().getFullYear();
             )
           }
           {
+            SOCIAL_LINKS.youtube && (
+              <SocialIcon platform="youtube" url={SOCIAL_LINKS.youtube} />
+            )
+          }
+          {
             SOCIAL_LINKS.tiktok && (
               <SocialIcon platform="tiktok" url={SOCIAL_LINKS.tiktok} />
             )
@@ -50,26 +55,7 @@ const currentYear = new Date().getFullYear();
         </div>
 
         <!-- Legal links -->
-        <div class="flex flex-wrap gap-3 text-xs md:justify-end">
-          <a
-            href="#"
-            class="text-lucia-brown opacity-60 hover:opacity-100 hover:text-lucia-mauve transition-all duration-200"
-          >
-            {t("footer.privacyPolicy")}
-          </a>
-          <a
-            href="#"
-            class="text-lucia-brown opacity-60 hover:opacity-100 hover:text-lucia-mauve transition-all duration-200"
-          >
-            {t("footer.termsOfService")}
-          </a>
-          <a
-            href="#"
-            class="text-lucia-brown opacity-60 hover:opacity-100 hover:text-lucia-mauve transition-all duration-200"
-          >
-            {t("footer.cookiePolicy")}
-          </a>
-        </div>
+       
       </div>
     </div>
 

@@ -9,5 +9,13 @@ export default defineConfig({
   site: 'https://lucia-cativa-yoga.pages.dev',
   build: {
     assets: '_astro'
+  },
+  vite: {
+    server: {
+      allowedHosts: [
+        'c31a4c55d15e.ngrok-free.app',
+        '.ngrok-free.app', // Permite cualquier subdominio de ngrok
+      ]
+    }
   }
 });

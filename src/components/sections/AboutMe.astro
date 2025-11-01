@@ -1,10 +1,12 @@
 ---
 // About Me section component
 import DecoratedImage from "../ui/common/DecoratedImage.astro";
+import CTAButton from "../ui/buttons/CTAButton.astro";
 import { useI18n } from "../../i18n/useI18n.ts";
 import {
   SECTION_SPACING,
   RESPONSIVE_CLASSES,
+  EXTERNAL_LINKS,
 } from "../../constants";
 
 // Use centralized i18n hook
@@ -21,7 +23,7 @@ const { currentLang, t } = useI18n(Astro.request);
       <!-- Profile image -->
       <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
         <DecoratedImage
-          src="/img/sobre-mi.jpg"
+          src="/img/YOGA SOBRE MI.jpg"
           alt="Lucía Cativa - Instructora de Vinyasa Yoga"
         />
       </div>
@@ -38,17 +40,22 @@ const { currentLang, t } = useI18n(Astro.request);
         </h2>
 
         <div class="space-y-4 text-lucia-brown leading-relaxed">
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("aboutMe.subtitle")}
-          </p>
-          <p
-            class={RESPONSIVE_CLASSES.text.body}
-            set:html={t("aboutMe.paragraph2")}
-          />
-          <p
-            class={RESPONSIVE_CLASSES.text.body}
-            set:html={t("aboutMe.paragraph3")}
-          />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.subtitle")} />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.paragraph1")} />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.paragraph2")} />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.paragraph3")} />
+        </div>
+
+        <!-- CTA Button -->
+        <div class="mt-8">
+          <CTAButton
+            href={EXTERNAL_LINKS.PRACTICE_SECTION}
+            variant="primary"
+            size="medium"
+            class="w-full sm:w-auto"
+          >
+            {t("aboutMe.cta")}
+          </CTAButton>
         </div>
       </div>
     </article>

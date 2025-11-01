@@ -1,7 +1,8 @@
 ---
-// Yoga Presencial section component
+// Yoga Presencial section component - Alternating sections
 import { useI18n } from "../../i18n/useI18n.ts";
 import CTAButton from "../ui/buttons/CTAButton.astro";
+import DecoratedImage from "../ui/common/DecoratedImage.astro";
 import {
   SECTION_SPACING,
   RESPONSIVE_CLASSES,
@@ -12,68 +13,78 @@ import {
 const { t } = useI18n(Astro.request);
 ---
 
-<section
-  id="yoga-presencial"
-  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} py-16 md:py-24`}
-  style="background-color: #577874;"
->
+<!-- Section 1: Hero with Image + Intro -->
+<section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
-    <article class="flex flex-col lg:flex-row items-start gap-16">
-      <!-- Texto a la izquierda -->
-      <div class="w-full lg:w-3/5">
-        <h2
-          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-white mb-6 relative`}
-        >
-          {t("yogaPresencial.title")}
-          <span
-            class="absolute -bottom-2 left-0 w-16 h-1 rounded-full"
-            style="background-color: #e0a6a8;"></span>
-        </h2>
-
-        <div class="space-y-4 text-white leading-relaxed">
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("yogaPresencial.description1")}
-          </p>
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("yogaPresencial.description2")}
-          </p>
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("yogaPresencial.description3")}
-          </p>
-          <p class={RESPONSIVE_CLASSES.text.body}>
-            {t("yogaPresencial.description4")}
-          </p>
-        </div>
-
-        <!-- CTA -->
-        <div class="mt-8">
-          <CTAButton
-            href={EXTERNAL_LINKS.YOGA_PRESENCIAL}
-            variant="secondary"
-            size="medium"
-            target="_blank"
-          >
-            {t("yogaPresencial.cta")}
-          </CTAButton>
+    <article class="flex flex-col lg:flex-row items-start gap-12">
+      <div class="w-full lg:w-2/5 flex items-start justify-center">
+        <div class="max-w-xs">
+          <DecoratedImage
+            src="/img/YOGA EN CORDOBA.jpg"
+            alt="Yoga Presencial"
+          />
         </div>
       </div>
-
-      <!-- Imagen a la derecha -->
-      <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
-        <!-- Yoga Presencial 2 -->
-        <figure class="relative">
-          <div
-            class="absolute inset-0 transform translate-x-3 translate-y-3 rounded-sm"
-            style="background-color: #e0a6a8;"
-          >
-          </div>
-          <img
-            src="/img/yoga-presencial-2.png"
-            alt="Práctica de Yoga Presencial en grupo"
-            class="relative z-10 w-full h-auto rounded-sm shadow-md object-cover"
-          />
-        </figure>
+      <div class="w-full lg:w-3/5">
+        <h1 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}>
+          {t("yogaPresencial.title")}
+          <span class="absolute -bottom-2 left-0 w-16 h-1 rounded-full" style="background-color: #e0a6a8;"></span>
+        </h1>
+        <div class="space-y-4 text-lucia-brown leading-relaxed mb-8">
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaPresencial.intro1")} />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaPresencial.intro2")} />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaPresencial.intro3")} />
+          <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaPresencial.intro4")} />
+        </div>
+        
+        <!-- CTA Button -->
+        <CTAButton
+          href={EXTERNAL_LINKS.CONTACT_FORM}
+          variant="primary"
+          size="large"
+          target="_blank"
+          class="w-full sm:w-auto"
+        >
+          {t("yogaPresencial.cta")}
+        </CTAButton>
       </div>
     </article>
   </div>
 </section>
+
+<!-- Section 2: Dónde y cuándo + Qué vas a encontrar en Tarjetas -->
+<section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Tarjeta Dónde y cuándo -->
+      <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #a3738b;">
+        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
+          {t("yogaPresencial.locationTitle")}
+          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
+        </h2>
+        <div class="space-y-4 text-white text-center">
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            • {t("yogaPresencial.location")}
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            • {t("yogaPresencial.schedule")}
+          </p>
+        </div>
+      </div>
+
+      <!-- Tarjeta Qué vas a encontrar -->
+      <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #a3738b;">
+        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
+          {t("yogaPresencial.benefitsTitle")}
+          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
+        </h2>
+        <div class="space-y-4 text-white text-center">
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaPresencial.benefit1")}</p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaPresencial.benefit2")}</p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaPresencial.benefit3")}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

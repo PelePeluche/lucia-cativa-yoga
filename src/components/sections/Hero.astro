@@ -45,10 +45,8 @@ const { t } = useI18n(Astro.request);
           set:html={t("hero.subtitle")}
         />
 
-        <!-- Call to action buttons aligned to the right -->
-        <div
-          class="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4"
-        >
+        <!-- Call to action button aligned to the right -->
+        <div class="flex justify-end">
           <CTAButton
             href={EXTERNAL_LINKS.PRACTICE_SECTION}
             variant="primary"
@@ -56,15 +54,6 @@ const { t } = useI18n(Astro.request);
             class="w-full sm:w-auto"
           >
             {t("hero.cta1")}
-          </CTAButton>
-          <CTAButton
-            href={EXTERNAL_LINKS.YOGA_ONLINE}
-            variant="secondary"
-            size="medium"
-            target="_blank"
-            class="w-full sm:w-auto"
-          >
-            {t("hero.cta2")}
           </CTAButton>
         </div>
       </div>

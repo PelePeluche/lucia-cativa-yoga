@@ -201,13 +201,13 @@ const testimonials = testimonialsData.testimonials;
 
     <!-- CTA -->
     <div
-      class={`text-center ${SECTION_SPACING.margin.large} mt-16`}
+      class={`text-center ${SECTION_SPACING.margin.small} mt-16`}
     >
       <p class={`text-lucia-brown mb-6 ${RESPONSIVE_CLASSES.text.subheading}`}>
-        ¿Lista para comenzar tu transformación?
+        {t("testimonials.ctaText")}
       </p>
-      <CTAButton href="#practica-conmigo" variant="primary" size="large">
-        Quiero empezar
+      <CTAButton href="https://wa.me/543516225399" variant="primary" size="large" target="_blank" class="w-full sm:w-auto">
+        {t("testimonials.ctaButton")}
       </CTAButton>
     </div>
   </div>

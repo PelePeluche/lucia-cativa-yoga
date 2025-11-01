@@ -10,22 +10,15 @@
     "greeting": "Hello, I'm Lucía Cativa.<br />Welcome to my space of",
     "title": "Vinyasa Yoga",
     "subtitle": "A dynamic and conscious practice,<br />to move with strength,<br />sensitivity and presence.",
-    "cta1": "Practice with me",
-    "cta2": "Online yoga"
+    "cta1": "Practice with me"
   },
   "aboutMe": {
     "title": "About Me",
-    "subtitle": "My name is Lucía and this practice comes from a very personal story.",
-    "paragraph1": "At 18, I underwent spinal cord surgery that put my life on pause and confronted me with the possibility of never walking again. The surgery was successful, but the real journey began afterward.",
-    "paragraph2": "Rehabilitation led me to Pilates and, later, to dance, where I discovered another way of feeling and moving. My body, which had been a source of fear and fragility, transformed into a space of discovery, pleasure and self-listening.",
-    "paragraph3": "I felt, for the first time, the strength that is born in the midst of uncertainty. That's how yoga appeared. First as curiosity, and then as a calling.",
-    "paragraph4": "I trained in classical yoga, vinyasa, meditation, biomechanics and Thai massage. But, above all, I trained in experience: that which is built from the body that moves, breathes and transforms.",
-    "paragraph5": "Today I share an intense and deep practice, with creative vinyasa yoga sequences, with subtle contributions from conscious training and dance. I don't seek magical results. I seek truth.",
-    "paragraph6": "I accompany real women, who want to move with pleasure, inhabit their body with strength, and find themselves, again and again, with their present. Yoga, for me, is a means to live with more awareness, more joy and more roots.",
-    "tag1": "Vinyasa Yoga",
-    "tag2": "Yoga + Dance",
-    "tag3": "Conscious Training",
-    "tag4": "Thai Massage"
+    "subtitle": "I'm Lucía and this practice comes from a very personal story.",
+    "paragraph1": "At 18, I underwent spinal cord surgery that confronted me with the possibility of never walking again. Rehabilitation led me to Pilates, dance and finally to yoga: first a curiosity, then a calling.",
+    "paragraph2": "I trained in yoga, meditation, biomechanics and Thai massage, and for over 12 years I've been teaching as an instructor. But above all, I trained in the personal experience of recovering strength and movement from scratch.",
+    "paragraph3": "Today I share an intense and creative practice that invites you to the pleasure of inhabiting the body. I don't seek magical results. I seek truth.",
+    "cta": "Know my classes"
   },
   "myClasses": {
     "title": "Practice With Me",
@@ -57,8 +50,28 @@
   },
   "practiceWithMe": {
     "title": "Practice With Me",
-    "onlineButton": "Online Yoga",
-    "presentialButton": "In-Person Yoga"
+    "intro1": "My classes are Vinyasa Yoga, a dynamic, intense and fluid style, where postures are linked in sequences synchronized with breathing.",
+    "intro2": "Its main objective is to work with a balance between effort and comfort, advancing progressively, from listening and pleasure.",
+    "intro3": "I invite you to join a practice that strengthens, liberates and connects you with the pleasure of moving.",
+    "chooseText": "Choose how you want to practice:",
+    "onlineCard": {
+      "title": "Online Yoga",
+      "description1": "Practice from wherever you are.",
+      "description2": "Ideal if you want to move at your own pace and maintain consistency.",
+      "benefit1": "Live or recorded practice",
+      "benefit2": "Access from anywhere",
+      "benefit3": "No previous experience required",
+      "cta": "See more"
+    },
+    "presentialCard": {
+      "title": "In-Person Yoga",
+      "description1": "Regular group classes in Córdoba Capital.",
+      "description2": "Practice in community and feel the shared energy of each gathering.",
+      "benefit1": "Connection space",
+      "benefit2": "Adaptable levels",
+      "benefit3": "Close accompaniment",
+      "cta": "See more"
+    }
   },
   "benefits": {
     "title": "Benefits of Vinyasa Yoga",
@@ -81,19 +94,39 @@
     "cta": "Start my practice"
   },
   "testimonials": {
-    "title": "What my students say"
+    "title": "What my students say",
+    "ctaText": "Ready to begin your transformation?",
+    "ctaButton": "I want to join"
   },
   "yogaOnline": {
     "title": "Online Yoga",
-    "description1": "This space is designed for you to practice at your own pace, from wherever you are, as many times as you want.",
-    "description2": "The classes are vinyasa yoga, a dynamic, intense and fluid style, where postures are linked in sequences synchronized with breathing.",
-    "benefitsTitle": "What will you find?",
-    "benefit1": "Access classes when and where you want.",
+    "intro1": "Join my live classes via ZOOM.",
+    "intro2": "They are recorded so you can practice at your own pace, from wherever you are, as many times as you want.",
+    "intro3": "The classes are Vinyasa Yoga, a dynamic, intense and fluid style, where postures are linked in sequences synchronized with breathing.",
+    "intro4": "How it works:",
+    "intro5Title": "Companion Guide",
+    "intro5": "With the classes you receive a guide with tips and a base sequence to practice safely and progressively from home.",
+    "howItWorksTitle": "How it works",
+    "step1": "You sign up.",
+    "step2": "You receive the access link and the recording for the month.",
+    "step3": "You practice live or whenever you want.",
+    "schedulesTitle": "Schedules",
+    "schedule1": "Wednesday 10:00 am | Intense",
+    "schedule2": "Wednesday 7:00 pm | Accessible",
+    "scheduleNote": "Recorded all month",
+    "benefitsTitle": "Benefits of practicing with me",
+    "benefit1": "Unlimited access: practice when and where you want.",
     "benefit2": "Strengthen and make your body flexible without forcing it.",
-    "benefit3": "Connect with your breathing and reduce stress.",
-    "benefit4": "Find creative sequences that keep practice motivating.",
-    "benefit5": "Advance progressively, integrating each step at your own pace.",
-    "cta": "Start now"
+    "benefit3": "Breathe consciously and reduce stress.",
+    "benefit4": "Maintain motivation with creative sequences.",
+    "guideTitle": "Companion Guide",
+    "guideText1": "With the virtual classes you receive a special guide I created to accompany you in your practice from home or in your first steps.",
+    "guideText2": "It includes tips to move in a progressive and safe way, and a base Sun Salutation sequence with its variants, so you can adapt each posture to your moment and level.",
+    "guideText3": "Material designed to make you feel accompanied, even when you're not live.",
+    "pricesTitle": "Monthly subscription rates",
+    "priceArg": "In Argentina: $30,000 (bank transfer)",
+    "priceInt": "From abroad: 25 USD (PayPal)",
+    "cta": "Subscribe now"
   },
   "yogaOnlineVideo": {
     "title": "Feel the practice",
@@ -102,10 +135,22 @@
   },
   "yogaPresencial": {
     "title": "In-Person Yoga",
-    "description1": "Regular group classes and intensive meetings in Córdoba.",
-    "description2": "A space to train in community, share the practice and inhabit the present with others alongside.",
-    "description3": "Each class maintains the intensity and fluidity of Vinyasa Yoga, but adapts with options that allow participation from different levels of experience.",
-    "description4": "In-person practice enhances collective energy and makes each encounter a unique experience.",
+    "intro1": "Regular group classes in Córdoba, Argentina.",
+    "intro2": "A space to train in community, share the practice and inhabit the present with others alongside.",
+    "intro3": "Each class maintains the intensity and fluidity of Vinyasa Yoga, but adapts with options for different levels of experience.",
+    "intro4": "In-person practice enhances collective energy and makes each encounter a unique experience.",
+    "locationTitle": "Where and when",
+    "location": "Observatorio neighborhood – two blocks from Tribunales",
+    "schedule": "Tuesday and Thursday 8 PM (more schedules coming soon)",
+    "benefitsTitle": "What you will find",
+    "benefit1": "Intense, fluid and adaptable practice",
+    "benefit2": "Close accompaniment",
+    "benefit3": "Collective energy",
+    "pricesTitle": "Monthly fee rates",
+    "price1": "1 individual class: $15,000",
+    "price2": "4 classes: $40,000",
+    "price3": "8 classes: $50,000",
+    "priceNote": "The subscription is paid from the 1st to the 10th and is valid during the calendar month. There is no class on Argentine national holidays.",
     "cta": "Book your class"
   },
   "footer": {

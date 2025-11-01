@@ -20,6 +20,7 @@ export interface SiteConfig {
 export interface SocialLinks {
   instagram: string;
   facebook?: string;
+  youtube?: string;
   tiktok?: string;
 }
 

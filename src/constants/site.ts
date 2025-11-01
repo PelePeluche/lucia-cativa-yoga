@@ -3,7 +3,8 @@ import type { SiteConfig, SocialLinks, SEOConfig } from '../types/config';
 
 export const SOCIAL_LINKS: SocialLinks = {
   instagram: 'https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA==',
-  facebook: 'https://facebook.com/lucativayoga'
+  facebook: 'https://facebook.com/lucativayoga',
+  youtube: 'https://www.youtube.com/@lucativa-yoga' // TODO: Actualizar con el canal correcto
   // tiktok: 'https://tiktok.com/@lucativayoga' // Desactivado temporalmente
 } as const;
 

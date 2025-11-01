@@ -29,11 +29,11 @@ export const RESPONSIVE_CLASSES = {
     hero: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl',
     // Main headings - large but readable
     heading: 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl',
-    // Section titles - medium large
-    subheading: 'text-2xl sm:text-3xl md:text-4xl',
-    // Large text for emphasis
-    large: 'text-lg sm:text-xl md:text-2xl',
-    // Regular body text
+    // Section titles - medium large (increased +2pts)
+    subheading: 'text-3xl sm:text-4xl md:text-5xl',
+    // Large text for emphasis (increased +2pts)
+    large: 'text-xl sm:text-2xl md:text-3xl',
+    // Regular body text (original size)
     body: 'text-base sm:text-lg',
     // Small text for captions, etc.
     small: 'text-sm sm:text-base'

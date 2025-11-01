@@ -62,7 +62,7 @@ export interface TagListProps extends BaseComponentProps {
 }
 
 export interface SocialIconProps extends BaseComponentProps {
-  platform: 'instagram' | 'facebook' | 'tiktok';
+  platform: 'instagram' | 'facebook' | 'youtube' | 'tiktok';
   url: string;
 }
 
