@@ -1,0 +1,5 @@
+# Redirect old Cloudflare Pages domain to custom domain
+https://lucia-cativa-yoga.pages.dev/* https://luciacativayoga.com/:splat 301!
+
+# Redirect www to non-www
+https://www.luciacativayoga.com/* https://luciacativayoga.com/:splat 301!

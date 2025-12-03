@@ -6,7 +6,7 @@ export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
   adapter: undefined,
-  site: 'https://lucia-cativa-yoga.pages.dev',
+  site: 'https://luciacativayoga.com',
   build: {
     assets: '_astro'
   },
