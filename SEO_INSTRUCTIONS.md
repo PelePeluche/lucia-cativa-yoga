@@ -17,35 +17,16 @@ git commit -m "fix: Update domain to luciacativayoga.com for SEO"
 git push
 ```
 
-### 2. Configurar Redirecciones en Cloudflare (IMPORTANTE)
+### 2. Verificar Configuración en Cloudflare
 
-⚠️ **El archivo `_redirects` NO puede redirigir entre dominios diferentes en Cloudflare Pages.**
+✅ **El dominio personalizado ya está configurado correctamente en Cloudflare Pages.**
 
-Debes configurar la redirección manualmente en Cloudflare:
+Tu configuración actual:
+- `luciacativayoga.com` → **Active** ✅
+- SSL enabled ✅
+- Cloudflare Pages maneja las redirecciones automáticamente
 
-#### Opción A: Configurar dominio personalizado como primario
-1. Ve a [Cloudflare Pages Dashboard](https://dash.cloudflare.com/)
-2. Selecciona tu proyecto: `lucia-cativa-yoga`
-3. Ve a **"Custom domains"**
-4. Asegúrate que `luciacativayoga.com` esté configurado
-5. Cloudflare automáticamente redirigirá `.pages.dev` → dominio personalizado
-
-#### Opción B: Usar Cloudflare Workers (más avanzado)
-Si la opción A no funciona, puedes crear un Worker para redireccionar:
-1. Ve a **Workers & Pages** en Cloudflare
-2. Crea un nuevo Worker con este código:
-```javascript
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    if (url.hostname === 'lucia-cativa-yoga.pages.dev') {
-      return Response.redirect('https://luciacativayoga.com' + url.pathname, 301);
-    }
-    return fetch(request);
-  }
-}
-```
-3. Asigna el Worker a la ruta `lucia-cativa-yoga.pages.dev/*`
+**No necesitas hacer nada más en Cloudflare.** El dominio `.pages.dev` seguirá funcionando, pero Google indexará el dominio personalizado gracias a la configuración del sitio.
 
 ### 3. Configurar Google Search Console
 
