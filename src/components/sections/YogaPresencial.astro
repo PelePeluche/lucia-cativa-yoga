@@ -56,32 +56,47 @@ const { t } = useI18n(Astro.request);
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
     <div class="grid md:grid-cols-2 gap-8">
-      <!-- Tarjeta Dónde y cuándo -->
+      <!-- Tarjeta Zona Centro -->
       <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #a3738b;">
         <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
-          {t("yogaPresencial.locationTitle")}
+          {t("yogaPresencial.zonaCentroTitle")}
           <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
         </h2>
-        <div class="space-y-4 text-white text-center">
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
-            • {t("yogaPresencial.location")}
+        <div class="space-y-3 text-white text-center">
+          <p class={`${RESPONSIVE_CLASSES.text.body} font-bold`}>
+            {t("yogaPresencial.zonaCentroDays")}
           </p>
           <p class={`${RESPONSIVE_CLASSES.text.body}`}>
-            • {t("yogaPresencial.schedule")}
+            {t("yogaPresencial.zonaCentroSchedule1")}
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            {t("yogaPresencial.zonaCentroSchedule2")}
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            {t("yogaPresencial.zonaCentroSchedule3")}
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body} italic mt-4`}>
+            {t("yogaPresencial.zonaCentroAddress")}
           </p>
         </div>
       </div>
 
-      <!-- Tarjeta Qué vas a encontrar -->
+      <!-- Tarjeta Zona Norte -->
       <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #a3738b;">
         <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
-          {t("yogaPresencial.benefitsTitle")}
+          {t("yogaPresencial.zonaNorteTitle")}
           <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
         </h2>
-        <div class="space-y-4 text-white text-center">
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaPresencial.benefit1")}</p>
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaPresencial.benefit2")}</p>
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaPresencial.benefit3")}</p>
+        <div class="space-y-3 text-white text-center">
+          <p class={`${RESPONSIVE_CLASSES.text.body} font-bold`}>
+            {t("yogaPresencial.zonaNorteDays")}
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
+            {t("yogaPresencial.zonaNorteSchedule1")}
+          </p>
+          <p class={`${RESPONSIVE_CLASSES.text.body} italic mt-4`}>
+            {t("yogaPresencial.zonaNorteAddress")}
+          </p>
         </div>
       </div>
     </div>
