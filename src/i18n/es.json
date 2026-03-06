@@ -17,7 +17,7 @@
     "subtitle": "<strong>Soy Lucía y esta práctica nace de una historia muy personal.</strong>",
     "paragraph1": "A los 18 años atravesé una cirugía en la médula espinal que me enfrentó con la posibilidad de no volver a caminar. La rehabilitación me llevó al Pilates, la danza y finalmente al yoga: primero una curiosidad, luego un llamado.",
     "paragraph2": "Me formé en yoga, meditación, biomecánica y masaje tailandés, y desde hace más de 12 años acompaño como instructora. Pero, sobre todo, me formé en la experiencia propia de recuperar fuerza y movimiento desde cero.",
-    "paragraph3": "<strong>Hoy comparto una práctica intensa y creativa que invita al placer de habitar el cuerpo. No busco resultados mágicos. Busco verdad.</strong>",
+    "paragraph3": "<strong>Hoy comparto una práctica dinámica y consciente, enfocada en desarrollar fuerza, movilidad y sensibilidad.</strong>",
     "cta": "Conocé mis clases"
   },
   "myClasses": {
@@ -97,14 +97,15 @@
   },
   "testimonials": {
     "title": "Lo que dicen mis alumnas",
-    "ctaText": "¿Lista para comenzar tu transformación?",
+    "ctaText": "Hoy es el mejor momento para empezar",
     "ctaButton": "Quiero sumarme"
   },
   "yogaOnline": {
     "title": "Yoga Online",
-    "intro1": "<strong>Sumate a mis clases en vivo por ZOOM.</strong>",
-    "intro2": "<strong>Quedan grabadas para que practiques a tu ritmo, desde donde estés, cuantas veces quieras.</strong>",
-    "intro3": "Las clases son de vinyasa yoga, un estilo dinámico, intenso y fluido, donde las posturas se enlazan en secuencias sincronizadas con la respiración.",
+    "intro1": "<strong>Un espacio para estar cerca a pesar de la distancia.</strong>",
+    "intro2": "<strong>Sumate a mis clases en vivo por zoom.</strong>",
+    "intro3": "Una propuesta que te permitirá practicar a tu propio ritmo, desde donde estés.",
+    "intro3b": "El estilo es Vinyasa Yoga: dinámico, intenso y fluido, donde las posturas se enlazan en secuencias sincronizadas con la respiración.",
     "intro4": "Cómo funciona:",
     "intro5Title": "Guía de acompañamiento",
     "intro5": "Con las clases recibís una guía con consejos y una secuencia base <strong>para practicar de forma segura y progresiva desde casa.</strong>",
@@ -120,7 +121,7 @@
     "benefit1": "Accedé sin límites: <strong>practicá cuando y donde quieras.</strong>",
     "benefit2": "<strong>Fortalecé y flexibilizá tu cuerpo</strong> sin necesidad de forzarlo.",
     "benefit3": "Respirá con conciencia y <strong>reducí el estrés.</strong>",
-    "benefit4": "<strong>Mantené la motivación</strong> con secuencias creativas.",
+    "benefit4": "<strong>Mantené la motivación</strong> con secuencias creativas y una comunidad de mujeres practicando juntas.",
     "guideTitle": "Guía de acompañamiento",
     "guideText1": "Con las clases virtuales recibís una guía especial que armé para acompañarte en la práctica desde casa o en tus primeros pasos.",
     "guideText2": "Incluye consejos para moverte de forma progresiva y segura, y una secuencia base del Saludo al Sol con sus variantes, para que puedas adaptar cada postura a tu momento y nivel.",
