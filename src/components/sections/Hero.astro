@@ -26,7 +26,7 @@ const { t } = useI18n(Astro.request);
       <div class="text-right py-8 md:py-12">
         <!-- Personal greeting first -->
         <p
-          class={`font-body ${RESPONSIVE_CLASSES.text.large} text-white mb-3 tracking-wide opacity-90 max-w-md ml-auto`}
+          class="font-body text-base sm:text-lg md:text-xl text-white mb-3 tracking-wide opacity-90 max-w-md ml-auto"
           set:html={t("hero.greeting")}
         />
 
@@ -41,7 +41,7 @@ const { t } = useI18n(Astro.request);
 
         <!-- Subtitle -->
         <p
-          class={`font-body ${RESPONSIVE_CLASSES.text.large} mb-8 text-white leading-relaxed max-w-md ml-auto opacity-95`}
+          class="font-body text-base sm:text-lg md:text-xl mb-8 text-white leading-relaxed max-w-md ml-auto opacity-95"
           set:html={t("hero.subtitle")}
         />
 

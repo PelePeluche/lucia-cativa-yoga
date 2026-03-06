@@ -70,4 +70,22 @@ document.addEventListener('DOMContentLoaded', function() {
   mobileLinks?.forEach(link => {
     link.addEventListener('click', closeMobileMenu);
   });
+
+  // Mark "Sobre mí" nav link as active when section is visible
+  const sobreMiSection = document.getElementById('sobre-mi') || document.getElementById('about-me');
+  const sobreMiLinks = document.querySelectorAll('a[href="/#sobre-mi"]');
+
+  if (sobreMiSection && sobreMiLinks.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          sobreMiLinks.forEach(link => {
+            link.classList.toggle('active', entry.isIntersecting);
+          });
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(sobreMiSection);
+  }
 });
