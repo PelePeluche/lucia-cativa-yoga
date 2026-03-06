@@ -61,40 +61,13 @@ const { t } = useI18n(Astro.request);
   </div>
 </section>
 
-<!-- Section 2: Horarios y Valores en Tarjetas -->
+<!-- Section 2: Imágenes Horarios, Niveles y Valores -->
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Tarjeta Horarios -->
-      <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #e0a6a8;">
-        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
-          {t("yogaOnline.schedulesTitle")}
-          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
-        </h2>
-        <div class="space-y-4 text-white text-center">
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
-            {t("yogaOnline.schedule1")}
-          </p>
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>
-            {t("yogaOnline.schedule2")}
-          </p>
-          <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-rose italic mt-6`}>
-            {t("yogaOnline.scheduleNote")}
-          </p>
-        </div>
-      </div>
-
-      <!-- Tarjeta Valores -->
-      <div class="p-8 rounded-sm" style="background-color: #577874; box-shadow: 8px 8px 0px #e0a6a8;">
-        <h2 class={`font-heading ${RESPONSIVE_CLASSES.text.large} text-white mb-6 text-center relative pb-2`}>
-          {t("yogaOnline.pricesTitle")}
-          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-lucia-rose"></span>
-        </h2>
-        <div class="space-y-4 text-white text-center">
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaOnline.priceArg")}</p>
-          <p class={`${RESPONSIVE_CLASSES.text.body}`}>• {t("yogaOnline.priceInt")}</p>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <img src="/img/yoga-online-horarios.jpeg" alt="Horarios Vinyasa Yoga" class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
+      <img src="/img/yoga-online-niveles.jpeg"  alt="Niveles Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
+      <img src="/img/yoga-online-valores.jpeg"  alt="Valores Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
     </div>
   </div>
 </section>
