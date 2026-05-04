@@ -48,6 +48,7 @@ const { t } = useI18n(Astro.request);
               <li class={RESPONSIVE_CLASSES.text.body}>2. {t("yogaOnline.step2")}</li>
               <li class={RESPONSIVE_CLASSES.text.body}>3. {t("yogaOnline.step3")}</li>
             </ol>
+            <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mt-4`}>{t("yogaOnline.valor")}</p>
           </div>
 
           <!-- Guía de acompañamiento -->
@@ -61,16 +62,6 @@ const { t } = useI18n(Astro.request);
   </div>
 </section>
 
-<!-- Section 2: Imágenes Horarios, Niveles y Valores -->
-<section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <img src="/img/yoga-online-horarios.jpeg" alt="Horarios Vinyasa Yoga" class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-      <img src="/img/yoga-online-niveles.jpeg"  alt="Niveles Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-      <img src="/img/yoga-online-valores.jpeg"  alt="Valores Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-    </div>
-  </div>
-</section>
 
 <!-- Section 3: Beneficios + CTA -->
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop}`} style="background-color: #577874;">
