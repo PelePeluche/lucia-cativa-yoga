@@ -48,7 +48,7 @@ const { t } = useI18n(Astro.request);
               <li class={RESPONSIVE_CLASSES.text.body}>2. {t("yogaOnline.step2")}</li>
               <li class={RESPONSIVE_CLASSES.text.body}>3. {t("yogaOnline.step3")}</li>
             </ol>
-            <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mt-4`}>{t("yogaOnline.valor")}</p>
+            <p class={`font-body ${RESPONSIVE_CLASSES.text.body} mt-4`} set:html={t("yogaOnline.valor")} />
           </div>
 
           <!-- Guía de acompañamiento -->
