@@ -29,7 +29,10 @@ function handleNewsletterSubmit(e: Event): void {
 }
 
 function isValidEmail(email: string): boolean {
-  return email.includes('@') && email.includes('.');
+  const value = email.trim();
+  // local@domain.tld — sin espacios, sin puntos dobles, TLD de 2+ letras
+  const pattern = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[A-Za-z]{2,}$/;
+  return pattern.test(value);
 }
 
 function showSuccess(button: HTMLButtonElement, originalText: string, form: HTMLFormElement): void {
