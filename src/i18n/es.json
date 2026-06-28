@@ -1,4 +1,22 @@
 {
+  "meta": {
+    "title": "Clases de Vinyasa Yoga Online con Lucía Cativa",
+    "description": "Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada. Ideal para principiantes y avanzados.",
+    "keywords": "vinyasa yoga online, clases de yoga online, yoga dinámico, yoga para principiantes, Lucía Cativa",
+    "ogDescription": "Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada.",
+    "structuredData": {
+      "description": "Clases de vinyasa yoga online con guía personalizada. Práctica de yoga dinámico para todos los niveles desde la comodidad de tu hogar.",
+      "jobTitle": "Instructora Certificada de Vinyasa Yoga",
+      "founderDescription": "Instructora de yoga especializada en vinyasa flow, ayudando a mujeres a conectar con su cuerpo a través del movimiento consciente y la respiración.",
+      "serviceType": "Clases de Yoga Online",
+      "areaServed": "Argentina",
+      "offerCatalogName": "Servicios de Yoga",
+      "offer1Name": "Clases de Vinyasa Yoga Online",
+      "offer1Description": "Clases de yoga dinámico online enfocadas en apertura de caderas, extensiones, balances, invertidas y fortalecimiento del core.",
+      "offer2Name": "Sesiones de Yoga Presenciales",
+      "offer2Description": "Sesiones intensivas presenciales que combinan yoga con masaje thai y danza consciente."
+    }
+  },
   "nav": {
     "aboutMe": "Sobre mí",
     "onlineYoga": "Yoga online",

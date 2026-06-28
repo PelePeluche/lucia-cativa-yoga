@@ -17,7 +17,53 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
 const t = useTranslations(currentLang);
 
-const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía Cativa' : 'Clases de Vinyasa Yoga Online con Lucía Cativa' } = Astro.props;
+const { title = t('meta.title') } = Astro.props;
+
+// Structured data (JSON-LD) for Local Business — content comes from i18n
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://luciacativayoga.com',
+  name: 'Lucía Cativa - Vinyasa Yoga',
+  description: t('meta.structuredData.description'),
+  url: 'https://luciacativayoga.com',
+  telephone: '+54-11-xxxx-xxxx',
+  email: 'hola@luciacativa.com',
+  founder: {
+    '@type': 'Person',
+    name: 'Lucía Cativa',
+    jobTitle: t('meta.structuredData.jobTitle'),
+    description: t('meta.structuredData.founderDescription'),
+  },
+  serviceType: t('meta.structuredData.serviceType'),
+  areaServed: {
+    '@type': 'Country',
+    name: t('meta.structuredData.areaServed'),
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: t('meta.structuredData.offerCatalogName'),
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: t('meta.structuredData.offer1Name'),
+          description: t('meta.structuredData.offer1Description'),
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: t('meta.structuredData.offer2Name'),
+          description: t('meta.structuredData.offer2Description'),
+        },
+      },
+    ],
+  },
+  sameAs: ['https://instagram.com/luciacativa', 'https://facebook.com/luciacativa'],
+};
 ---
 
 <!DOCTYPE html>
@@ -39,23 +85,23 @@ const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía 
     <!-- Preload critical images -->
     <link rel="preload" href="/img/hero-yoga.jpeg" as="image" />
     <title>{title}</title>
-    <meta name="description" content={currentLang === 'en' ? 'Online vinyasa yoga classes with Lucía Cativa. Dynamic yoga practice from home with personalized guidance. Ideal for beginners and advanced practitioners.' : 'Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada. Ideal para principiantes y avanzados.'} />
-    
+    <meta name="description" content={t('meta.description')} />
+
     <!-- SEO Keywords -->
-    <meta name="keywords" content={currentLang === 'en' ? 'vinyasa yoga online, online yoga classes, dynamic yoga, yoga for beginners, Lucia Cativa' : 'vinyasa yoga online, clases de yoga online, yoga dinámico, yoga para principiantes, Lucía Cativa'} />
-    
+    <meta name="keywords" content={t('meta.keywords')} />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={currentLang === 'en' ? 'Online vinyasa yoga classes with Lucía Cativa. Dynamic yoga practice from home with personalized guidance.' : 'Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada.'} />
+    <meta property="og:description" content={t('meta.ogDescription')} />
     <meta property="og:image" content="/img/hero-yoga.jpeg" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={currentLang === 'en' ? 'Online vinyasa yoga classes with Lucía Cativa. Dynamic yoga practice from home with personalized guidance.' : 'Clases de vinyasa yoga online con Lucía Cativa. Práctica de yoga dinámico desde casa con guía personalizada.'} />
+    <meta property="twitter:description" content={t('meta.ogDescription')} />
     <meta property="twitter:image" content="/img/hero-yoga.jpeg" />
     <!-- Additional SEO Meta Tags -->
     <meta name="author" content="Lucía Cativa" />
@@ -64,55 +110,7 @@ const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía 
     <link rel="canonical" href={Astro.url} />
     
     <!-- Structured Data for Local Business -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://luciacativayoga.com",
-      "name": "Lucía Cativa - Vinyasa Yoga",
-      "description": {currentLang === 'en' ? '"Online vinyasa yoga classes with personalized guidance. Dynamic yoga practice for all levels from the comfort of your home."' : '"Clases de vinyasa yoga online con guía personalizada. Práctica de yoga dinámico para todos los niveles desde la comodidad de tu hogar."'},
-      "url": "https://luciacativayoga.com",
-      "telephone": "+54-11-xxxx-xxxx",
-      "email": "hola@luciacativa.com",
-      "founder": {
-        "@type": "Person",
-        "name": "Lucía Cativa",
-        "jobTitle": {currentLang === 'en' ? '"Certified Vinyasa Yoga Instructor"' : '"Instructora Certificada de Vinyasa Yoga"'},
-        "description": {currentLang === 'en' ? '"Yoga instructor specialized in vinyasa flow, helping women connect with their bodies through conscious movement and breathing."' : '"Instructora de yoga especializada en vinyasa flow, ayudando a mujeres a conectar con su cuerpo a través del movimiento consciente y la respiración."'}
-      },
-      "serviceType": {currentLang === 'en' ? '"Online Yoga Classes"' : '"Clases de Yoga Online"'},
-      "areaServed": {
-        "@type": "Country",
-        "name": {currentLang === 'en' ? '"Argentina"' : '"Argentina"'}
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": {currentLang === 'en' ? '"Yoga Services"' : '"Servicios de Yoga"'},
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": {currentLang === 'en' ? '"Online Vinyasa Yoga Classes"' : '"Clases de Vinyasa Yoga Online"'},
-              "description": {currentLang === 'en' ? '"Dynamic online yoga classes focusing on hip opening, extensions, balances, inversions and core strengthening."' : '"Clases de yoga dinámico online enfocadas en apertura de caderas, extensiones, balances, invertidas y fortalecimiento del core."'}
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": {currentLang === 'en' ? '"In-Person Yoga Sessions"' : '"Sesiones de Yoga Presenciales"'},
-              "description": {currentLang === 'en' ? '"Intensive in-person sessions combining yoga with thai massage and conscious dance."' : '"Sesiones intensivas presenciales que combinan yoga con masaje thai y danza consciente."'}
-            }
-          }
-        ]
-      },
-      "sameAs": [
-        "https://instagram.com/luciacativa",
-        "https://facebook.com/luciacativa"
-      ]
-    }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
