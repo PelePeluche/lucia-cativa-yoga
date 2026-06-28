@@ -4,6 +4,8 @@ import '../styles/custom.css';
 // Importar AOS CSS - Para las animaciones al hacer scroll
 // import 'aos/dist/aos.css';
 import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
 // Eliminamos la importación de fuentes, usaremos Google Fonts directamente
 
 interface Props {
@@ -130,9 +132,11 @@ const { title = currentLang === 'en' ? 'Online Vinyasa Yoga Classes with Lucía 
     <meta name="format-detection" content="telephone=no">
   </head>
   <body class="font-body bg-white text-lucia-brown min-h-screen">
+    <Header />
     <main>
       <slot />
     </main>
+    <Footer />
 
     <!-- Scripts de AOS para animaciones al hacer scroll (usando CDN) -->
     <!-- <script src="https://unpkg.com/aos@next/dist/aos.js" is:inline></script> -->

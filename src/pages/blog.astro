@@ -1,14 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
 import SectionTitle from '../components/ui/common/SectionTitle.astro';
 import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES } from '../constants';
 ---
 
 <Layout title="Blog - Lu Cativa">
-  <Header />
-  
+
   <!-- Blog section with teal background -->
   <section class="pt-24 pb-20" style="background-color: #577874; min-height: 80vh;">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -92,5 +89,4 @@ import { SECTION_SPACING, AOS_PRESETS, RESPONSIVE_CLASSES } from '../constants';
     </div>
   </section>
 
-  <Footer />
 </Layout>
