@@ -1,12 +1,12 @@
 {
-  "testimonials": [
+  "es": [
     {
       "name": "Mariana, 32 años",
       "text": "Paso a contarte que estoy muy contenta con volver a tus clases virtuales. Realmente me hacen muy bien… también pude ir regulando la respiración, que es algo que me cuesta al igual que la exigencia. Así que chocha.",
       "image": "/img/testimonial-1.png"
     },
     {
-      "name": "Carla, 29 años", 
+      "name": "Carla, 29 años",
       "text": "Me gustaron muchísimo tus clases. Fue un logro para mí hacer cada práctica completa y todas las asanas y vinyasas que proponés.",
       "image": "/img/testimonial-1.png"
     },
@@ -38,6 +38,48 @@
     {
       "name": "Agustina, 33 años",
       "text": "Es cierto que son muy hermosas tus clases aunque sean asincrónicas. Se siente igual la persona que está del otro lado (vos). Está bárbara la modalidad.",
+      "image": "/img/testimonial-1.png"
+    }
+  ],
+  "en": [
+    {
+      "name": "Mariana, 32",
+      "text": "I want to tell you how happy I am to be back in your online classes. They really do me so much good… I've even been able to work on my breathing, which is hard for me, just like pushing myself. So I'm thrilled.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Carla, 29",
+      "text": "I loved your classes so much. It was an achievement for me to complete every practice and all the asanas and vinyasas you guide.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Florencia, 34",
+      "text": "Thank you for all the patience and commitment. I honestly enjoyed your classes so much these past months.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Julieta, 27",
+      "text": "You're an excellent teacher, truly committed to what you do, and you can tell you enjoy it, which is really beautiful.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Daniela, 30",
+      "text": "The classes make me feel so good and I enjoy them so much. You have no idea how much you helped me, dear.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Sofía, 36",
+      "text": "Honestly, your classes are so lovely. You explain so well and you just let yourself flow. I'd move to Córdoba, I swear.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Romina, 28",
+      "text": "You're the only one who kept me doing a physical activity I genuinely enjoy for more than a year.",
+      "image": "/img/testimonial-1.png"
+    },
+    {
+      "name": "Agustina, 33",
+      "text": "It's true your classes are beautiful even though they're asynchronous. You still feel the person on the other side (you). The format is wonderful.",
       "image": "/img/testimonial-1.png"
     }
   ]

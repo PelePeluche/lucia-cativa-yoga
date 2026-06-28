@@ -9,13 +9,13 @@ import {
 } from "../../constants";
 
 // Use centralized i18n hook
-const { t } = useI18n(Astro.request);
+const { t, currentLang } = useI18n(Astro.request);
 
-// Import real testimonials data
+// Import real testimonials data (bilingual: es / en)
 import testimonialsData from "../../i18n/testimonials.json";
 
-// Use all testimonials data
-const testimonials = testimonialsData.testimonials;
+// Pick testimonials for the current language, falling back to Spanish
+const testimonials = testimonialsData[currentLang] ?? testimonialsData.es;
 ---
 
 <section
