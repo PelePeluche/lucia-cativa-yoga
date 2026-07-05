@@ -26,3 +26,9 @@ pnpm-debug.log*
 # AI tooling (local, not part of the project)
 .claude/
 .atl/
+
+# Secrets / API keys — never commit
+kimi_apikey.txt
+*apikey*
+*.key
+.env*
