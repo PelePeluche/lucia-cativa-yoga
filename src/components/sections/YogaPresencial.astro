@@ -3,6 +3,7 @@
 import { useI18n } from "../../i18n/useI18n.ts";
 import CTAButton from "../ui/buttons/CTAButton.astro";
 import DecoratedImage from "../ui/common/DecoratedImage.astro";
+import StarOrnament from "../ui/common/StarOrnament.astro";
 import {
   SECTION_SPACING,
   RESPONSIVE_CLASSES,
@@ -58,96 +59,88 @@ const info = presencialInfoData[currentLang] ?? presencialInfoData.es;
   </div>
 </section>
 
-<!-- Section 2: Horarios, Niveles y Valores -->
+<!-- Section 2: Horarios, Niveles y Valores (flyer-style panels) -->
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
       <!-- Horarios -->
-      <article class="bg-lucia-teal rounded-sm p-6 sm:p-8 flex flex-col" style="box-shadow: 8px 8px 0px #e0a6a8;">
-        <h2 class="font-heading text-2xl sm:text-3xl text-lucia-cream text-center mb-6">
-          {info.schedule.title}
-        </h2>
-        <div class="space-y-5 flex-grow">
-          {info.schedule.days.map((day) => (
-            <div>
-              <h3 class="font-body font-bold text-lucia-rose uppercase tracking-widest text-sm mb-2">
-                {day.day}
-              </h3>
-              <ul class="space-y-1.5">
-                {day.classes.map((cls) => (
-                  <li class="font-body text-lucia-cream text-sm flex items-baseline gap-3">
-                    <time class="font-bold shrink-0">{cls.time}</time>
-                    <span>{cls.name}</span>
-                  </li>
+      <div class="flyer-holder">
+        <article class="flyer-panel">
+          <StarOrnament />
+          <h2 class="flyer-title">{info.schedule.title}</h2>
+          <p class="flyer-subtitle">{info.schedule.handle}</p>
+          <div class="flyer-body">
+            <table class="flyer-table">
+              <thead>
+                <tr>
+                  {info.schedule.headers.map((header, index) => (
+                    <th class={index === 0 ? "flyer-col-time" : ""}>{header}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {info.schedule.rows.map((row) => (
+                  <tr>
+                    <td>{row.time}</td>
+                    {row.cells.map((cell) => (
+                      <td class={cell?.accent ? "flyer-accent" : ""}>{cell?.name ?? ""}</td>
+                    ))}
+                  </tr>
                 ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div class="mt-6 pt-5 border-t border-lucia-cream/30 text-center">
-          <p class="font-body text-lucia-cream text-sm">📍 {info.schedule.address}</p>
-          <p class="font-body font-bold text-lucia-cream text-sm mt-1">{info.schedule.note}</p>
-        </div>
-      </article>
+              </tbody>
+            </table>
+          </div>
+          <p class="flyer-note-italic">{info.schedule.address}</p>
+          <p class="flyer-note-bold">{info.schedule.note}</p>
+        </article>
+      </div>
 
       <!-- Niveles -->
-      <article class="bg-lucia-teal rounded-sm p-6 sm:p-8 flex flex-col" style="box-shadow: 8px 8px 0px #e0a6a8;">
-        <h2 class="font-heading text-2xl sm:text-3xl text-lucia-cream text-center mb-6">
-          {info.levels.title}
-        </h2>
-        <div class="space-y-6 flex-grow">
-          {info.levels.items.map((level) => (
-            <div>
-              <h3 class={`font-body font-bold text-base mb-1 ${level.accent ? "text-lucia-rose" : "text-lucia-cream"}`}>
-                {level.name}
-              </h3>
-              <p class="font-body text-lucia-cream text-sm leading-relaxed">
-                {level.description}
-              </p>
-              <p class="font-body text-lucia-cream text-sm leading-relaxed italic opacity-90">
-                {level.ideal}
-              </p>
-            </div>
-          ))}
-        </div>
-      </article>
+      <div class="flyer-holder">
+        <article class="flyer-panel">
+          <StarOrnament />
+          <h2 class="flyer-title">{info.levels.title}</h2>
+          <div class="flyer-body flyer-levels">
+            {info.levels.items.map((level) => (
+              <div>
+                <h3 class={`flyer-level-name ${level.accent ? "flyer-accent" : ""}`}>
+                  {level.name}
+                </h3>
+                <p class="flyer-text">{level.description}</p>
+                <p class="flyer-text flyer-italic">{level.ideal}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      </div>
 
       <!-- Valores -->
-      <article class="bg-lucia-teal rounded-sm p-6 sm:p-8 flex flex-col" style="box-shadow: 8px 8px 0px #e0a6a8;">
-        <h2 class="font-heading text-2xl sm:text-3xl text-lucia-cream text-center mb-1">
-          {info.prices.title}
-        </h2>
-        <p class="font-body text-lucia-rose text-sm text-center font-bold uppercase tracking-widest mb-6">
-          {info.prices.subtitle}
-        </p>
-        <ul class="space-y-3 mb-8">
-          {info.prices.items.map((item) => (
-            <li class="font-body text-lucia-cream text-sm flex items-baseline justify-between gap-3">
-              <span>{item.label}</span>
-              <span class="text-right shrink-0">
-                <strong class="text-base">{item.price}</strong>
-                {item.period && <span class="opacity-90"> {item.period}</span>}
-              </span>
-            </li>
-          ))}
-        </ul>
-        <div class="flex-grow">
-          <h3 class="font-body font-bold text-lucia-rose uppercase tracking-widest text-sm mb-3">
-            {info.prices.importantTitle}
-          </h3>
-          <ul class="space-y-2 list-disc list-outside pl-4">
-            {info.prices.notes.map((note) => (
-              <li class="font-body text-lucia-cream text-sm leading-relaxed">{note}</li>
-            ))}
-          </ul>
-        </div>
-        <p class="font-body font-bold text-lucia-cream text-sm text-center mt-6 pt-5 border-t border-lucia-cream/30">
-          {info.prices.footer}
-        </p>
-      </article>
+      <div class="flyer-holder">
+        <article class="flyer-panel">
+          <StarOrnament />
+          <h2 class="flyer-title">{info.prices.title}</h2>
+          <p class="flyer-subtitle">{info.prices.subtitle}</p>
+          <div class="flyer-body">
+            <ul class="flyer-prices">
+              {info.prices.items.map((item) => (
+                <li>
+                  {item.label} <strong>{item.price}</strong>
+                  {item.period && <span> {item.period}</span>}
+                </li>
+              ))}
+            </ul>
+            <p class="flyer-important">{info.prices.importantTitle}</p>
+            <ul class="flyer-bullets">
+              {info.prices.notes.map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </div>
+          <p class="flyer-note-bold">{info.prices.footer}</p>
+        </article>
+      </div>
 
     </div>
   </div>
 </section>
-

@@ -1,163 +1,147 @@
 {
   "es": {
     "schedule": {
-      "title": "Horarios",
-      "days": [
+      "title": "horarios",
+      "handle": "@lucativa.yoga",
+      "headers": ["hora", "lunes", "martes", "miérc", "jueves"],
+      "rows": [
         {
-          "day": "Lunes",
-          "classes": [
-            { "time": "11:00", "name": "Hatha suave", "accent": true },
-            { "time": "16:30", "name": "Vinyasa suave" },
-            { "time": "18:30", "name": "Vinyasa intenso" }
-          ]
+          "time": "10:30",
+          "cells": [null, { "name": "vinyasa intermedio" }, null, { "name": "vinyasa intermedio" }]
         },
         {
-          "day": "Martes",
-          "classes": [
-            { "time": "10:30", "name": "Vinyasa intermedio" },
-            { "time": "14:30", "name": "Vinyasa intermedio" }
-          ]
+          "time": "11:00",
+          "cells": [{ "name": "hatha suave", "accent": true }, null, { "name": "hatha suave", "accent": true }, null]
         },
         {
-          "day": "Miércoles",
-          "classes": [
-            { "time": "16:30", "name": "Vinyasa suave" },
-            { "time": "18:30", "name": "Vinyasa intenso" }
-          ]
+          "time": "14:30",
+          "cells": [null, { "name": "vinyasa intermedio" }, null, { "name": "vinyasa intermedio" }]
         },
         {
-          "day": "Jueves",
-          "classes": [
-            { "time": "10:30", "name": "Vinyasa intermedio" },
-            { "time": "11:00", "name": "Hatha suave", "accent": true },
-            { "time": "14:30", "name": "Vinyasa intermedio" }
-          ]
+          "time": "16:30",
+          "cells": [{ "name": "vinyasa base" }, null, { "name": "vinyasa base" }, null]
+        },
+        {
+          "time": "18:30",
+          "cells": [{ "name": "vinyasa intenso" }, null, { "name": "vinyasa intenso" }, null]
         }
       ],
-      "address": "Fructuoso Rivera 1173, Barrio Observatorio",
+      "address": "Fructuoso Rivera 1173 Observatorio",
       "note": "Actividad con inscripción previa."
     },
     "levels": {
-      "title": "Niveles",
+      "title": "estilos",
       "items": [
         {
-          "name": "Hatha suave",
+          "name": "hatha suave",
           "accent": true,
           "description": "Práctica tranquila con posturas sostenidas.",
           "ideal": "Ideal si buscás una experiencia amable o empezar con calma."
         },
         {
-          "name": "Vinyasa suave",
-          "description": "Práctica dinámica con ritmo pausado y transiciones accesibles.",
-          "ideal": "Ideal si preferís una práctica activa con una exigencia moderada."
+          "name": "vinyasa base",
+          "description": "Práctica dinámica con ritmo accesible.",
+          "ideal": "Ideal si buscás mantenerte en movimiento sin ir al mayor desafío."
         },
         {
-          "name": "Vinyasa intermedio",
-          "description": "Práctica dinámica con un mayor desafío físico.",
+          "name": "vinyasa intermedio",
+          "description": "Práctica dinámica con mayor desafío físico.",
           "ideal": "Ideal si buscás seguir progresando."
         },
         {
-          "name": "Vinyasa intenso",
-          "description": "Práctica dinámica, intensa y fluida con posturas más avanzadas.",
-          "ideal": "Ideal si ya tenés algo de experiencia o buscás desafiarte."
+          "name": "vinyasa intenso",
+          "description": "Práctica dinámica e intensa, con mayor exigencia física.",
+          "ideal": "Ideal si buscás desafiarte al máximo."
         }
       ]
     },
     "prices": {
-      "title": "Valores",
-      "subtitle": "Agosto 2026",
+      "title": "valores",
+      "subtitle": "septiembre 2026",
       "items": [
         { "label": "1 clase semanal", "price": "$45.000", "period": "x mes" },
         { "label": "2 clases semanales", "price": "$60.000", "period": "x mes" },
         { "label": "1 clase de prueba", "price": "$16.000" }
       ],
-      "importantTitle": "Importante",
+      "importantTitle": "IMPORTANTE:",
       "notes": [
-        "Las clases se abonan por adelantado, del 1 al 10.",
+        "Las clases se abonan por adelantado del 1 al 10.",
         "El abono es válido únicamente durante el mes calendario en curso.",
-        "Feriados nacionales no hay clases.",
-        "La inscripción y reserva del lugar se concretan solo con comprobante de pago."
+        "Feriados nacionales NO hay clases.",
+        "La inscripción y reserva del lugar se concretan sólo con comprobante de pago."
       ],
       "footer": "Actividad con inscripción previa."
     }
   },
   "en": {
     "schedule": {
-      "title": "Schedule",
-      "days": [
+      "title": "schedule",
+      "handle": "@lucativa.yoga",
+      "headers": ["time", "mon", "tue", "wed", "thu"],
+      "rows": [
         {
-          "day": "Monday",
-          "classes": [
-            { "time": "11:00", "name": "Gentle Hatha", "accent": true },
-            { "time": "16:30", "name": "Gentle Vinyasa" },
-            { "time": "18:30", "name": "Intense Vinyasa" }
-          ]
+          "time": "10:30",
+          "cells": [null, { "name": "intermediate vinyasa" }, null, { "name": "intermediate vinyasa" }]
         },
         {
-          "day": "Tuesday",
-          "classes": [
-            { "time": "10:30", "name": "Intermediate Vinyasa" },
-            { "time": "14:30", "name": "Intermediate Vinyasa" }
-          ]
+          "time": "11:00",
+          "cells": [{ "name": "gentle hatha", "accent": true }, null, { "name": "gentle hatha", "accent": true }, null]
         },
         {
-          "day": "Wednesday",
-          "classes": [
-            { "time": "16:30", "name": "Gentle Vinyasa" },
-            { "time": "18:30", "name": "Intense Vinyasa" }
-          ]
+          "time": "14:30",
+          "cells": [null, { "name": "intermediate vinyasa" }, null, { "name": "intermediate vinyasa" }]
         },
         {
-          "day": "Thursday",
-          "classes": [
-            { "time": "10:30", "name": "Intermediate Vinyasa" },
-            { "time": "11:00", "name": "Gentle Hatha", "accent": true },
-            { "time": "14:30", "name": "Intermediate Vinyasa" }
-          ]
+          "time": "16:30",
+          "cells": [{ "name": "base vinyasa" }, null, { "name": "base vinyasa" }, null]
+        },
+        {
+          "time": "18:30",
+          "cells": [{ "name": "intense vinyasa" }, null, { "name": "intense vinyasa" }, null]
         }
       ],
-      "address": "Fructuoso Rivera 1173, Barrio Observatorio",
+      "address": "Fructuoso Rivera 1173 Observatorio",
       "note": "Prior registration required."
     },
     "levels": {
-      "title": "Levels",
+      "title": "styles",
       "items": [
         {
-          "name": "Gentle Hatha",
+          "name": "gentle hatha",
           "accent": true,
           "description": "A calm practice with sustained postures.",
           "ideal": "Ideal if you are looking for a gentle experience or a calm start."
         },
         {
-          "name": "Gentle Vinyasa",
-          "description": "A dynamic practice with a relaxed pace and accessible transitions.",
-          "ideal": "Ideal if you prefer an active practice with moderate intensity."
+          "name": "base vinyasa",
+          "description": "A dynamic practice at an accessible pace.",
+          "ideal": "Ideal if you want to keep moving without going for the biggest challenge."
         },
         {
-          "name": "Intermediate Vinyasa",
+          "name": "intermediate vinyasa",
           "description": "A dynamic practice with a greater physical challenge.",
           "ideal": "Ideal if you want to keep progressing."
         },
         {
-          "name": "Intense Vinyasa",
-          "description": "A dynamic, intense and fluid practice with more advanced postures.",
-          "ideal": "Ideal if you have some experience or want to challenge yourself."
+          "name": "intense vinyasa",
+          "description": "A dynamic, intense practice with higher physical demands.",
+          "ideal": "Ideal if you want to challenge yourself to the max."
         }
       ]
     },
     "prices": {
-      "title": "Rates",
-      "subtitle": "August 2026",
+      "title": "rates",
+      "subtitle": "september 2026",
       "items": [
         { "label": "1 class per week", "price": "$45,000", "period": "per month" },
         { "label": "2 classes per week", "price": "$60,000", "period": "per month" },
         { "label": "1 trial class", "price": "$16,000" }
       ],
-      "importantTitle": "Important",
+      "importantTitle": "IMPORTANT:",
       "notes": [
-        "Classes are paid in advance, from the 1st to the 10th of each month.",
+        "Classes are paid in advance, from the 1st to the 10th.",
         "The pass is only valid during the current calendar month.",
-        "No classes on Argentine national holidays.",
+        "There are NO classes on Argentine national holidays.",
         "Registration and spot reservation are only confirmed with proof of payment."
       ],
       "footer": "Prior registration required."
