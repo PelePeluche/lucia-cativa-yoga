@@ -9,8 +9,14 @@ import {
   EXTERNAL_LINKS,
 } from "../../constants";
 
+// Import structured schedule/levels/prices data (bilingual: es / en)
+import presencialInfoData from "../../i18n/presencial-info.json";
+
 // Use centralized i18n hook
-const { t } = useI18n(Astro.request);
+const { t, currentLang } = useI18n(Astro.request);
+
+// Pick info for the current language, falling back to Spanish
+const info = presencialInfoData[currentLang] ?? presencialInfoData.es;
 ---
 
 <!-- Section 1: Hero with Image + Intro -->
@@ -52,13 +58,95 @@ const { t } = useI18n(Astro.request);
   </div>
 </section>
 
-<!-- Section 2: Imágenes Horarios, Niveles y Valores -->
+<!-- Section 2: Horarios, Niveles y Valores -->
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <img src="/img/yoga-online-horarios.jpeg" alt="Horarios Vinyasa Yoga" class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-      <img src="/img/yoga-online-niveles.jpeg"  alt="Niveles Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-      <img src="/img/yoga-online-valores.jpeg"  alt="Valores Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+
+      <!-- Horarios -->
+      <article class="bg-lucia-teal rounded-sm p-6 sm:p-8 flex flex-col" style="box-shadow: 8px 8px 0px #e0a6a8;">
+        <h2 class="font-heading text-2xl sm:text-3xl text-lucia-cream text-center mb-6">
+          {info.schedule.title}
+        </h2>
+        <div class="space-y-5 flex-grow">
+          {info.schedule.days.map((day) => (
+            <div>
+              <h3 class="font-body font-bold text-lucia-rose uppercase tracking-widest text-sm mb-2">
+                {day.day}
+              </h3>
+              <ul class="space-y-1.5">
+                {day.classes.map((cls) => (
+                  <li class="font-body text-lucia-cream text-sm flex items-baseline gap-3">
+                    <time class="font-bold shrink-0">{cls.time}</time>
+                    <span>{cls.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div class="mt-6 pt-5 border-t border-lucia-cream/30 text-center">
+          <p class="font-body text-lucia-cream text-sm">📍 {info.schedule.address}</p>
+          <p class="font-body font-bold text-lucia-cream text-sm mt-1">{info.schedule.note}</p>
+        </div>
+      </article>
+
+      <!-- Niveles -->
+      <article class="bg-lucia-teal rounded-sm p-6 sm:p-8 flex flex-col" style="box-shadow: 8px 8px 0px #e0a6a8;">
+        <h2 class="font-heading text-2xl sm:text-3xl text-lucia-cream text-center mb-6">
+          {info.levels.title}
+        </h2>
+        <div class="space-y-6 flex-grow">
+          {info.levels.items.map((level) => (
+            <div>
+              <h3 class={`font-body font-bold text-base mb-1 ${level.accent ? "text-lucia-rose" : "text-lucia-cream"}`}>
+                {level.name}
+              </h3>
+              <p class="font-body text-lucia-cream text-sm leading-relaxed">
+                {level.description}
+              </p>
+              <p class="font-body text-lucia-cream text-sm leading-relaxed italic opacity-90">
+                {level.ideal}
+              </p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <!-- Valores -->
+      <article class="bg-lucia-teal rounded-sm p-6 sm:p-8 flex flex-col" style="box-shadow: 8px 8px 0px #e0a6a8;">
+        <h2 class="font-heading text-2xl sm:text-3xl text-lucia-cream text-center mb-1">
+          {info.prices.title}
+        </h2>
+        <p class="font-body text-lucia-rose text-sm text-center font-bold uppercase tracking-widest mb-6">
+          {info.prices.subtitle}
+        </p>
+        <ul class="space-y-3 mb-8">
+          {info.prices.items.map((item) => (
+            <li class="font-body text-lucia-cream text-sm flex items-baseline justify-between gap-3">
+              <span>{item.label}</span>
+              <span class="text-right shrink-0">
+                <strong class="text-base">{item.price}</strong>
+                {item.period && <span class="opacity-90"> {item.period}</span>}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div class="flex-grow">
+          <h3 class="font-body font-bold text-lucia-rose uppercase tracking-widest text-sm mb-3">
+            {info.prices.importantTitle}
+          </h3>
+          <ul class="space-y-2 list-disc list-outside pl-4">
+            {info.prices.notes.map((note) => (
+              <li class="font-body text-lucia-cream text-sm leading-relaxed">{note}</li>
+            ))}
+          </ul>
+        </div>
+        <p class="font-body font-bold text-lucia-cream text-sm text-center mt-6 pt-5 border-t border-lucia-cream/30">
+          {info.prices.footer}
+        </p>
+      </article>
+
     </div>
   </div>
 </section>
