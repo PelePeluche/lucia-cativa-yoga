@@ -6,6 +6,7 @@ import CTAButton from "../ui/buttons/CTAButton.astro";
 import {
   SECTION_SPACING,
   RESPONSIVE_CLASSES,
+  EXTERNAL_LINKS,
 } from "../../constants";
 
 // Use centralized i18n hook
@@ -206,7 +207,7 @@ const testimonials = testimonialsData[currentLang] ?? testimonialsData.es;
       <p class={`text-lucia-brown mb-6 ${RESPONSIVE_CLASSES.text.subheading}`}>
         {t("testimonials.ctaText")}
       </p>
-      <CTAButton href="https://wa.me/543516225399" variant="primary" size="large" target="_blank" class="w-full sm:w-auto">
+      <CTAButton href={EXTERNAL_LINKS.CONTACT_FORM} variant="primary" size="large" target="_blank" class="w-full sm:w-auto">
         {t("testimonials.ctaButton")}
       </CTAButton>
     </div>
