@@ -3,14 +3,21 @@
 import { useI18n } from "../../i18n/useI18n.ts";
 import CTAButton from "../ui/buttons/CTAButton.astro";
 import DecoratedImage from "../ui/common/DecoratedImage.astro";
+import StarOrnament from "../ui/common/StarOrnament.astro";
 import {
   SECTION_SPACING,
   RESPONSIVE_CLASSES,
   EXTERNAL_LINKS,
 } from "../../constants";
 
+// Import structured schedule/levels/prices data (bilingual: es / en)
+import presencialInfoData from "../../i18n/presencial-info.json";
+
 // Use centralized i18n hook
-const { t } = useI18n(Astro.request);
+const { t, currentLang } = useI18n(Astro.request);
+
+// Pick info for the current language, falling back to Spanish
+const info = presencialInfoData[currentLang] ?? presencialInfoData.es;
 ---
 
 <!-- Section 1: Hero with Image + Intro -->
@@ -52,14 +59,88 @@ const { t } = useI18n(Astro.request);
   </div>
 </section>
 
-<!-- Section 2: Imágenes Horarios, Niveles y Valores -->
+<!-- Section 2: Horarios, Niveles y Valores (flyer-style panels) -->
 <section class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}>
   <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <img src="/img/yoga-online-horarios.jpeg" alt="Horarios Vinyasa Yoga" class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-      <img src="/img/yoga-online-niveles.jpeg"  alt="Niveles Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
-      <img src="/img/yoga-online-valores.jpeg"  alt="Valores Vinyasa Yoga"  class="w-full rounded-sm object-cover" style="box-shadow: 8px 8px 0px #e0a6a8;" />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+      <!-- Horarios -->
+      <div class="flyer-holder">
+        <article class="flyer-panel">
+          <StarOrnament />
+          <h2 class="flyer-title">{info.schedule.title}</h2>
+          <p class="flyer-subtitle">{info.schedule.handle}</p>
+          <div class="flyer-body">
+            <table class="flyer-table">
+              <thead>
+                <tr>
+                  {info.schedule.headers.map((header, index) => (
+                    <th class={index === 0 ? "flyer-col-time" : ""}>{header}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {info.schedule.rows.map((row) => (
+                  <tr>
+                    <td>{row.time}</td>
+                    {row.cells.map((cell) => (
+                      <td class={cell?.accent ? "flyer-accent" : ""}>{cell?.name ?? ""}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="flyer-note-italic">{info.schedule.address}</p>
+          <p class="flyer-note-bold">{info.schedule.note}</p>
+        </article>
+      </div>
+
+      <!-- Niveles -->
+      <div class="flyer-holder">
+        <article class="flyer-panel">
+          <StarOrnament />
+          <h2 class="flyer-title">{info.levels.title}</h2>
+          <div class="flyer-body flyer-levels">
+            {info.levels.items.map((level) => (
+              <div>
+                <h3 class={`flyer-level-name ${level.accent ? "flyer-accent" : ""}`}>
+                  {level.name}
+                </h3>
+                <p class="flyer-text">{level.description}</p>
+                <p class="flyer-text flyer-italic">{level.ideal}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      </div>
+
+      <!-- Valores -->
+      <div class="flyer-holder">
+        <article class="flyer-panel">
+          <StarOrnament />
+          <h2 class="flyer-title">{info.prices.title}</h2>
+          <p class="flyer-subtitle">{info.prices.subtitle}</p>
+          <div class="flyer-body">
+            <ul class="flyer-prices">
+              {info.prices.items.map((item) => (
+                <li>
+                  {item.label} <strong>{item.price}</strong>
+                  {item.period && <span> {item.period}</span>}
+                </li>
+              ))}
+            </ul>
+            <p class="flyer-important">{info.prices.importantTitle}</p>
+            <ul class="flyer-bullets">
+              {info.prices.notes.map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </div>
+          <p class="flyer-note-bold">{info.prices.footer}</p>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>
-

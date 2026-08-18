@@ -157,9 +157,9 @@
   },
   "yogaPresencial": {
     "title": "Yoga Presencial",
-    "intro1": "<strong>Clases grupales regulares en Córdoba, Argentina.</strong>",
-    "intro2": "Un espacio para entrenar en comunidad, compartir la práctica y habitar el presente con otros al lado.",
-    "intro3": "<strong>Cada clase mantiene la intensidad y fluidez del Vinyasa Yoga, pero se adapta con opciones para distintos niveles de experiencia.</strong>",
+    "intro1": "<strong>Clases grupales en Córdoba, Argentina.</strong>",
+    "intro2": "Un espacio para practicar en comunidad y habitar el presente con otros al lado.",
+    "intro3": "<strong>Vinyasa dinámico e intenso, con variantes dentro de cada secuencia — no hace falta experiencia previa para sumarte.</strong>",
     "intro4": "La práctica presencial potencia la energía colectiva y hace de cada encuentro una experiencia única.",
     "zonaCentroTitle": "ZONA CENTRO",
     "zonaCentroDays": "Martes y Jueves",
@@ -179,11 +179,11 @@
     "cta": "Reservá tu clase"
   },
   "footer": {
-    "copyright": " 2025 Lu Cativa. Todos los derechos reservados.",
+    "copyright": "Lu Cativa. Todos los derechos reservados.",
     "address": "Córdoba, Argentina",
     "emailLabel": "Email",
-    "phone": "+54 11 1234 5678",
-    "followMe": "Sígueme",
+    "phone": "+54 9 351 679-9440",
+    "followMe": "Seguime",
     "privacyPolicy": "Política de privacidad",
     "termsOfService": "Términos del servicio",
     "cookiePolicy": "Política de cookies",

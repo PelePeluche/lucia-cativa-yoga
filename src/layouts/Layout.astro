@@ -10,6 +10,7 @@ import Footer from '../components/layout/Footer.astro';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
 // Get the current language from the URL or use default
@@ -17,7 +18,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
 const t = useTranslations(currentLang);
 
-const { title = t('meta.title') } = Astro.props;
+const { title = t('meta.title'), description = t('meta.description') } = Astro.props;
 
 // Structured data (JSON-LD) for Local Business — content comes from i18n
 const structuredData = {
@@ -27,8 +28,8 @@ const structuredData = {
   name: 'Lucía Cativa - Vinyasa Yoga',
   description: t('meta.structuredData.description'),
   url: 'https://luciacativayoga.com',
-  telephone: '+54-11-xxxx-xxxx',
-  email: 'hola@luciacativa.com',
+  telephone: '+54-9-351-679-9440',
+  email: 'lucativayoga@gmail.com',
   founder: {
     '@type': 'Person',
     name: 'Lucía Cativa',
@@ -81,11 +82,13 @@ const structuredData = {
     <!-- Load fonts with display=swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- DM Sans (closest to Canva Sans): used by the flyer panels on Yoga Presencial -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap" rel="stylesheet" />
     
     <!-- Preload critical images -->
     <link rel="preload" href="/img/hero-yoga.jpeg" as="image" />
     <title>{title}</title>
-    <meta name="description" content={t('meta.description')} />
+    <meta name="description" content={description} />
 
     <!-- SEO Keywords -->
     <meta name="keywords" content={t('meta.keywords')} />

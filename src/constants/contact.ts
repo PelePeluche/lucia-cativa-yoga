@@ -1,8 +1,8 @@
 // Contact information constants
 export const CONTACT_INFO = {
   email: 'hola@luciacativa.com',
-  phone: '+54 11 1234 5678',
-  whatsapp: '+54 11 1234 5678',
+  phone: '+54 9 351 679-9440',
+  whatsapp: '+54 9 351 679-9440',
   address: 'Córdoba, Argentina',
   businessName: 'Lu Cativa - Vinyasa Yoga',
   instructorName: 'Lucía Cativa'
