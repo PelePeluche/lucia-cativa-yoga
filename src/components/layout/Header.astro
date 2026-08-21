@@ -29,16 +29,19 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(href
       display: block !important;
     }
   }
+  /* Colores de texto: el nav es texto de 14px, así que necesita 4.5:1.
+     lucia-brown (#9a8576) daba 3.09 y lucia-mauve (#a3738b) 3.44 sobre el
+     crema del header. Ahora tinta en reposo y malva oscuro en interacción. */
   .nav-link {
     @apply text-xs sm:text-sm font-medium transition-colors duration-200;
-    color: #9a8576;
+    color: #4c423b;
   }
   .nav-link:hover {
-    color: #a3738b;
+    color: #825c6f;
   }
   .nav-link.active {
-    color: #a3738b;
-    border-bottom: 2px solid #a3738b;
+    color: #825c6f;
+    border-bottom: 2px solid #825c6f;
     padding-bottom: 2px;
   }
   .contact-button {
@@ -59,7 +62,7 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(href
     <a href="/" style="display: flex; align-items: center;">
       <img src="/img/IDENTIDAD YOGA (500 x 150 px).svg" alt="Lucía Cativa Yoga" style="height: 29px; width: auto;">
     </a>
-    <button id="mobile-menu-toggle" type="button" style="background: none; border: none; color: #9a8576; cursor: pointer; padding: 4px;">
+    <button id="mobile-menu-toggle" type="button" style="background: none; border: none; color: #4c423b; cursor: pointer; padding: 4px;">
       <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -74,7 +77,7 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(href
       <a href="/" style="display: flex; align-items: center;">
         <img src="/img/IDENTIDAD YOGA (500 x 150 px).svg" alt="Lucía Cativa Yoga" style="height: 26px; width: auto;">
       </a>
-      <button id="mobile-menu-close" type="button" style="background: none; border: none; color: #9a8576; cursor: pointer; padding: 4px;">
+      <button id="mobile-menu-close" type="button" style="background: none; border: none; color: #4c423b; cursor: pointer; padding: 4px;">
         <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>

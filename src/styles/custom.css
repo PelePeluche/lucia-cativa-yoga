@@ -17,11 +17,6 @@ html, body {
   max-width: 100vw;
 }
 
-/* Forzar bg-lucia-cream temporalmente para debugging */
-.bg-lucia-cream {
-  background-color: #f9f0dc !important;
-}
-
 /* Componentes complejos que combinan múltiples estilos */
 .newsletter-input {
   background-color: rgba(87, 120, 116, 0.2);

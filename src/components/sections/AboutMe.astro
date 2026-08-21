@@ -31,7 +31,7 @@ const { currentLang, t } = useI18n(Astro.request);
       <!-- Text content -->
       <div class="w-full lg:w-3/5">
         <h2
-          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}
+          class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-ink mb-6 relative`}
         >
           {t("aboutMe.title")}
           <span
@@ -39,7 +39,7 @@ const { currentLang, t } = useI18n(Astro.request);
             style="background-color: #e0a6a8;"></span>
         </h2>
 
-        <div class="space-y-4 text-lucia-brown leading-relaxed">
+        <div class="space-y-4 text-lucia-ink leading-relaxed">
           <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.subtitle")} />
           <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.paragraph1")} />
           <p class={RESPONSIVE_CLASSES.text.body} set:html={t("aboutMe.paragraph2")} />
