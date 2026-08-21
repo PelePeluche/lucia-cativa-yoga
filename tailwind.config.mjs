@@ -7,12 +7,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Nueva paleta de colores Lu Cativa - configuración correcta
-        'lucia-mauve': '#a3738b',      // Rosa/malva - acentos principales, CTAs
+        // Paleta Lu Cativa.
+        //
+        // IMPORTANTE - separación de roles:
+        // Los colores de marca (mauve/rose/teal/cream/brown) son colores de
+        // SUPERFICIE y ACENTO. Ninguno alcanza 4.5:1 sobre los fondos claros
+        // del sitio, así que NO se usan para texto de lectura. Sirven como
+        // fondo, borde, ornamento y título grande (donde el mínimo es 3:1).
+        //
+        // El texto de lectura usa lucia-ink / lucia-ink-soft.
+        'lucia-mauve': '#a3738b',      // Rosa/malva - acentos, CTAs, títulos grandes
         'lucia-rose': '#e0a6a8',       // Rosa claro - fondos suaves, hover states
-        'lucia-teal': '#577874',       // Verde azulado - texto secundario, contraste
+        'lucia-teal': '#577874',       // Verde azulado - fondos, acentos, títulos
         'lucia-cream': '#f9f0dc',      // Crema - fondos principales
-        'lucia-brown': '#9a8576',      // Marrón - texto principal, elementos neutros
+        'lucia-brown': '#9a8576',      // Marrón - superficie neutra (NO texto)
+
+        // Tinta: los únicos colores válidos para texto de lectura.
+        // Es el mismo marrón de marca, oscurecido hasta que contrasta.
+        // Contraste medido contra los tres fondos claros del sitio:
+        //   ink      -> blanco 9.77 | crema 8.62 | rose 4.74  (AA en los tres)
+        //   ink-soft -> blanco 5.66 | crema 4.99              (AA, texto secundario)
+        'lucia-ink': '#4c423b',        // Texto principal
+        'lucia-ink-soft': '#746459',   // Texto secundario / de apoyo
+
+        // Malva oscurecido: el acento de marca, pero legible en texto chico
+        // (links, estados hover/activo). Crema 4.99 | blanco 5.66.
+        // lucia-mauve solo alcanza 3.44 sobre crema: sirve de fondo, borde y
+        // título grande, no de link.
+        'lucia-mauve-dark': '#825c6f',
       },
       fontFamily: {
         'heading': ['Yeseva One', 'serif'],
@@ -42,8 +64,13 @@ export default {
         '.footer-border': {
           'border-color': 'rgba(249, 240, 220, 0.3)'
         },
+        // Los íconos sociales usan fill="currentColor", así que heredan este
+        // color. El color anterior era crema (rgba(249,240,220,.8)) porque
+        // este componente se diseñó para el footer oscuro de '.footer-bg',
+        // pero Footer.astro usa fondo crema: crema sobre crema = invisible.
+        // Provisional hasta definir si el footer va claro u oscuro.
         '.social-link': {
-          'color': 'rgba(249, 240, 220, 0.8)',
+          'color': '#746459',
           'transition': 'color 0.3s',
           '&:hover': {
             'color': '#a3738b'
@@ -72,16 +99,10 @@ export default {
           }
         },
         '.section-title': {
-          'color': '#9a8576'
+          'color': '#4c423b'
         },
         '.section-line': {
           'background-color': '#a3738b'
-        },
-        '.test-class': {
-          'background-color': 'red !important',
-          'color': 'white !important',
-          'padding': '20px !important',
-          'border': '5px solid blue !important'
         }
       })
     }
@@ -89,10 +110,14 @@ export default {
   safelist: [
     // Asegurar que las clases personalizadas se generen
     'text-lucia-mauve',
-    'text-lucia-rose', 
+    'text-lucia-rose',
     'text-lucia-teal',
     'text-lucia-cream',
     'text-lucia-brown',
+    'text-lucia-ink',
+    'text-lucia-ink-soft',
+    'text-lucia-mauve-dark',
+    'hover:text-lucia-mauve-dark',
     'bg-lucia-mauve',
     'bg-lucia-rose',
     'bg-lucia-teal', 
@@ -110,6 +135,9 @@ export default {
     'hover:text-lucia-rose',
     'hover:text-lucia-teal',
     'hover:text-lucia-brown',
+    'hover:text-lucia-ink',
+    'bg-lucia-ink',
+    'border-lucia-ink',
     // Clases de componentes reutilizables
     'nav-bg',
     'footer-bg',
@@ -122,6 +150,5 @@ export default {
     'newsletter-button',
     'section-title',
     'section-line',
-    'test-class',
   ]
 };
