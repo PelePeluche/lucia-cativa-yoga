@@ -14,7 +14,7 @@ export const SITE_CONFIG: SiteConfig = {
   url: 'https://luciacativa.com',
   author: 'Lucía Cativa',
   email: 'lucativayoga@gmail.com',
-  phone: '+54 9 351 679-9440',
+  phone: '+54 351 622-5399',
   address: 'Córdoba, Argentina',
   social: SOCIAL_LINKS
 } as const;
