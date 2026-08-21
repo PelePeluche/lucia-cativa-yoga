@@ -18,6 +18,11 @@ export const MAIN_NAVIGATION: NavItem[] = [
     isExternal: false
   },
   {
+    label: 'nav.retreats',
+    href: '/retiros',
+    isExternal: false
+  },
+  {
     label: 'nav.contact',
     href: '#contacto',
     isAnchor: true

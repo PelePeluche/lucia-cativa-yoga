@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RetirosSection from '../components/sections/Retiros.astro';
+import { useI18n } from '../i18n/useI18n.ts';
+import retirosData from '../i18n/retiros.json';
+
+const { currentLang } = useI18n(Astro.request);
+const info = retirosData[currentLang] ?? retirosData.es;
+---
+
+<Layout title={info.seoTitle} description={info.seoDescription}>
+  <RetirosSection />
+</Layout>

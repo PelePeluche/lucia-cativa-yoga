@@ -11,6 +11,7 @@ export const EXTERNAL_LINKS = {
   // Yoga Services - Internal Pages
   YOGA_ONLINE_PAGE: '/yoga-online',
   YOGA_PRESENCIAL_PAGE: '/yoga-presencial',
+  RETREATS_PAGE: '/retiros',
   
   // Forms / Contact
   CONTACT_FORM: 'https://wa.me/5493516225399',

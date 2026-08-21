@@ -87,7 +87,7 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(href
       <a href="/#sobre-mi" class="nav-link" style="font-size: 1rem; font-weight: 500;">{t('nav.aboutMe')}</a>
       <a href="/yoga-online" class:list={["nav-link", { active: isActive('/yoga-online') }]} style="font-size: 1rem; font-weight: 500;">{t('nav.onlineYoga')}</a>
       <a href="/yoga-presencial" class:list={["nav-link", { active: isActive('/yoga-presencial') }]} style="font-size: 1rem; font-weight: 500;">{t('nav.inPersonYoga')}</a>
-      <a href="/blog" class:list={["nav-link", { active: isActive('/blog') }]} style="font-size: 1rem; font-weight: 500;">Blog</a>
+      <a href="/retiros" class:list={["nav-link", { active: isActive('/retiros') }]} style="font-size: 1rem; font-weight: 500;">{t('nav.retreats')}</a>
       
       <!-- Mobile Contact Button -->
       <div style="padding-top: 8px;">
@@ -113,7 +113,7 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(href
         <a href="/#sobre-mi" class="nav-link">{t('nav.aboutMe')}</a>
         <a href="/yoga-online" class:list={["nav-link", { active: isActive('/yoga-online') }]}>{t('nav.onlineYoga')}</a>
         <a href="/yoga-presencial" class:list={["nav-link", { active: isActive('/yoga-presencial') }]}>{t('nav.inPersonYoga')}</a>
-        <a href="/blog" class:list={["nav-link", { active: isActive('/blog') }]}>Blog</a>
+        <a href="/retiros" class:list={["nav-link", { active: isActive('/retiros') }]}>{t('nav.retreats')}</a>
       </div>
       
       <!-- Contact button --> 
