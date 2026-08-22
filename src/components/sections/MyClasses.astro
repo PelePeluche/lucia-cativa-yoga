@@ -27,7 +27,7 @@ const benefits = [
     <SectionTitle
       title={t("myClasses.title")}
       alignment="center"
-      titleColor="text-lucia-brown"
+      titleColor="text-lucia-ink"
       lineColor="bg-lucia-mauve"
     />
 
@@ -40,7 +40,7 @@ const benefits = [
       <h2 class="text-2xl md:text-3xl font-heading text-lucia-mauve mb-4">
         {t("myClasses.subtitle")}
       </h2>
-      <p class="text-lg text-lucia-brown leading-relaxed">
+      <p class="text-lg text-lucia-ink leading-relaxed">
         {t("myClasses.description")}
       </p>
     </div>
@@ -58,7 +58,7 @@ const benefits = [
             {t("myClasses.onlineClasses.title")}
           </h3>
 
-          <p class="text-lucia-brown mb-6 leading-relaxed">
+          <p class="text-lucia-ink mb-6 leading-relaxed">
             {t("myClasses.onlineClasses.description")}
           </p>
 
@@ -66,7 +66,7 @@ const benefits = [
             {t("myClasses.onlineClasses.introClasses")}
           </p>
 
-          <p class="text-lucia-brown mb-8 leading-relaxed">
+          <p class="text-lucia-ink mb-8 leading-relaxed">
             {t("myClasses.onlineClasses.details")}
           </p>
 
@@ -74,7 +74,7 @@ const benefits = [
           <div class="flex flex-col sm:flex-row gap-4">
             <a
               href={currentLang === "en" ? "/en/online-yoga" : "/yoga-online"}
-              class="inline-block px-8 py-4 bg-lucia-mauve text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-rose hover:text-lucia-brown transition duration-300 rounded-sm"
+              class="inline-block px-8 py-4 bg-lucia-mauve text-white font-medium text-center tracking-wide uppercase hover:bg-lucia-rose hover:text-lucia-ink transition duration-300 rounded-sm"
             >
               {t("myClasses.onlineClasses.cta")}
             </a>
@@ -92,7 +92,7 @@ const benefits = [
               benefits.map((benefit) => (
                 <li class="flex items-start">
                   <div class="flex-shrink-0 w-2 h-2 bg-lucia-mauve rounded-full mt-2 mr-3" />
-                  <span class="text-lucia-brown leading-relaxed">
+                  <span class="text-lucia-ink leading-relaxed">
                     {benefit}
                   </span>
                 </li>
@@ -117,13 +117,13 @@ const benefits = [
           {t("myClasses.inPersonClasses.title")}
         </h3>
         <div class="w-24 h-1 mx-auto mb-4 section-line"></div>
-        <p class="text-lg text-lucia-brown leading-relaxed max-w-3xl mx-auto">
+        <p class="text-lg text-lucia-ink leading-relaxed max-w-3xl mx-auto">
           {t("myClasses.inPersonClasses.description")}
         </p>
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <p class="text-lucia-brown mb-6 leading-relaxed text-center">
+        <p class="text-lucia-ink mb-6 leading-relaxed text-center">
           {t("myClasses.inPersonClasses.details")}
         </p>
 

@@ -1,0 +1,62 @@
+{
+  "es": {
+    "seoTitle": "Retiros — Lucía Cativa",
+    "seoDescription": "Retiros de yoga con Lucía Cativa. Vinyasa, naturaleza y desconexión en entornos únicos.",
+    "title": "Retiros",
+    "intro": "Unos días para salir de la rutina, mover el cuerpo y volver a encontrarte con lo simple. Cada retiro es un encuentro distinto, en un lugar elegido para desconectar.",
+    "empty": "No hay retiros abiertos en este momento. Escribime y te aviso cuando se abra el próximo.",
+    "retreats": [
+      {
+        "id": "mareas-2026",
+        "name": "Retiro Mareas",
+        "dates": "5 al 8 de diciembre 2026",
+        "location": "Punta del Diablo, Uruguay",
+        "description": "4 días para bajar el ritmo, mover el cuerpo y conectar con el mar. Vinyasa yoga, caminatas, fogones y tiempo libre, alojados en cabañas frente al mar en Puerto Diablo Lodge.",
+        "images": [
+          {
+            "src": "/img/retiro-mareas-practica.jpg",
+            "alt": "Grupo practicando vinyasa yoga durante el Retiro Mareas"
+          },
+          {
+            "src": "/img/retiro-mareas-alojamiento.jpg",
+            "alt": "Interior de las cabañas frente al mar en Puerto Diablo Lodge"
+          }
+        ],
+        "infoUrl": "https://drive.google.com/file/d/1VRYNT_ziHNac76ftKgKF2oUeAMOyViIp/view",
+        "infoLabel": "Ver info completa",
+        "bookLabel": "Reservar",
+        "bookMessage": "Hola Lu! Quiero reservar mi lugar en el Retiro Mareas."
+      }
+    ]
+  },
+  "en": {
+    "seoTitle": "Retreats — Lucía Cativa",
+    "seoDescription": "Yoga retreats with Lucía Cativa. Vinyasa, nature and disconnection in unique settings.",
+    "title": "Retreats",
+    "intro": "A few days to step out of the routine, move your body and reconnect with what is simple. Every retreat is its own encounter, in a place chosen for switching off.",
+    "empty": "There are no open retreats right now. Write to me and I'll let you know when the next one opens.",
+    "retreats": [
+      {
+        "id": "mareas-2026",
+        "name": "Mareas Retreat",
+        "dates": "December 5 to 8, 2026",
+        "location": "Punta del Diablo, Uruguay",
+        "description": "4 days to slow down, move your body and connect with the sea. Vinyasa yoga, walks, bonfires and free time, staying in beachfront cabins at Puerto Diablo Lodge.",
+        "images": [
+          {
+            "src": "/img/retiro-mareas-practica.jpg",
+            "alt": "Group practising vinyasa yoga during the Mareas Retreat"
+          },
+          {
+            "src": "/img/retiro-mareas-alojamiento.jpg",
+            "alt": "Inside the beachfront cabins at Puerto Diablo Lodge"
+          }
+        ],
+        "infoUrl": "https://drive.google.com/file/d/1VRYNT_ziHNac76ftKgKF2oUeAMOyViIp/view",
+        "infoLabel": "See full details",
+        "bookLabel": "Book now",
+        "bookMessage": "Hi Lu! I'd like to book my spot for the Mareas Retreat."
+      }
+    ]
+  }
+}

@@ -25,7 +25,7 @@ const { t } = useI18n(Astro.request);
       </div>
       <div class="w-full lg:w-3/5 flex flex-col">
         <!-- Título arriba -->
-        <h1 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-brown mb-6 relative`}>
+        <h1 class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-ink mb-6 relative`}>
           {t("yogaOnline.title")}
           <span class="absolute -bottom-2 left-0 w-16 h-1 rounded-full" style="background-color: #e0a6a8;"></span>
         </h1>
@@ -33,7 +33,7 @@ const { t } = useI18n(Astro.request);
         <!-- Cuerpo empujado al fondo (alineado con el borde inferior de la imagen) -->
         <div class="mt-auto flex flex-col gap-6">
           <!-- Párrafos intro -->
-          <div class="space-y-2 text-lucia-brown leading-relaxed">
+          <div class="space-y-2 text-lucia-ink leading-relaxed">
             <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro1")} />
             <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro2")} />
             <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro3")} />
@@ -41,7 +41,7 @@ const { t } = useI18n(Astro.request);
           </div>
 
           <!-- Cómo funciona -->
-          <div class="text-lucia-brown">
+          <div class="text-lucia-ink">
             <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro4")}</p>
             <ol class="space-y-1 pl-4 leading-relaxed">
               <li class={RESPONSIVE_CLASSES.text.body}>1. {t("yogaOnline.step1")}</li>
@@ -52,7 +52,7 @@ const { t } = useI18n(Astro.request);
           </div>
 
           <!-- Guía de acompañamiento -->
-          <div class="text-lucia-brown leading-relaxed">
+          <div class="text-lucia-ink leading-relaxed">
             <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro5Title")}</p>
             <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro5")} />
           </div>

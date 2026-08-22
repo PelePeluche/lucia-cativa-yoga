@@ -5,15 +5,16 @@
 
 export const EXTERNAL_LINKS = {
   // Yoga Services - External Links
-  YOGA_ONLINE_WHATSAPP: 'https://wa.me/5493516799440',
+  YOGA_ONLINE_WHATSAPP: 'https://wa.me/5493516225399',
   YOGA_PRESENCIAL_SITE: 'https://sites.google.com/view/lucativayoga/inicio',
   
   // Yoga Services - Internal Pages
   YOGA_ONLINE_PAGE: '/yoga-online',
   YOGA_PRESENCIAL_PAGE: '/yoga-presencial',
+  RETREATS_PAGE: '/retiros',
   
   // Forms / Contact
-  CONTACT_FORM: 'https://wa.me/5493516799440',
+  CONTACT_FORM: 'https://wa.me/5493516225399',
   
   // Social Media
   INSTAGRAM: 'https://www.instagram.com/lucativa.yoga?igsh=MXRkYWt0dWFnNHZ2bA==',

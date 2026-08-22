@@ -1,0 +1,123 @@
+---
+// Retiros section - one block per retreat.
+//
+// Evergreen by design: the blocks are rendered from src/i18n/retiros.json.
+// Adding a future retreat means appending an object to the `retreats` array
+// in both languages - no markup changes needed here.
+import { useI18n } from "../../i18n/useI18n.ts";
+import CTAButton from "../ui/buttons/CTAButton.astro";
+import { SECTION_SPACING, RESPONSIVE_CLASSES, EXTERNAL_LINKS } from "../../constants";
+
+import retirosData from "../../i18n/retiros.json";
+
+const { t, currentLang } = useI18n(Astro.request);
+
+// Pick content for the current language, falling back to Spanish
+const info = retirosData[currentLang] ?? retirosData.es;
+
+// The booking button opens WhatsApp with the message already written, so the
+// person only has to hit send. EXTERNAL_LINKS.CONTACT_FORM is the single
+// source for the public number.
+const bookingHref = (message: string) =>
+  `${EXTERNAL_LINKS.CONTACT_FORM}?text=${encodeURIComponent(message)}`;
+---
+
+<section
+  class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream`}
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Section header -->
+    <header class="text-center mb-16">
+      <h1
+        class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-ink mb-4`}
+      >
+        {info.title}
+      </h1>
+      <div class="w-16 h-1 rounded-full mx-auto mb-6 bg-lucia-mauve"></div>
+      <p
+        class={`${RESPONSIVE_CLASSES.text.body} text-lucia-ink-soft leading-relaxed max-w-2xl mx-auto`}
+      >
+        {info.intro}
+      </p>
+    </header>
+
+    {
+      info.retreats.length === 0 ? (
+        <p class={`${RESPONSIVE_CLASSES.text.body} text-lucia-ink-soft text-center`}>
+          {info.empty}
+        </p>
+      ) : (
+        <div class="space-y-20">
+          {info.retreats.map((retreat, index) => (
+            <article
+              class={`flex flex-col gap-10 lg:gap-14 lg:items-center ${
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+              }`}
+            >
+              <!-- Images -->
+              <div class="w-full lg:w-1/2">
+                <div
+                  class={`grid gap-4 ${retreat.images.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
+                >
+                  {retreat.images.map((image) => (
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading="lazy"
+                      decoding="async"
+                      class="w-full h-full aspect-[4/5] object-cover rounded-sm shadow-md"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="w-full lg:w-1/2">
+                <h2
+                  class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-ink mb-3`}
+                >
+                  {retreat.name}
+                </h2>
+
+                <!-- Fecha y lugar: acento de marca, pero en mauve-dark.
+                     El fondo de esta sección es crema, donde lucia-teal da
+                     4.26 y lucia-mauve 3.44 - ninguno llega a 4.5. -->
+                <p class="text-lucia-mauve-dark font-medium mb-6">
+                  {retreat.dates}
+                  <span class="mx-2">·</span>
+                  {retreat.location}
+                </p>
+
+                <p
+                  class={`${RESPONSIVE_CLASSES.text.body} text-lucia-ink leading-relaxed mb-8`}
+                >
+                  {retreat.description}
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <CTAButton
+                    href={bookingHref(retreat.bookMessage)}
+                    variant="primary"
+                    size="medium"
+                    target="_blank"
+                  >
+                    {retreat.bookLabel}
+                  </CTAButton>
+
+                  <CTAButton
+                    href={retreat.infoUrl}
+                    variant="secondary"
+                    size="medium"
+                    target="_blank"
+                  >
+                    {retreat.infoLabel}
+                  </CTAButton>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</section>
