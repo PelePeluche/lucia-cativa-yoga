@@ -1,0 +1,12 @@
+# Redirects de Cloudflare Pages.
+#
+# IMPORTANTE: este archivo tiene que vivir en public/ para que Astro lo copie
+# a dist/. Cloudflare Pages lee _redirects desde el directorio de salida del
+# build, así que una copia en la raíz del repo NO se despliega nunca.
+# (Hay una en la raíz que quedó muerta justamente por eso.)
+
+# /blog fue reemplazada por /retiros. La URL vieja estaba en el sitemap y por
+# lo tanto indexada, así que se le da un redirect permanente en vez de dejarla
+# sirviendo otra cosa con un 200.
+/blog      /retiros  301
+/blog/*    /retiros  301
