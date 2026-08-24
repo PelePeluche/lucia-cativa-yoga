@@ -1,3 +1,10 @@
+# Headers de Cloudflare Pages.
+#
+# IMPORTANTE: este archivo tiene que vivir en public/ para que Astro lo copie
+# a dist/. Pages lee _headers desde el directorio de salida del build, así que
+# la copia que estaba en la raíz del repo nunca se desplegó: ninguno de estos
+# headers llegó a producción.
+
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
@@ -5,17 +12,22 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-/*.js
+# Assets con hash en el nombre (design-system.XqWHcOjs.css). El hash cambia
+# cuando cambia el contenido, así que la URL nunca sirve algo distinto:
+# 'immutable' a un año es exactamente para esto.
+/_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
-/*.css
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.png
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.jpg
-  Cache-Control: public, max-age=31536000, immutable
+# Imágenes y SVG de public/: el nombre NO lleva hash y se reemplazan EN EL
+# MISMO ARCHIVO. Los flyers de horarios y valores se actualizan cada tanto
+# (ver el historial de public/img/yoga-online-horarios.jpeg) conservando el
+# nombre.
+#
+# Por eso acá NO va 'immutable': con un año de cache inmutable, quien ya
+# visitó el sitio seguiría viendo el horario viejo hasta por un año. Un día
+# de cache con revalidación da la mayor parte del beneficio sin ese riesgo.
+/img/*
+  Cache-Control: public, max-age=86400, must-revalidate
 
 /*.svg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, must-revalidate
