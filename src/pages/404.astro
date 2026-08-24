@@ -1,0 +1,69 @@
+---
+// Página 404.
+//
+// Astro la compila a dist/404.html y Cloudflare Pages la sirve, con status
+// 404, para cualquier ruta que no exista. Sin este archivo Pages devuelve el
+// home con un 200: contenido duplicado infinito y crawl budget tirado.
+//
+// El texto va en español y no por i18n: es un único archivo estático servido
+// para cualquier ruta, así que no hay request del cual deducir el idioma.
+// Español es el idioma por defecto del sitio.
+import Layout from "../layouts/Layout.astro";
+import CTAButton from "../components/ui/buttons/CTAButton.astro";
+import { SECTION_SPACING, RESPONSIVE_CLASSES, EXTERNAL_LINKS } from "../constants";
+---
+
+<Layout
+  title="Página no encontrada — Lucía Cativa"
+  description="La página que buscás no existe o cambió de dirección."
+>
+  <section
+    class={`${SECTION_SPACING.padding.mobile} ${SECTION_SPACING.padding.desktop} bg-lucia-cream min-h-[70vh] flex items-center`}
+  >
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-heading text-6xl sm:text-7xl text-lucia-mauve-dark mb-4">404</p>
+
+      <h1
+        class={`font-heading ${RESPONSIVE_CLASSES.text.subheading} text-lucia-ink mb-4`}
+      >
+        Esta página no existe
+      </h1>
+
+      <div class="w-16 h-1 rounded-full mx-auto mb-6 bg-lucia-mauve"></div>
+
+      <p
+        class={`${RESPONSIVE_CLASSES.text.body} text-lucia-ink-soft leading-relaxed mb-10`}
+      >
+        Puede que hayas seguido un enlace viejo, o que la página haya cambiado
+        de dirección. Te dejo por dónde seguir.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <CTAButton href="/" variant="primary" size="medium">
+          Ir al inicio
+        </CTAButton>
+
+        <CTAButton
+          href={EXTERNAL_LINKS.CONTACT_FORM}
+          variant="secondary"
+          size="medium"
+          target="_blank"
+        >
+          Escribime
+        </CTAButton>
+      </div>
+
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 justify-center text-sm">
+        <a href="/yoga-online" class="text-lucia-mauve-dark hover:underline">
+          Yoga online
+        </a>
+        <a href="/yoga-presencial" class="text-lucia-mauve-dark hover:underline">
+          Yoga presencial
+        </a>
+        <a href="/retiros" class="text-lucia-mauve-dark hover:underline">
+          Retiros
+        </a>
+      </nav>
+    </div>
+  </section>
+</Layout>
