@@ -43,23 +43,12 @@ const { t } = useI18n(Astro.request);
           <!-- Cómo funciona -->
           <div class="text-lucia-ink">
             <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro4")}</p>
-            <ol class="space-y-1 pl-4 leading-relaxed">
-              <li class={RESPONSIVE_CLASSES.text.body}>1. {t("yogaOnline.step1")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>2. {t("yogaOnline.step2")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>3. {t("yogaOnline.step3")}</li>
-            </ol>
-          </div>
-
-          <!-- Qué incluye -->
-          <div class="text-lucia-ink leading-relaxed">
-            <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.includesTitle")}</p>
-            <ul class="space-y-1 pl-4 list-disc list-outside">
-              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.include1")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.include2")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.include3")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.include4")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.include5")}</li>
+            <ul class="space-y-1 pl-4 leading-relaxed list-disc list-outside">
+              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.step1")}</li>
+              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.step2")}</li>
+              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.step3")}</li>
             </ul>
+            <p class={`font-body ${RESPONSIVE_CLASSES.text.body} mt-4`} set:html={t("yogaOnline.closing")} />
           </div>
         </div>
       </div>
