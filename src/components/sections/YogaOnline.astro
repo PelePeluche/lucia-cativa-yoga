@@ -43,18 +43,12 @@ const { t } = useI18n(Astro.request);
           <!-- Cómo funciona -->
           <div class="text-lucia-ink">
             <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro4")}</p>
-            <ol class="space-y-1 pl-4 leading-relaxed">
-              <li class={RESPONSIVE_CLASSES.text.body}>1. {t("yogaOnline.step1")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>2. {t("yogaOnline.step2")}</li>
-              <li class={RESPONSIVE_CLASSES.text.body}>3. {t("yogaOnline.step3")}</li>
-            </ol>
-            <p class={`font-body ${RESPONSIVE_CLASSES.text.body} mt-4`} set:html={t("yogaOnline.valor")} />
-          </div>
-
-          <!-- Guía de acompañamiento -->
-          <div class="text-lucia-ink leading-relaxed">
-            <p class={`font-body font-bold ${RESPONSIVE_CLASSES.text.body} mb-2`}>{t("yogaOnline.intro5Title")}</p>
-            <p class={RESPONSIVE_CLASSES.text.body} set:html={t("yogaOnline.intro5")} />
+            <ul class="space-y-1 pl-4 leading-relaxed list-disc list-outside">
+              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.step1")}</li>
+              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.step2")}</li>
+              <li class={RESPONSIVE_CLASSES.text.body}>{t("yogaOnline.step3")}</li>
+            </ul>
+            <p class={`font-body ${RESPONSIVE_CLASSES.text.body} mt-4`} set:html={t("yogaOnline.closing")} />
           </div>
         </div>
       </div>
@@ -102,7 +96,7 @@ const { t } = useI18n(Astro.request);
         
         <!-- CTA -->
         <CTAButton
-          href={EXTERNAL_LINKS.YOGA_ONLINE_WHATSAPP}
+          href={EXTERNAL_LINKS.YOGA_ONLINE_SUBSCRIPTION}
           variant="primary"
           size="large"
           target="_blank"
