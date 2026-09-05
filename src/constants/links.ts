@@ -6,7 +6,7 @@
 export const EXTERNAL_LINKS = {
   // Yoga Services - External Links
   YOGA_ONLINE_WHATSAPP: 'https://wa.me/5493516225399',
-  YOGA_ONLINE_SUBSCRIPTION: 'https://lucativa-yoga.tiendup.com/p/clases-de-vinyasa-yoga',
+  YOGA_ONLINE_SUBSCRIPTION: 'https://lucativa-yoga.tiendup.com/',
   YOGA_PRESENCIAL_SITE: 'https://sites.google.com/view/lucativayoga/inicio',
   
   // Yoga Services - Internal Pages
