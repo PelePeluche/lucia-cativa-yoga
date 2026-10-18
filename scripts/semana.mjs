@@ -83,7 +83,7 @@ function origen(host) {
 const esc = (v) => (/[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
 function readCsv(file) {
   if (!existsSync(file)) return [];
-  const [head, ...lines] = readFileSync(file, 'utf8').trim().split('\n');
+  const [head, ...lines] = readFileSync(file, 'utf8').trim().split(/\r?\n/);
   const cols = head.split(',');
   return lines.filter(Boolean).map((l) => {
     const vals = l.match(/("([^"]|"")*"|[^,]*)(,|$)/g).map((s) => s.replace(/,$/, '').replace(/^"|"$/g, '').replace(/""/g, '"'));
