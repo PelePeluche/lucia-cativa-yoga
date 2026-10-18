@@ -6,11 +6,16 @@ import '../styles/custom.css';
 import { getLanguageFromURL, useTranslations, DEFAULT_LANGUAGE } from '../i18n/utils';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import { SOCIAL_LINKS } from '../constants/site';
 // Eliminamos la importación de fuentes, usaremos Google Fonts directamente
 
 interface Props {
   title?: string;
   description?: string;
+  // Imagen para compartir en redes (ruta dentro de public/)
+  image?: string;
+  // true en páginas que no deben aparecer en Google (404, design system)
+  noindex?: boolean;
 }
 
 // Get the current language from the URL or use default
@@ -18,16 +23,43 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentLang = getLanguageFromURL(pathname) || DEFAULT_LANGUAGE;
 const t = useTranslations(currentLang);
 
-const { title = t('meta.title'), description = t('meta.description') } = Astro.props;
+const {
+  title = t('meta.title'),
+  description = t('meta.description'),
+  image = '/img/hero-yoga.jpeg',
+  noindex = false,
+} = Astro.props;
+
+const SITE_URL = 'https://luciacativayoga.com';
+// Redes y buscadores ignoran las URLs relativas en og:image: tiene que ser absoluta
+const imageUrl = new URL(image, SITE_URL).href;
+
+// Solo el home tiene versión en inglés. hreflang le dice a Google cuál mostrar
+// según el idioma de quien busca; en el resto de las páginas no aplica.
+const isHome = pathname === '/' || pathname === '/en/' || pathname === '/en';
+const alternates = isHome
+  ? [
+      { lang: 'es', href: `${SITE_URL}/` },
+      { lang: 'en', href: `${SITE_URL}/en/` },
+      { lang: 'x-default', href: `${SITE_URL}/` },
+    ]
+  : [];
+
+// Instagram sin el parámetro de tracking (?igsh=...) para que Google
+// reconozca el perfil como la misma entidad.
+const instagramUrl = SOCIAL_LINKS.instagram.split('?')[0];
 
 // Structured data (JSON-LD) for Local Business — content comes from i18n
 const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://luciacativayoga.com',
+  // SportsActivityLocation es un subtipo de LocalBusiness, más preciso para un estudio de yoga
+  '@type': 'SportsActivityLocation',
+  '@id': `${SITE_URL}/#business`,
   name: 'Lucía Cativa - Vinyasa Yoga',
   description: t('meta.structuredData.description'),
-  url: 'https://luciacativayoga.com',
+  url: SITE_URL,
+  image: `${SITE_URL}/img/hero-yoga.jpeg`,
+  logo: `${SITE_URL}/img/IDENTIDAD%20YOGA%20(500%20x%20150%20px).svg`,
   telephone: '+54-9-351-622-5399',
   email: 'lucativayoga@gmail.com',
   founder: {
@@ -37,10 +69,18 @@ const structuredData = {
     description: t('meta.structuredData.founderDescription'),
   },
   serviceType: t('meta.structuredData.serviceType'),
-  areaServed: {
-    '@type': 'Country',
-    name: t('meta.structuredData.areaServed'),
+  // Dirección de las clases presenciales (la misma que figura en /yoga-presencial)
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Fructuoso Rivera 1173',
+    addressLocality: 'Córdoba',
+    addressRegion: 'Córdoba',
+    addressCountry: 'AR',
   },
+  areaServed: [
+    { '@type': 'City', name: 'Córdoba' },
+    { '@type': 'Country', name: t('meta.structuredData.areaServed') },
+  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: t('meta.structuredData.offerCatalogName'),
@@ -63,7 +103,17 @@ const structuredData = {
       },
     ],
   },
-  sameAs: ['https://instagram.com/luciacativa', 'https://facebook.com/luciacativa'],
+  sameAs: [instagramUrl, SOCIAL_LINKS.facebook],
+};
+
+const websiteData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: 'Lucía Cativa Yoga',
+  url: SITE_URL,
+  inLanguage: currentLang,
+  publisher: { '@id': `${SITE_URL}/#business` },
 };
 ---
 
@@ -93,31 +143,34 @@ const structuredData = {
     <!-- SEO Keywords -->
     <meta name="keywords" content={t('meta.keywords')} />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook / WhatsApp: usa la descripción de cada página -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lucía Cativa Yoga" />
+    <meta property="og:locale" content={currentLang === 'en' ? 'en_US' : 'es_AR'} />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={t('meta.ogDescription')} />
-    <meta property="og:image" content="/img/hero-yoga.jpeg" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={title} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={t('meta.ogDescription')} />
-    <meta property="twitter:image" content="/img/hero-yoga.jpeg" />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <!-- Additional SEO Meta Tags -->
     <meta name="author" content="Lucía Cativa" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
     <meta name="language" content={currentLang} />
-    <link rel="canonical" href={Astro.url} />
+    {!noindex && <link rel="canonical" href={Astro.url} />}
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
     
-    <!-- Structured Data for Local Business -->
+    <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteData)} />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Yeseva+One&display=swap" rel="stylesheet" />
     
     <!-- Performance optimizations -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -128,8 +181,8 @@ const structuredData = {
     <meta name="msapplication-TileColor" content="#a3738b">
     
     <!-- Additional meta for better indexing -->
-    <meta name="geo.region" content="AR">
-    <meta name="geo.placename" content="Argentina">
+    <meta name="geo.region" content="AR-X">
+    <meta name="geo.placename" content="Córdoba, Argentina">
     <meta name="format-detection" content="telephone=no">
   </head>
   <body class="font-body bg-white text-lucia-ink min-h-screen">
