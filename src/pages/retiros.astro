@@ -6,8 +6,10 @@ import retirosData from '../i18n/retiros.json';
 
 const { currentLang } = useI18n(Astro.request);
 const info = retirosData[currentLang] ?? retirosData.es;
+// Para compartir en redes: la primera foto del retiro abierto, si hay uno
+const shareImage = info.retreats[0]?.images[0]?.src;
 ---
 
-<Layout title={info.seoTitle} description={info.seoDescription}>
+<Layout title={info.seoTitle} description={info.seoDescription} image={shareImage}>
   <RetirosSection />
 </Layout>
